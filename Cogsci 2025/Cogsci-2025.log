@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  12 JAN 2025 19:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  12 JAN 2025 19:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -550,27 +550,27 @@ Underfull \vbox (badness 10000) detected at line 84
 
 
 [2]
-Underfull \hbox (badness 1817) in paragraph at lines 308--311
+Underfull \hbox (badness 1817) in paragraph at lines 309--312
  []\OT1/ptm/b/n/10 Participants[] \OT1/ptm/m/n/10 Twenty four typ-i-cally de-vel-op-ing En-glish
  []
 
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 330.
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 331.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 330.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 331.
 
 
-<figs/unnamed-chunk-1-1.pdf, id=119, 216.81pt x 216.81pt>
+<figs/unnamed-chunk-1-1.pdf, id=124, 216.81pt x 216.81pt>
 File: figs/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use figs/unnamed-chunk-1-1.pdf>
-Package pdftex.def Info: figs/unnamed-chunk-1-1.pdf  used on input line 371.
+Package pdftex.def Info: figs/unnamed-chunk-1-1.pdf  used on input line 372.
 (pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
-<figs/jitter_function-1.pdf, id=121, 578.16pt x 289.08pt>
+<figs/jitter_function-1.pdf, id=126, 578.16pt x 289.08pt>
 File: figs/jitter_function-1.pdf Graphic file (type pdf)
 <use figs/jitter_function-1.pdf>
-Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 387.
+Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 388.
 (pdftex.def)             Requested size: 505.89pt x 252.94437pt.
 
 
@@ -583,52 +583,52 @@ Underfull \vbox (badness 5316) has occurred while \output is active []
 
 [4 <./figs/jitter_function-1.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 510.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 511.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 510.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 511.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 510.
-<figs/2-col-image-1.pdf, id=174, 289.08pt x 144.54pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 511.
+<figs/2-col-image-1.pdf, id=179, 289.08pt x 144.54pt>
 File: figs/2-col-image-1.pdf Graphic file (type pdf)
 <use figs/2-col-image-1.pdf>
-Package pdftex.def Info: figs/2-col-image-1.pdf  used on input line 544.
+Package pdftex.def Info: figs/2-col-image-1.pdf  used on input line 545.
 (pdftex.def)             Requested size: 289.07928pt x 144.53963pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-<figs/image-1.pdf, id=175, 144.54pt x 144.54pt>
+<figs/image-1.pdf, id=180, 144.54pt x 144.54pt>
 File: figs/image-1.pdf Graphic file (type pdf)
 <use figs/image-1.pdf>
-Package pdftex.def Info: figs/image-1.pdf  used on input line 562.
+Package pdftex.def Info: figs/image-1.pdf  used on input line 563.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-<figs/plot-1.pdf, id=177, 144.54pt x 144.54pt>
+<figs/plot-1.pdf, id=182, 144.54pt x 144.54pt>
 File: figs/plot-1.pdf Graphic file (type pdf)
 <use figs/plot-1.pdf>
-Package pdftex.def Info: figs/plot-1.pdf  used on input line 582.
+Package pdftex.def Info: figs/plot-1.pdf  used on input line 583.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 
 
 [5 <./figs/image-1.pdf> <./figs/plot-1.pdf>]
-Underfull \hbox (badness 1675) in paragraph at lines 628--634
+Underfull \hbox (badness 1675) in paragraph at lines 629--635
  \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 641--649
+Underfull \hbox (badness 1762) in paragraph at lines 642--650
  []\OT1/ptm/m/n/10 CLARK, E. V. (1973). WHAT's IN a WORD? ON
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 641--649
+Underfull \hbox (badness 1092) in paragraph at lines 642--650
  \OT1/ptm/m/n/10 FIRST LAN-GUAGE11This re-search was sup-ported in
  []
 
 
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 716--721
+Underfull \hbox (badness 2213) in paragraph at lines 717--722
  []\OT1/ptm/m/n/10 Samuelson, Larissa K. (2002). Sta-tis-ti-cal reg-u-lar-i-ties
  []
 
@@ -646,21 +646,21 @@ LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
 Package rerunfilecheck Info: File `Cogsci-2025.out' has not changed.
-(rerunfilecheck)             Checksum: C52F34027B7A1AF86695C694BD478A68;3405.
+(rerunfilecheck)             Checksum: F6D0A739036DF35694A797E133289F61;3577.
  ) 
 Here is how much of TeX's memory you used:
- 14325 strings out of 475178
- 228536 string characters out of 5764487
- 639028 words of memory out of 5000000
- 36977 multiletter control sequences out of 15000+600000
+ 14329 strings out of 475178
+ 228610 string characters out of 5764487
+ 639037 words of memory out of 5000000
+ 36979 multiletter control sequences out of 15000+600000
  595276 words of font info for 109 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,12n,79p,440b,482s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Cogsci-2025.pdf (7 pages, 391847 bytes).
+Output written on Cogsci-2025.pdf (7 pages, 392146 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 106 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 297 compressed objects within 3 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 
