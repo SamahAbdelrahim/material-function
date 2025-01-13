@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  12 JAN 2025 14:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  12 JAN 2025 19:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -460,28 +460,28 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./Cogsci-2025.aux)
 \openout1 = `Cogsci-2025.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 80.
-LaTeX Font Info:    Trying to load font information for OMS+pzccm on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 81.
+LaTeX Font Info:    Trying to load font information for OMS+pzccm on input line 81.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
@@ -491,7 +491,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 81.
 (./Cogsci-2025.out) (./Cogsci-2025.out)
 \@outlinefile=\write4
 \openout4 = `Cogsci-2025.out'.
@@ -508,33 +508,33 @@ File: english.apc 2013/07/21 v6.03 apacite language file
 LaTeX Info: Redefining \BPBI on input line 129.
 LaTeX Info: Redefining \BHBI on input line 130.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line 83.
+LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line 84.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ptmcm on input line 83.
+LaTeX Font Info:    Trying to load font information for OML+ptmcm on input line 84.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+psycm on input line 83.
+LaTeX Font Info:    Trying to load font information for OMX+psycm on input line 84.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 84.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \vbox (badness 10000) detected at line 83
+Underfull \vbox (badness 10000) detected at line 84
  []
 
 
@@ -548,81 +548,119 @@ Underfull \vbox (badness 10000) detected at line 83
 ]
 
 
-Underfull \vbox (badness 3333) has occurred while \output is active []
-
-
 
 [2]
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 318.
+Underfull \hbox (badness 1817) in paragraph at lines 308--311
+ []\OT1/ptm/b/n/10 Participants[] \OT1/ptm/m/n/10 Twenty four typ-i-cally de-vel-op-ing En-glish
+ []
+
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 330.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 318.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 330.
 
 
-<figs/jitter_function-1.pdf, id=116, 578.16pt x 289.08pt>
+<figs/unnamed-chunk-1-1.pdf, id=119, 216.81pt x 216.81pt>
+File: figs/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+<use figs/unnamed-chunk-1-1.pdf>
+Package pdftex.def Info: figs/unnamed-chunk-1-1.pdf  used on input line 371.
+(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
+<figs/jitter_function-1.pdf, id=121, 578.16pt x 289.08pt>
 File: figs/jitter_function-1.pdf Graphic file (type pdf)
 <use figs/jitter_function-1.pdf>
-Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 370.
+Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 387.
 (pdftex.def)             Requested size: 505.89pt x 252.94437pt.
 
 
-[3]
+[3 <./figs/unnamed-chunk-1-1.pdf>]
+
+
+Underfull \vbox (badness 5316) has occurred while \output is active []
+
+
+
+[4 <./figs/jitter_function-1.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 455.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 510.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 455.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 510.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 455.
-
-
-<figs/2-col-image-1.pdf, id=146, 289.08pt x 144.54pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 510.
+<figs/2-col-image-1.pdf, id=174, 289.08pt x 144.54pt>
 File: figs/2-col-image-1.pdf Graphic file (type pdf)
 <use figs/2-col-image-1.pdf>
-Package pdftex.def Info: figs/2-col-image-1.pdf  used on input line 489.
+Package pdftex.def Info: figs/2-col-image-1.pdf  used on input line 544.
 (pdftex.def)             Requested size: 289.07928pt x 144.53963pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figs/image-1.pdf, id=147, 144.54pt x 144.54pt>
+
+
+<figs/image-1.pdf, id=175, 144.54pt x 144.54pt>
 File: figs/image-1.pdf Graphic file (type pdf)
 <use figs/image-1.pdf>
-Package pdftex.def Info: figs/image-1.pdf  used on input line 507.
+Package pdftex.def Info: figs/image-1.pdf  used on input line 562.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-
-
-[4 <./figs/jitter_function-1.pdf>]
-<figs/plot-1.pdf, id=173, 144.54pt x 144.54pt>
+<figs/plot-1.pdf, id=177, 144.54pt x 144.54pt>
 File: figs/plot-1.pdf Graphic file (type pdf)
 <use figs/plot-1.pdf>
-Package pdftex.def Info: figs/plot-1.pdf  used on input line 527.
+Package pdftex.def Info: figs/plot-1.pdf  used on input line 582.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 
 
+[5 <./figs/image-1.pdf> <./figs/plot-1.pdf>]
+Underfull \hbox (badness 1675) in paragraph at lines 628--634
+ \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
+ []
 
 
-[5 <./figs/2-col-image-1.pdf> <./figs/image-1.pdf> <./figs/plot-1.pdf>] (./Cogsci-2025.aux)
+Underfull \hbox (badness 1762) in paragraph at lines 641--649
+ []\OT1/ptm/m/n/10 CLARK, E. V. (1973). WHAT's IN a WORD? ON
+ []
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 641--649
+ \OT1/ptm/m/n/10 FIRST LAN-GUAGE11This re-search was sup-ported in
+ []
+
+
+
+
+Underfull \hbox (badness 2213) in paragraph at lines 716--721
+ []\OT1/ptm/m/n/10 Samuelson, Larissa K. (2002). Sta-tis-ti-cal reg-u-lar-i-ties
+ []
+
+
+
+[6 <./figs/2-col-image-1.pdf>]
+
+
+
+[7
+
+] (./Cogsci-2025.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
 Package rerunfilecheck Info: File `Cogsci-2025.out' has not changed.
-(rerunfilecheck)             Checksum: 4F80936ADF1DE038BA0CC2BADA65DCD9;3309.
+(rerunfilecheck)             Checksum: C52F34027B7A1AF86695C694BD478A68;3405.
  ) 
 Here is how much of TeX's memory you used:
- 14280 strings out of 475178
- 227624 string characters out of 5764487
- 639030 words of memory out of 5000000
- 36963 multiletter control sequences out of 15000+600000
+ 14325 strings out of 475178
+ 228536 string characters out of 5764487
+ 639028 words of memory out of 5000000
+ 36977 multiletter control sequences out of 15000+600000
  595276 words of font info for 109 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,12n,79p,440b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,440b,482s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Cogsci-2025.pdf (5 pages, 370835 bytes).
+Output written on Cogsci-2025.pdf (7 pages, 391847 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 75 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 332 PDF objects out of 1000 (max. 8388607)
+ 292 compressed objects within 3 object streams
+ 106 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 

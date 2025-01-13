@@ -54,6 +54,7 @@
 
 \title{How to Make a Proceedings Paper Submission}
 
+\usepackage{float} \floatplacement{figure}{T} \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -106,7 +107,7 @@ between each term.
 What does ``dog'' mean to a 2-year-old? This old question reflects the
 evolving nature of our understanding of early label categorization. For
 young children, a dog might initially be identified by a set of
-perceptual features that expands with experience (Clark, 1972). Over
+perceptual features that expands with experience (CLARK, 1973). Over
 time, deeper attributes, such as its internal composition, behavior and
 interaction with the world, or sound, may also become relevant (Carey,
 1985). The defining features of the lexical category manifest in the way
@@ -117,7 +118,7 @@ formation. Overextensions are common in early word acquisition
 {[}Rescorla LA. Overextension in early language development{]}, yet the
 nature of the underlying representations and their developmental
 trajectory remain debated. For example, The semantic features hypothesis
-(Clark, 1973) suggests that categorization begins with schemas of basic
+(CLARK, 1973) suggests that categorization begins with schemas of basic
 perceptual attributes, such as {[}four legs, tail, fur{]} for dog, hence
 we see overextensions of the word ``dog'' to beings that share these set
 of features like cats for example. In contrast, the functional core
@@ -127,15 +128,15 @@ treating these features as defining. In this view, perceptual attributes
 like {[}four legs, tail, fur{]} act as identifiers rather than
 encapsulating the category's essence. Both frameworks agree, however,
 that shared perceptual features facilitate identification and labeling,
-forming the foundation for the well-studied shape bias (Baldwin, 1992;
-Graham \& Poulin-Dubois, 1999; Landau et al., 1988). The shape bias is a
-word learning constraint that is argued to facilitate early noun
-acquisition, to be an important route to vocabulary growth, and found to
-be weaker in children with language delay (Smith et al.~2002; Jones,
-2003; Jones and Smith 2005). Nevertheless, the shape bias observed in
-word learning experiments is highly variable across ages,cultures,
-languages, and experimental conditions, which led to some theoretical
-debates.
+forming the foundation for the well-studied shape bias Larissa K.
+Samuelson \& Smith (2000). The shape bias is a word learning constraint
+that is argued to facilitate early noun acquisition, to be an important
+route to vocabulary growth, and found to be weaker in children with
+language delay {[}Smith, Jones, Landau, Gershkoff-Stowe, \& Samuelson
+(2002); Jones, 2003; Jones and Smith 2005{]}. Nevertheless, the shape
+bias observed in word learning experiments is highly variable across
+ages,cultures, languages, and experimental conditions, which led to some
+theoretical debates.
 
 \hypertarget{the-cross-linguistic-debate}{%
 \subsection{The cross-linguistic
@@ -145,13 +146,15 @@ The word extension task literature reveals cross linguistic differences
 in the prevalence of the shape bias that are thought to be theoretically
 important. For instance, East Asian languages' speakers like Mandarin
 and Japanese, show less reliance on shape compared to English speakers
-in the US (Gathercole \& Min, 1997; Imai \& Gentner, 1997; Jara-Ettinger
-et al., 2022; Larissa K. Samuelson \& Smith, 1999; Nancy N. Soja et al.,
-1991; Subrahmanyam \& Chen, 2006; Yoshida \& Smith, 2003b). These
+in the US (Gathercole \& Min (1997); Imai \& Gentner (1997); Larissa K.
+Samuelson \& Smith (1999); Nancy N. Soja, Carey, \& Spelke (1991);
+Subrahmanyam \& Chen (2006); Yoshida \& Smith (2003b){]}. These
 differences are thought to reflect syntactic structure (e.g., count-mass
-syntax vs.~classifier systems), or lexical and environmental statistical
-regularities in the language and the environment (Imai \& Gentner, 1997;
-Jara-Ettinger et al., 2022, Abdelrahim \& Frank 2024).
+syntax vs.~classifier systems) (Larissa K. Samuelson, Horst, Schutte, \&
+Dobbertin, 2008; Nancy N. Soja et al., 1991; Nancy N. Soja, Carey, \&
+Spelke, 1992) or lexical and environmental statistical regularities in
+the language and the environment Jara-Ettinger, Levy, Sakel, Huanca, \&
+Gibson (2022) Abdelrahim \& Frank 2024).
 
 \hypertarget{the-perception-or-conception-debate}{%
 \subsection{The Perception or conception
@@ -302,23 +305,32 @@ preliminary}\label{experiment-1-a-preliminary}}
 \hypertarget{participants}{%
 \subsubsection{Participants}\label{participants}}
 
-24 typically developing English speaking participants (2-5 years old,
-mean =, sd = ) were recruited from a local nursery school and children's
-museum in the US. Demographics: - were excluded due to, \#\#\# Procedure
-7 trials were conducted in which each participant sees an object being
-labeled ``this is a dax'', the object is taken away but still in view,
-both test objects and the distractor are displayed simultaneously while
-asking the child ``can you find another dax by pointing to it?''. The
-child gets to hear the label 3 times while viewing it without touching
-it. \#\#\# Results Participants showed an overall shape bias across all
-trials (shape:61\%, material:30\%, distractor: 9\%). Figure {[}1{]}
-shows a developmental shift to choose by shape by age 3, replicating
-what is seen previously in the literature. A generalized linear mixed
-model (GLMM) shows a significant positive relation with age (1.765:1
-odds at average age, P\textless0.014, a 6.4\% increase in odds with unit
-age). It also shows some variability at the item level intercept. After
-replicating the shape bias effect using the set of stimuli we created,
-our next experiment explores an experiment design that tests for both
+Twenty four typically developing English speaking participants (2-5
+years old, mean =, sd = ) were recruited from a local nursery school and
+children's museum in the US. Demographics: - were excluded due to,
+
+\hypertarget{procedure}{%
+\subsubsection{Procedure}\label{procedure}}
+
+Seven trials were conducted in which each participant sees an object
+being labeled ``this is a dax'', the object is taken away but still in
+view, both test objects and the distractor are displayed simultaneously
+while asking the child ``can you find another dax by pointing to it?''.
+The child gets to hear the label 3 times while viewing it without
+touching it.
+
+\hypertarget{results}{%
+\subsubsection{Results}\label{results}}
+
+Participants showed an overall shape bias across all trials (shape:61\%,
+material:30\%, distractor: 9\%). Figure {[}1{]} shows a developmental
+shift to choose by shape by age 3, replicating what is seen previously
+in the literature. A generalized logistic mixed model (GLMM) shows a
+significant positive relation with age (1.765:1 odds at average age,
+P\textless0.014, a 6.4\% increase in odds with unit age). It also shows
+some variability at the item level intercept. After replicating the
+shape bias effect using the set of stimuli we created in a simple set
+up, our next experiment explores an design that tests for both
 conditions when shape is only contrasted with material without any
 additional information, and a condition in which shape is contrasted
 with function after demonstrating the function for the exemplar, while
@@ -343,8 +355,8 @@ in a way that doesn't change the shape at all, but allows for the
 function (an object that is wrapped all over and a similar one that can
 clearly open).
 
-\hypertarget{procedure}{%
-\subsubsection{Procedure:}\label{procedure}}
+\hypertarget{procedure-1}{%
+\subsubsection{Procedure:}\label{procedure-1}}
 
 A within subject manipulation with two conditions: material or function.
 The material condition is identical to the first experiment. In the
@@ -354,22 +366,65 @@ provides functional information `` the dax grapes toys'', gives another
 15 seconds to play with it, and puts the toy away but within view,
 before introducing the test objects and asks for a response.
 
+\begin{CodeChunk}
+
+\includegraphics{figs/unnamed-chunk-1-1} \end{CodeChunk}
+
 \hypertarget{preliminary-results}{%
 \subsubsection{Preliminary results}\label{preliminary-results}}
 
-A generalized random effects logistic model showed an overall tendency
-to choose by shape regardless of condition (\(p=\) ) with little
-variability between participants and a positive trend with age 0.81
-(\(p=\) .693) \ref{fig:jitter_function}, and a decline in shape bias for
-material condition 0.01 (\(p=\) .742). There is a huge variability
-between stimuli objects and a large effect of condition, but confidence
-intervals show uncertainty (data collection is still ongoing).
+Similar to what is conveyed in Figure \ref{fig:jitter_function}, a
+generalized random effects logistic model showed an overall tendency to
+choose by shape regardless of condition 0.81 (\(p=\) .693) and a
+positive trend with age 0.01 (\(p=\) .742) with a decline in shape bias
+in the material condition -2.65 (\(p=\) .338). Little variability
+between participants is displayed but a huge variability between stimuli
+objects (\(sd=\) 1.35). Confidence intervals show uncertainty however
+(data collection is still ongoing).
 
 \begin{CodeChunk}
 \begin{figure*}[tb]
 \includegraphics[width=1\linewidth]{figs/jitter_function-1} \caption[Effect size plotted by average participant age]{Effect size plotted by average participant age. Points indicate individual effect, and error bars show variance. Points are colored based on language, and model fits for Indo-European and non-Indo-European languages are shown in black.}\label{fig:jitter_function}
 \end{figure*}
 \end{CodeChunk}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+The word extension and category organization literature is a very
+heterogeneous space, in which studies are not designed in a integrative,
+commensurable way. In order for us to for a better measurement of
+category organization and concept learning, we need a reliable and valid
+set of stimuli objects, design, and access to multi-site and
+crosscultural experiments that are unified across , to control for
+procedural sources of variation. In our attempt to evaluate the sources
+of heterogeneity in the word extension literature, we find that making
+procedural decisions, which we think is a primary sources of unexplained
+variability, is impossible without running a series of experiments in a
+controlled setting through which we can evaluate how much does different
+designs and stimuli covary \ldots. Individual difference
+\textgreater\textgreater{} theoretical motivated, if it is a regulairity
+product, then it depends on the type of exposure the specific kid is
+getting Item differences: theoretically \textgreater\textgreater{} if it
+is a functional or non, natural or artifact, 3d or 2d, has social agent
+characteristics shoes eyes, complex or not
+Condition\textgreater\textgreater{} what type of information the child
+is getting, what is being emphasized, saliency effect What does it imply
+for the bigger debates about concepts formation What does it mean to
+talk about validity and reliability in a task like the word extension
+one? What is the construct we are talking about here. It is a measure at
+the group level rather than at the individual level
+\textgreater\textgreater{} this kid had this level of shape bias.
+\textgreater\textgreater{} is it an issue of the signal is not even
+there, or is it a matter of the level/degree of the signal when it comes
+to cross-cultural work. (Madole, K. L., \& Oakes, L. M. (1999)):
+Although the distinction between perceptual and conceptual categories
+makes a certain intuitive sense, it may only confuse our attempts to
+understand psychological reality. Establishing a reliable metric for
+this distinction is extremely difficult and attempts to operationalize
+the terms perceptual and conceptual are invariably highly ambiguous and
+task-specific. How the perceptual vs conceptual debate maps into the
+cross cultural differences debate ?
 
 \hypertarget{general-formatting-instructions}{%
 \section{General Formatting
@@ -548,8 +603,8 @@ You can use the xtable function in the xtable package.
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
-(Intercept) & 0.03 & 0.10 & 0.3 & 0.75 \\ 
-  x & 1.93 & 0.10 & 19.1 & 0.00 \\ 
+(Intercept) & -0.06 & 0.10 & -0.6 & 0.55 \\ 
+  x & 2.05 & 0.11 & 18.9 & 0.00 \\ 
    \hline
 \end{tabular}
 \caption{This table prints across one column.} 
@@ -571,15 +626,146 @@ the end of the paper.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Baldwin1992ClarifyingTR}{}}%
+Baldwin, D. A. (1992). Clarifying the role of shape in children's
+taxonomic assumption. \emph{Journal of Experimental Child Psychology},
+\emph{54 3}, 392--416. Retrieved from
+\url{https://api.semanticscholar.org/CorpusID:29725812}
+
 \leavevmode\vadjust pre{\hypertarget{ref-ChalnickBillman1988a}{}}%
 Chalnick, A., \& Billman, D. (1988). Unsupervised learning of
 correlational structure. In \emph{Proceedings of the tenth annual
 conference of the cognitive science society} (pp. 510--516). Hillsdale,
 NJ: Lawrence Erlbaum Associates.
 
+\leavevmode\vadjust pre{\hypertarget{ref-CLARK197365}{}}%
+CLARK, E. V. (1973). WHAT's IN a WORD? ON THE CHILD's ACQUISITION OF
+SEMANTICS IN HIS FIRST LANGUAGE11This research was supported in part by
+NSF grant GS-1880 to the language universals project, stanford
+university, and in part by NSF grant GS-30040 to the author. In T. E.
+Moore (Ed.), \emph{Cognitive development and acquisition of language}
+(pp. 65--110). San Diego: Academic Press.
+http://doi.org/\url{https://doi.org/10.1016/B978-0-12-505850-6.50009-8}
+
+\leavevmode\vadjust pre{\hypertarget{ref-colunga2000learning}{}}%
+Colunga, E., \& Smith, L. B. (2000). Learning to learn words: A
+cross-linguistic study of the shape and material biases. In
+\emph{Proceedings of the 24th annual boston university conference on
+language development} (Vol. 1, pp. 197--207).
+
+\leavevmode\vadjust pre{\hypertarget{ref-gathercole_1997}{}}%
+Gathercole, V. C. M., \& Min, H. (1997). Word meaning biases or
+language-specific effects? {Evidence} from {English}, {Spanish} and
+{Korean}. \emph{First Language}, \emph{17}(51), 031--56.
+http://doi.org/\href{https://doi.org/10.1177/014272379701705102}{10.1177/014272379701705102}
+
+\leavevmode\vadjust pre{\hypertarget{ref-gershkoff2004shape}{}}%
+Gershkoff-Stowe, L., \& Smith, L. B. (2004). Shape and the first hundred
+nouns. \emph{Child Development}, \emph{75}(4), 1098--1114.
+
+\leavevmode\vadjust pre{\hypertarget{ref-graham_2010}{}}%
+Graham, S. A., \& Diesendruck, G. (2010). Fifteen-month-old infants
+attend to shape over other perceptual properties in an induction task.
+\emph{Cognitive Development}, \emph{25}(2), 111--123.
+http://doi.org/\href{https://doi.org/10.1016/j.cogdev.2009.06.002}{10.1016/j.cogdev.2009.06.002}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Graham1999InfantsRO}{}}%
+Graham, S. A., \& Poulin-Dubois, D. (1999). Infants' reliance on shape
+to generalize novel labels to animate and inanimate objects.
+\emph{Journal of Child Language}, \emph{26}, 295--320. Retrieved from
+\url{https://api.semanticscholar.org/CorpusID:43424185}
+
+\leavevmode\vadjust pre{\hypertarget{ref-imai1997}{}}%
+Imai, M., \& Gentner, D. (1997). A cross-linguistic study of early word
+meaning: Universal ontology and linguistic influence. \emph{Cognition},
+\emph{62}(2), 169--200.
+
+\leavevmode\vadjust pre{\hypertarget{ref-imai_childrens_1994}{}}%
+Imai, M., Gentner, D., \& Uchida, N. (1994). Children's theories of word
+meaning: {The} role of shape similarity in early acquisition.
+\emph{Cognitive Development}, \emph{9}(1), 45--75.
+http://doi.org/\href{https://doi.org/10.1016/0885-2014(94)90019-1}{10.1016/0885-2014(94)90019-1}
+
+\leavevmode\vadjust pre{\hypertarget{ref-jara2022}{}}%
+Jara-Ettinger, J., Levy, R., Sakel, J., Huanca, T., \& Gibson, E.
+(2022). The origins of the shape bias: Evidence from the tsimane'.
+\emph{Journal of Experimental Psychology: General}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-LANDAU1988299}{}}%
+Landau, B., Smith, L. B., \& Jones, S. S. (1988). The importance of
+shape in early lexical learning. \emph{Cognitive Development},
+\emph{3}(3), 299--321.
+http://doi.org/\url{https://doi.org/10.1016/0885-2014(88)90014-7}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Nelson1974ConceptWA}{}}%
+Nelson, K. (1974). Concept, word, and sentence: Interrelations in
+acquisition and development. \emph{Psychological Review}, \emph{81},
+267--285. Retrieved from
+\url{https://api.semanticscholar.org/CorpusID:143965074}
+
 \leavevmode\vadjust pre{\hypertarget{ref-NewellSimon1972a}{}}%
 Newell, A., \& Simon, H. A. (1972). \emph{Human problem solving}.
 Englewood Cliffs, NJ: Prentice-Hall.
+
+\leavevmode\vadjust pre{\hypertarget{ref-perry2010learn}{}}%
+Perry, L. K., Samuelson, L. K., Malloy, L. M., \& Schiffer, R. N.
+(2010). Learn locally, think globally: Exemplar variability supports
+higher-order generalization and word learning. \emph{Psychological
+Science}, \emph{21}(12), 1894--1902.
+
+\leavevmode\vadjust pre{\hypertarget{ref-samuelson_statistical_2002}{}}%
+Samuelson, Larissa K. (2002). Statistical regularities in vocabulary
+guide language acquisition in connectionist models and 15-20-month-olds.
+\emph{Developmental Psychology}, \emph{38}(6), 1016--1037.
+http://doi.org/\href{https://doi.org/10.1037/0012-1649.38.6.1016}{10.1037/0012-1649.38.6.1016}
+
+\leavevmode\vadjust pre{\hypertarget{ref-samuelson2008rigid}{}}%
+Samuelson, Larissa K., Horst, J. S., Schutte, A. R., \& Dobbertin, B. N.
+(2008). Rigid thinking about deformables: Do children sometimes
+overgeneralize the shape bias? \emph{Journal of Child Language},
+\emph{35}(3), 559--589.
+
+\leavevmode\vadjust pre{\hypertarget{ref-samuelson1999}{}}%
+Samuelson, Larissa K., \& Smith, L. B. (1999). Early noun vocabularies:
+Do ontology, category structure and syntax correspond? \emph{Cognition},
+\emph{73}(1), 1--33.
+
+\leavevmode\vadjust pre{\hypertarget{ref-samuelson2000children}{}}%
+Samuelson, Larissa K., \& Smith, L. B. (2000). Children's attention to
+rigid and deformable shape in naming and non-naming tasks. \emph{Child
+Development}, \emph{71}(6), 1555--1570.
+
+\leavevmode\vadjust pre{\hypertarget{ref-smith_object_2002}{}}%
+Smith, L. B., Jones, S. S., Landau, B., Gershkoff-Stowe, L., \&
+Samuelson, L. (2002). Object name learning provides on-the-job training
+for attention. \emph{Psychological Science}, \emph{13}(1), 13--19.
+http://doi.org/\href{https://doi.org/10.1111/1467-9280.00403}{10.1111/1467-9280.00403}
+
+\leavevmode\vadjust pre{\hypertarget{ref-soja1991ontological}{}}%
+Soja, Nancy N., Carey, S., \& Spelke, E. S. (1991). Ontological
+categories guide young children's inductions of word meaning: Object
+terms and substance terms. \emph{Cognition}, \emph{38}(2), 179--211.
+
+\leavevmode\vadjust pre{\hypertarget{ref-soja_perception_1992}{}}%
+Soja, Nancy N., Carey, S., \& Spelke, E. S. (1992). Perception,
+ontology, and word meaning. \emph{Cognition}, \emph{45}(1), 101--107.
+http://doi.org/\href{https://doi.org/10.1016/0010-0277(92)90025-D}{10.1016/0010-0277(92)90025-D}
+
+\leavevmode\vadjust pre{\hypertarget{ref-subrahmanyam_2006}{}}%
+Subrahmanyam, K., \& Chen, H.-H. N. (2006). A crosslinguistic study of
+children's noun learning: {The} case of object and substance words.
+\emph{First Language}, \emph{26}(2), 141--160.
+http://doi.org/\href{https://doi.org/10.1177/0142723706060744}{10.1177/0142723706060744}
+
+\leavevmode\vadjust pre{\hypertarget{ref-yoshida2003known}{}}%
+Yoshida, H., \& Smith, L. B. (2003a). Known and novel noun extensions:
+Attention at two levels of abstraction. \emph{Child Development},
+\emph{74}(2), 564--577.
+
+\leavevmode\vadjust pre{\hypertarget{ref-yoshida2003}{}}%
+Yoshida, H., \& Smith, L. B. (2003b). Shifting ontological boundaries:
+How japanese-and english-speaking children generalize names for animals
+and artifacts. \emph{Developmental Science}, \emph{6}(1), 1--17.
 
 \end{CSLReferences}
 
