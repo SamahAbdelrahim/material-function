@@ -61,7 +61,7 @@ ggplot(data = df, aes(x = response)) +
   theme_minimal()
 
 ```
-``` {r}
+``` {r jitter_function}
 ggplot(data = kid_means_long %>% filter(!(condition == "function" & response == "m.mean")), aes(x = age_mo, y = proportions, color = response)) +
   geom_jitter() +
   geom_smooth() +
