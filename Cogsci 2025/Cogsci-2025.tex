@@ -331,19 +331,25 @@ touching it.
 \subsubsection{Results}\label{results}}
 
 Participants showed an overall shape bias across all trials (shape:61\%,
-material:30\%, distractor: 9\%). Figure {[}1{]} shows a developmental
-shift to choose by shape by age 3, replicating what is seen previously
-in the literature. A generalized logistic mixed model (GLMM) shows a
-significant positive relation with age (1.765:1 odds at average age,
-P\textless0.014, a 6.4\% increase in odds with unit age). It also shows
-some variability at the item level intercept. After replicating the
-shape bias effect using the set of stimuli we created in a simple set
-up, our next experiment explores an design that tests for both
-conditions when shape is only contrasted with material without any
+material:30\%, distractor: 9\%). Figure \ref{fig:first_exp} shows a
+developmental shift to choose by shape by age 3, replicating what is
+seen previously in the literature. A generalized logistic mixed model
+(GLMM) shows a significant positive relation with age (1.765:1 odds at
+average age, P\textless0.014, a 6.4\% increase in odds with unit age).
+It also shows some variability at the item level intercept. After
+replicating the shape bias effect using the set of stimuli we created in
+a simple set up, our next experiment explores an design that tests for
+both conditions when shape is only contrasted with material without any
 additional information, and a condition in which shape is contrasted
 with function after demonstrating the function for the exemplar, while
 controlling for individual differences with a bigger sample size to
 capture variability at the item level.
+
+\begin{CodeChunk}
+\begin{figure}[tb]
+\includegraphics[width=1\linewidth]{figs/first_exp-1} \caption[Effect size plotted by average participant age]{Effect size plotted by average participant age. Points indicate individual effect, and error bars show variance. Points are colored based on language, and model fits for Indo-European and non-Indo-European languages are shown in black.}\label{fig:first_exp}
+\end{figure}
+\end{CodeChunk}
 
 \hypertarget{experiment-2}{%
 \subsection{Experiment 2}\label{experiment-2}}
@@ -373,10 +379,6 @@ function condition, the experimenter introduce the exemplar object
 provides functional information `` the dax grapes toys'', gives another
 15 seconds to play with it, and puts the toy away but within view,
 before introducing the test objects and asks for a response.
-
-\begin{CodeChunk}
-
-\includegraphics{figs/unnamed-chunk-1-1} \end{CodeChunk}
 
 \hypertarget{preliminary-results}{%
 \subsubsection{Preliminary results}\label{preliminary-results}}
@@ -619,8 +621,8 @@ You can use the xtable function in the xtable package.
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
-(Intercept) & -0.14 & 0.09 & -1.5 & 0.13 \\ 
-  x & 1.85 & 0.09 & 20.7 & 0.00 \\ 
+(Intercept) & 0.05 & 0.10 & 0.5 & 0.62 \\ 
+  x & 2.01 & 0.10 & 20.1 & 0.00 \\ 
    \hline
 \end{tabular}
 \caption{This table prints across one column.} 

@@ -45,7 +45,6 @@ library(xtable)
 library(here)
 source(here("packages.R"))
 source(here("preprocessing.R"))
-source(here("Basic_parad.R"))
 
 ```
 # Background
@@ -60,7 +59,7 @@ The word extension task literature reveals cross linguistic differences in the p
 
 ## The Perception or conception debate
 Another key debate centers on the mechanism underlying the shape bias. It is thought to be an automatic attentional bias that tunes attention to only the relevant perceptual cues that have been probabilisticaly associated with naming events and learning lexical categories in the past [@smith_object_2002; @smithcolunga2010; Brady & Chun, 2007; Chun & Jiang, 1998). These perceptual cues are often correlated and integrated with the contextual cues of multiple sources like syntax, environment, and existing vocabulary. Then, this perceptual bias may constitute the actual representation of the lexical category i.e. a dog is the shape of dog. On the other hand, it can be a bias that acts as a heuristic to recognize objects,and is controlled by general world knowledge and conceptual understanding that can be exerted upon this bias and override it when necessary. 
-These debates highlight the complexity of the shape bias’s origins and mechanisms, as well as the conflicting interpretations of existing evidence. A meta-analytic effect size of 0.8, derived from over 300 standardized effects across 40 studies [@abdelrahim_frank_2024], confirms the robustness of the shape bias. However, substantial heterogeneity in the data (with over 90% of variance unexplained by age or language) suggests that cross-cultural, linguistic, and developmental differences remain masked.
+These debates highlight the complexity of the shape bias’s origins and mechanisms, as well as the conflicting interpretations of existing evidence. A meta-analytic effect size of 0.8, derived from over 300 standardized effects across 40 studies (Abdelrahim & Frank, 2024), confirms the robustness of the shape bias. However, substantial heterogeneity in the data (with over 90% of variance unexplained by age or language) suggests that cross-cultural, linguistic, and developmental differences remain masked.
 
 # Sources of Heterogeneity
 ## Task format
@@ -98,19 +97,9 @@ Twenty four typically developing English speaking participants (2-5 years old, m
 Seven trials were conducted in which each participant sees an object being labeled “this is a dax”, the object is taken away but still in view, both test objects and the distractor are displayed simultaneously while asking the child “can you find another dax by pointing to it?”. The child gets to hear the label 3 times while viewing it without touching it. 
 
 ### Results
-Participants showed an overall shape bias across all trials (shape:61%, material:30%, distractor: 9%). Figure \ref{fig:first_exp} shows a developmental shift to choose by shape by age 3, replicating what is seen previously in the literature. A generalized logistic mixed model (GLMM) shows a significant positive relation with age (1.765:1 odds at average age, P<0.014, a 6.4% increase in odds with unit age). It also shows some variability at the item level intercept. 
-After replicating the shape bias effect using the set of stimuli we created in a simple set up, our next experiment explores an design that tests for both conditions when shape is only contrasted with material without any additional information, and a condition in which shape is contrasted with function after demonstrating the function for the exemplar, while controlling for individual differences with a bigger sample size to capture variability at the item level.
+Participants showed an overall shape bias across all trials (shape:61%, material:30%, distractor: 9%). Figure [1] shows a developmental shift to choose by shape by age 3, replicating what is seen previously in the literature. A generalized logistic mixed model (GLMM) shows a significant positive relation with age (1.765:1 odds at average age, P<0.014, a 6.4% increase in odds with unit age). It also shows some variability at the item level intercept. 
+After replicating the shape bias effect using the set of stimuli we created in a simple set up, our next experiment explores an design that tests for both conditions when shape is only contrasted with material without any additional information, and a condition in which shape is contrasted with function after demonstrating the function for the exemplar, while controlling for individual differences with a bigger sample size to capture variability at the item level. 
 
-``` {r first_exp, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Effect size plotted by average participant age. Points indicate individual effect, and error bars show variance. Points are colored based on language, and model fits for Indo-European and non-Indo-European languages are shown in black."}
-ggplot(data = kid_means_long_summer24, aes(x = age, y = proportions, color = response)) +
-  geom_point(position = "jitter")+
-  geom_smooth() +
-  theme_minimal() +
-  xlab("Age in months") + ylab("Proportion") + labs(color = "Dimension") +
-  scale_color_manual(labels = c("distractor", "material","shape" ), values = c("brown", "darkgrey", "yellow4")) +
-  theme(legend.position = "bottom")
-
-```
 ## Experiment 2
 
 ### Participants
@@ -134,7 +123,7 @@ coefficients_gmodel <- gmodel_summary$coefficients
 mdlcoeff <- list(coeff = coefficients_gmodel[, "Estimate"], pval = coefficients_gmodel[, "Pr(>|z|)"])
 
 ```
-``` {r include = FALSE}
+``` {r}
 # Extract additional coefficients for a scatter plot
 standardlabel_intercepts <- coef(gmodel)$standardlabel[, "(Intercept)"]
 
