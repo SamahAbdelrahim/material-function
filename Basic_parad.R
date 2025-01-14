@@ -68,3 +68,6 @@ discrete_df_summer24_long <- discrete_df_summer24 %>%
   select(-shape_se, -material_se, -distractor_se)  # Remove unnecessary columns
 
 kid_means_long_summer24 <- kid_means_summer24 %>% pivot_longer(cols = c("s.mean", "m.mean", "d.mean") , names_to = "response", values_to = "proportions" )
+
+gmodel1 <- glmer(b_response ~ age + (1 | standardlabel), 
+      family = binomial(link = "logit"), data = df_summer24)

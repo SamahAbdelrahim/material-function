@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  13 JAN 2025 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  13 JAN 2025 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -550,27 +550,27 @@ Underfull \vbox (badness 10000) detected at line 84
 
 
 [2]
-Underfull \hbox (badness 1817) in paragraph at lines 316--319
+Underfull \hbox (badness 1817) in paragraph at lines 317--320
  []\OT1/ptm/b/n/10 Participants[] \OT1/ptm/m/n/10 Twenty four typ-i-cally de-vel-op-ing En-glish
  []
 
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 338.
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 340.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 338.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 340.
 <figs/first_exp-1.pdf, id=129, 433.62pt x 289.08pt>
 File: figs/first_exp-1.pdf Graphic file (type pdf)
 <use figs/first_exp-1.pdf>
-Package pdftex.def Info: figs/first_exp-1.pdf  used on input line 350.
+Package pdftex.def Info: figs/first_exp-1.pdf  used on input line 354.
 (pdftex.def)             Requested size: 243.91125pt x 162.60709pt.
 
 
 <figs/jitter_function-1.pdf, id=131, 578.16pt x 289.08pt>
 File: figs/jitter_function-1.pdf Graphic file (type pdf)
 <use figs/jitter_function-1.pdf>
-Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 397.
+Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 401.
 (pdftex.def)             Requested size: 505.89pt x 252.94437pt.
 
 
@@ -583,17 +583,17 @@ Underfull \vbox (badness 4479) has occurred while \output is active []
 
 [4 <./figs/jitter_function-1.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 528.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 532.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 528.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 532.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 528.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 532.
 
 
 <figs/2-col-image-1.pdf, id=187, 289.08pt x 144.54pt>
 File: figs/2-col-image-1.pdf Graphic file (type pdf)
 <use figs/2-col-image-1.pdf>
-Package pdftex.def Info: figs/2-col-image-1.pdf  used on input line 562.
+Package pdftex.def Info: figs/2-col-image-1.pdf  used on input line 566.
 (pdftex.def)             Requested size: 289.07928pt x 144.53963pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -601,12 +601,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <figs/image-1.pdf, id=188, 144.54pt x 144.54pt>
 File: figs/image-1.pdf Graphic file (type pdf)
 <use figs/image-1.pdf>
-Package pdftex.def Info: figs/image-1.pdf  used on input line 580.
+Package pdftex.def Info: figs/image-1.pdf  used on input line 584.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 <figs/plot-1.pdf, id=190, 144.54pt x 144.54pt>
 File: figs/plot-1.pdf Graphic file (type pdf)
 <use figs/plot-1.pdf>
-Package pdftex.def Info: figs/plot-1.pdf  used on input line 600.
+Package pdftex.def Info: figs/plot-1.pdf  used on input line 604.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -614,56 +614,56 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [5 <./figs/image-1.pdf>]
-Underfull \hbox (badness 2213) in paragraph at lines 646--652
+Underfull \hbox (badness 2213) in paragraph at lines 650--656
  []\OT1/ptm/m/n/10 10 Abdelrahim, S., & Frank, M. C. (2024, Septem-
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 646--652
+Underfull \hbox (badness 3895) in paragraph at lines 650--656
  \OT1/ptm/m/n/10 ber). Ex-am-in-ing the ro-bust-ness and gen-er-al-iz-abil-
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 646--652
+Underfull \hbox (badness 1509) in paragraph at lines 650--656
  \OT1/ptm/m/n/10 ity of the shape bias: A meta-analysis. PsyArXiv.
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 653--658
+Underfull \hbox (badness 1337) in paragraph at lines 657--662
  []\OT1/ptm/m/n/10 Baldwin, D. A. (1992). Clar-i-fy-ing the role of shape
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 653--658
+Underfull \hbox (badness 1675) in paragraph at lines 657--662
  \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
  []
 
 
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 665--673
+Underfull \hbox (badness 1762) in paragraph at lines 669--677
  []\OT1/ptm/m/n/10 CLARK, E. V. (1973). WHAT's IN a WORD? ON
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 665--673
+Underfull \hbox (badness 1092) in paragraph at lines 669--677
  \OT1/ptm/m/n/10 FIRST LAN-GUAGE11This re-search was sup-ported in
  []
 
 
 
 [6 <./figs/2-col-image-1.pdf> <./figs/plot-1.pdf>]
-Underfull \hbox (badness 3148) in paragraph at lines 723--728
+Underfull \hbox (badness 3148) in paragraph at lines 727--732
  \OT1/ptm/m/n/10 ers. \OT1/ptm/m/it/10 Jour-nal of Child Lan-guage\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 32\OT1/ptm/m/n/10 (1), 223--240.
  []
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 751--756
+Underfull \hbox (badness 2213) in paragraph at lines 755--760
  []\OT1/ptm/m/n/10 Samuelson, Larissa K. (2002). Sta-tis-ti-cal reg-u-lar-i-ties
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 773--778
+Underfull \hbox (badness 3780) in paragraph at lines 777--782
  []\OT1/ptm/m/n/10 Smith, L. B., Col-unga, E., & Yoshida, H. (2010).
  []
 
@@ -680,15 +680,15 @@ Package rerunfilecheck Info: File `Cogsci-2025.out' has not changed.
 (rerunfilecheck)             Checksum: 6AF1DD011E51F541D5ECFA3523CA1A1D;3668.
  ) 
 Here is how much of TeX's memory you used:
- 14339 strings out of 475178
- 228710 string characters out of 5764487
+ 14338 strings out of 475178
+ 228694 string characters out of 5764487
  639145 words of memory out of 5000000
- 36982 multiletter control sequences out of 15000+600000
+ 36981 multiletter control sequences out of 15000+600000
  595276 words of font info for 109 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,12n,79p,440b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Cogsci-2025.pdf (7 pages, 401993 bytes).
+Output written on Cogsci-2025.pdf (7 pages, 402013 bytes).
 PDF statistics:
  361 PDF objects out of 1000 (max. 8388607)
  320 compressed objects within 4 object streams

@@ -84,21 +84,26 @@ Given our focus on early language acquisition and the noun bias dominating early
 
 ## Stimuli design
 Seven stimuli sets were hand crafted such that each set contains one exemplar, a material match, a shape match, a function match, and a distractor. 
-In experiment 1, the shape match is contrasted with a material match, it served as a basic check and a replication of previous findings, while in experiment 2, the shape match is contrasted with a function match. The same exemplar is used in both experiments, and color is not shared across any of the objects. Objects are designed in a way that can answer to questions of how much children reason about the whole vs parts similarity, how they reason about material, and the influence of previous experiences with objects ( cite Neslon and graham and ).
+In experiment 1, the shape match is contrasted with a material match, it served as a basic check and a replication of previous findings, while in experiment 2, the shape match is contrasted with a function match. The same exemplar is used in both experiments, and color is not shared across any of the objects. Objects are designed in a way that can answer to questions of how much children reason about the whole vs parts similarity, how they reason about material, and the influence of previous experiences with objects (see suplementary) ( cite Neslon and graham and ).
+```{r prisma, eval= FALSE , fig.height = 2.5, fig.width =2.5, out.width="100%", fig.cap="PRISMA diagram showing the results of our literature screening process."}
+knitr::include_graphics("prisma.png")
+
+```
 
 ## Adults ratings
 
 ## Experiment 1: a preliminary
 
 ### Participants
-Twenty four typically developing English speaking participants (2-5 years old, mean =, sd = ) were recruited from a local nursery school and children’s museum in the US. Demographics: 
-- were excluded due to, 
+Twenty four typically developing English speaking participants (2-5 years old, mean=`r round(mean(df_summer24$age),2)`, sd=`r round(sd(df_summer24$age),2)`) were recruited from a local nursery school and children’s museum in the US.
 
 ### Procedure
 Seven trials were conducted in which each participant sees an object being labeled “this is a dax”, the object is taken away but still in view, both test objects and the distractor are displayed simultaneously while asking the child “can you find another dax by pointing to it?”. The child gets to hear the label 3 times while viewing it without touching it. 
 
 ### Results
-Participants showed an overall shape bias across all trials (shape:61%, material:30%, distractor: 9%). Figure \ref{fig:first_exp} shows a developmental shift to choose by shape by age 3, replicating what is seen previously in the literature. A generalized logistic mixed model (GLMM) shows a significant positive relation with age (1.765:1 odds at average age, P<0.014, a 6.4% increase in odds with unit age). It also shows some variability at the item level intercept. 
+
+Participants showed an overall shape bias across all trials (shape:61%, material:30%, distractor: 9%). Figure \ref{fig:first_exp} shows a developmental shift to choose by shape by age 3, replicating what is seen previously in the literature.  
+A generalized logistic mixed-effects model (GLMM) reveals an average intercept odds of `r round(exp(fixef(gmodel1)["(Intercept)"]), 2)` (odds of `r round(exp(fixef(gmodel1)["(Intercept)"]), 2)`:1 at the mean age, $p=$ `r papaja::apa_p(summary(gmodel1)$coefficients["(Intercept)", "Pr(>|z|)"])`), with a significant increase in odds of `r round(exp(fixef(gmodel1)["age"]), 2)` per unit increase in age ($p=$ `r papaja::apa_p(summary(gmodel1)$coefficients["age", "Pr(>|z|)"])`). The model also shows variability at the item-level intercept (variance = `r round(VarCorr(gmodel1)$standardlabel[1, 1], 2)`, SD = `r round(sqrt(VarCorr(gmodel1)$standardlabel[1, 1]), 2)`) across `r length(unique(df$standardlabel))` unique items (standardlabel groups).
 After replicating the shape bias effect using the set of stimuli we created in a simple set up, our next experiment explores an design that tests for both conditions when shape is only contrasted with material without any additional information, and a condition in which shape is contrasted with function after demonstrating the function for the exemplar, while controlling for individual differences with a bigger sample size to capture variability at the item level.
 
 ``` {r first_exp, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Effect size plotted by average participant age. Points indicate individual effect, and error bars show variance. Points are colored based on language, and model fits for Indo-European and non-Indo-European languages are shown in black."}
@@ -114,7 +119,7 @@ ggplot(data = kid_means_long_summer24, aes(x = age, y = proportions, color = res
 ## Experiment 2
 
 ### Participants
-31 (target n= 96, 24 per each age group from 2-5 years old) participants (mean age = , sd, n per age group) were recruited from a local nursery school in the US. demographic characteristics….
+31 (target n=96, 24 per each age group) participants between 2-5 years old (mean=`r round(mean(df$age),2)`, sd=`r round(sd(df$age),2)`, n per age group) were recruited from a local nursery school in the US.
 
 ### Stimuli 
 Same stimuli as above, but for the function test object, it is modified in a way that doesn’t change the shape at all, but allows for the function (an object that is wrapped all over and a similar one that can clearly open).
