@@ -298,11 +298,14 @@ distractor. In experiment 1, the shape match is contrasted with a
 material match, it served as a basic check and a replication of previous
 findings, while in experiment 2, the shape match is contrasted with a
 function match. The same exemplar is used in both experiments, and color
-is not shared across any of the objects. Objects are designed in a way
-that can answer to questions of how much children reason about the whole
-vs parts similarity, how they reason about material, and the influence
-of previous experiences with objects (see suplementary) ( cite Neslon
-and graham and ).
+is not shared across any of the objects. For the function test object,
+it is modified in a way that doesn't change the shape at all, but allows
+for the function (i.e.~an object that is wrapped all over and a similar
+one that can clearly open). Objects are designed in a way that can
+answer to questions of how much children reason about the whole vs parts
+similarity, how they reason about material, and the influence of
+previous experiences with objects (see suplementary) ( cite Neslon and
+graham and ).
 
 \hypertarget{adults-ratings}{%
 \subsection{Adults ratings}\label{adults-ratings}}
@@ -331,6 +334,12 @@ touching it.
 \hypertarget{results}{%
 \subsubsection{Results}\label{results}}
 
+\begin{CodeChunk}
+\begin{figure}[tb]
+\includegraphics[width=1\linewidth]{figs/first_exp-1} \caption[Effect size plotted by average participant age]{Effect size plotted by average participant age. Points indicate individual effect, and error bars show variance. Points are colored based on language, and model fits for Indo-European and non-Indo-European languages are shown in black.}\label{fig:first_exp}
+\end{figure}
+\end{CodeChunk}
+
 Participants showed an overall shape bias across all trials (shape:61\%,
 material:30\%, distractor: 9\%). Figure \ref{fig:first_exp} shows a
 developmental shift to choose by shape by age 3, replicating what is
@@ -349,12 +358,6 @@ with function after demonstrating the function for the exemplar, while
 controlling for individual differences with a bigger sample size to
 capture variability at the item level.
 
-\begin{CodeChunk}
-\begin{figure}[tb]
-\includegraphics[width=1\linewidth]{figs/first_exp-1} \caption[Effect size plotted by average participant age]{Effect size plotted by average participant age. Points indicate individual effect, and error bars show variance. Points are colored based on language, and model fits for Indo-European and non-Indo-European languages are shown in black.}\label{fig:first_exp}
-\end{figure}
-\end{CodeChunk}
-
 \hypertarget{experiment-2}{%
 \subsection{Experiment 2}\label{experiment-2}}
 
@@ -362,19 +365,11 @@ capture variability at the item level.
 \subsubsection{Participants}\label{participants-1}}
 
 31 (target n=96, 24 per each age group) participants between 2-5 years
-old (mean=NA, sd=NA, n per age group) were recruited from a local
+old (mean=48.22, sd=5.54, n per age group) were recruited from a local
 nursery school in the US.
 
-\hypertarget{stimuli-1}{%
-\subsubsection{Stimuli}\label{stimuli-1}}
-
-Same stimuli as above, but for the function test object, it is modified
-in a way that doesn't change the shape at all, but allows for the
-function (an object that is wrapped all over and a similar one that can
-clearly open).
-
 \hypertarget{procedure-1}{%
-\subsubsection{Procedure:}\label{procedure-1}}
+\subsubsection{Procedure}\label{procedure-1}}
 
 A within subject manipulation with two conditions: material or function.
 The material condition is identical to the first experiment. In the
@@ -384,23 +379,27 @@ provides functional information `` the dax grapes toys'', gives another
 15 seconds to play with it, and puts the toy away but within view,
 before introducing the test objects and asks for a response.
 
-\hypertarget{preliminary-results}{%
-\subsubsection{Preliminary results}\label{preliminary-results}}
-
-Similar to what is conveyed in Figure \ref{fig:jitter_function}, a
-generalized random effects logistic model showed an overall tendency to
-choose by shape regardless of condition 0.81 (\(p=\) .693) and a
-positive trend with age 0.01 (\(p=\) .742) with a decline in shape bias
-in the material condition -2.65 (\(p=\) .338). Little variability
-between participants is displayed but a huge variability between stimuli
-objects (\(sd=\) 1.35). Confidence intervals show uncertainty however
-(data collection is still ongoing).
-
 \begin{CodeChunk}
 \begin{figure*}[tb]
 \includegraphics[width=1\linewidth]{figs/jitter_function-1} \caption[Effect size plotted by average participant age]{Effect size plotted by average participant age. Points indicate individual effect, and error bars show variance. Points are colored based on language, and model fits for Indo-European and non-Indo-European languages are shown in black.}\label{fig:jitter_function}
 \end{figure*}
 \end{CodeChunk}
+
+\hypertarget{preliminary-results}{%
+\subsubsection{Preliminary results}\label{preliminary-results}}
+
+Similar to what is conveyed in Figure \ref{fig:jitter_function}, A
+generalized logistic mixed-effects model (GLMM) showed baseline odds of
+2.25 (odds of 2.25:1 for the function condition \(p=\) .693). The odds
+increase with age by a factor of 1.01 (\(p=\) .742). While The odds for
+the ``material'' condition are 0.07 times lower than for the
+``function'' condition (\(p=\) .338). Additionally, the interaction
+between age and condition shows that for the ``material'' condition, the
+odds decrease by a factor of 0.94 per unit increase in age (\(p=\)
+.294). Random effects indicate variability in intercepts across
+participants (SD = 0.22) and across items (SD = 1.38) for 31
+participants and 7 items. Notably, the confidence intervals show
+uncertainty however data collection is still ongoing.
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
@@ -448,196 +447,6 @@ theories given the state of evidence is not feasbile and it will endup
 crashing with this heterogeneity and with the broader question on the
 type of knowledge being highlighted by each one of the evidence.
 
-\hypertarget{general-formatting-instructions}{%
-\section{General Formatting
-Instructions}\label{general-formatting-instructions}}
-
-For general information about authoring in markdown, see
-\textbf{\href{http://rmarkdown.rstudio.com/authoring_basics.html}{here}.}
-
-The entire content of a paper (including figures, references, and
-anything else) can be no longer than six pages in the
-\textbf{initial submission}. In the \textbf{final submission}, the text
-of the paper, including an author line, must fit on six pages. Up to one
-additional page can be used for acknowledgements and references.
-
-The text of the paper should be formatted in two columns with an overall
-width of 7 inches (17.8 cm) and length of 9.25 inches (23.5 cm), with
-0.25 inches between the columns. Leave two line spaces between the last
-author listed and the text of the paper; the text of the paper (starting
-with the abstract) should begin no less than 2.75 inches below the top
-of the page. The left margin should be 0.75 inches and the top margin
-should be 1 inch. \textbf{The right and bottom margins will depend on
-whether you use U.S. letter or A4 paper, so you must be sure to
-measure the width of the printed text.} Use 10\textasciitilde point
-Times Roman with 12\textasciitilde point vertical spacing, unless
-otherwise specified.
-
-The title should be in 14\textasciitilde point bold font, centered. The
-title should be formatted with initial caps (the first letter of content
-words capitalized and the rest lower case). In the initial submission,
-the phrase ``Anonymous CogSci submission'\,' should appear below the
-title, centered, in 11\textasciitilde point bold font. In the final
-submission, each author's name should appear on a separate line,
-11\textasciitilde point bold, and centered, with the author's email
-address in parentheses. Under each author's name list the author's
-affiliation and postal address in ordinary 10\textasciitilde point type.
-
-Indent the first line of each paragraph by 1/8\textasciitilde inch
-(except for the first paragraph of a new section). Do not add extra
-vertical space between paragraphs.
-
-\hypertarget{first-level-headings}{%
-\section{First-Level Headings}\label{first-level-headings}}
-
-First level headings should be in 12 point , initial caps, bold and
-centered. Leave one line space above the heading and
-1/4\textasciitilde line space below the heading.
-
-\hypertarget{second-level-headings}{%
-\subsection{Second-Level Headings}\label{second-level-headings}}
-
-Second level headings should be 11 point , initial caps, bold, and flush
-left. Leave one line space above the heading and 1/4\textasciitilde{}
-line space below the heading.
-
-\hypertarget{third-level-headings}{%
-\subsubsection{Third-Level Headings}\label{third-level-headings}}
-
-Third-level headings should be 10 point , initial caps, bold, and flush
-left. Leave one line space above the heading, but no space after the
-heading.
-
-\hypertarget{formalities-footnotes-and-floats}{%
-\section{Formalities, Footnotes, and
-Floats}\label{formalities-footnotes-and-floats}}
-
-Use standard APA citation format. Citations within the text should
-include the author's last name and year. If the authors' names are
-included in the sentence, place only the year in parentheses, as in
-(1972), but otherwise place the entire reference in parentheses with the
-authors and year separated by a comma (Newell \& Simon, 1972). List
-multiple references alphabetically and separate them by semicolons
-(Chalnick \& Billman, 1988; Newell \& Simon, 1972). Use the et.
-al.~construction only after listing all the authors to a publication in
-an earlier reference and for citations with four or more authors.
-
-For more information on citations in RMarkdown, see
-\textbf{\href{http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html\#citations}{here}.}
-
-\hypertarget{footnotes}{%
-\subsection{Footnotes}\label{footnotes}}
-
-Indicate footnotes with a number\footnote{Sample of the first
-footnote.} in the text. Place the footnotes in 9 point type at the
-bottom of the page on which they appear. Precede the footnote with a
-horizontal rule.\footnote{Sample of the second footnote.} You can also
-use markdown formatting to include footnotes using this syntax
-\footnote{Sample of a markdown footnote.}.
-
-\hypertarget{figures}{%
-\subsection{Figures}\label{figures}}
-
-All artwork must be very dark for purposes of reproduction and should
-not be hand drawn. Number figures sequentially, placing the figure
-number and caption, in 10 point, after the figure with one line space
-above the caption and one line space below it. If necessary, leave extra
-white space at the bottom of the page to avoid splitting the figure and
-figure caption. You may float figures to the top or bottom of a column,
-or set wide figures across both columns.
-
-\hypertarget{two-column-images}{%
-\subsection{Two-column images}\label{two-column-images}}
-
-You can read local images using png package for example and plot it like
-a regular plot using grid.raster from the grid package. With this method
-you have full control of the size of your image. \textbf{Note: Image
-must be in .png file format for the readPNG function to work.}
-
-You might want to display a wide figure across both columns. To do this,
-you change the \texttt{fig.env} chunk option to \texttt{figure*}. To
-align the image in the center of the page, set \texttt{fig.align} option
-to \texttt{center}. To format the width of your caption text, you set
-the \texttt{num.cols.cap} option to \texttt{2}.
-
-\begin{CodeChunk}
-\begin{figure*}[h]
-
-{\centering \includegraphics{figs/2-col-image-1} 
-
-}
-
-\caption[This image spans both columns]{This image spans both columns. And the caption text is limited to 0.8 of the width of the document.}\label{fig:2-col-image}
-\end{figure*}
-\end{CodeChunk}
-
-\hypertarget{one-column-images}{%
-\subsection{One-column images}\label{one-column-images}}
-
-Single column is the default option, but if you want set it explicitly,
-set \texttt{fig.env} to \texttt{figure}. Notice that the
-\texttt{num.cols} option for the caption width is set to \texttt{1}.
-
-\begin{CodeChunk}
-\begin{figure}[H]
-
-{\centering \includegraphics{figs/image-1} 
-
-}
-
-\caption[One column image]{One column image.}\label{fig:image}
-\end{figure}
-\end{CodeChunk}
-
-\hypertarget{r-plots}{%
-\subsection{R Plots}\label{r-plots}}
-
-You can use R chunks directly to plot graphs. And you can use latex
-floats in the fig.pos chunk option to have more control over the
-location of your plot on the page. For more information on latex
-placement specifiers see
-\textbf{\href{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}{here}}
-
-\begin{CodeChunk}
-\begin{figure}[H]
-
-{\centering \includegraphics{figs/plot-1} 
-
-}
-
-\caption[R plot]{R plot}\label{fig:plot}
-\end{figure}
-\end{CodeChunk}
-
-\hypertarget{tables}{%
-\subsection{Tables}\label{tables}}
-
-Number tables consecutively; place the table number and title (in 10
-point) above the table with one line space above the caption and one
-line space below it, as in Table 1. You may float tables to the top or
-bottom of a column, set wide tables across both columns.
-
-You can use the xtable function in the xtable package.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{rrrrr}
-  \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
-  \hline
-(Intercept) & 0.04 & 0.11 & 0.4 & 0.71 \\ 
-  x & 1.97 & 0.10 & 19.2 & 0.00 \\ 
-   \hline
-\end{tabular}
-\caption{This table prints across one column.} 
-\end{table}
-
-\hypertarget{acknowledgements}{%
-\section{Acknowledgements}\label{acknowledgements}}
-
-Place acknowledgments (including funding information) in a section at
-the end of the paper.
-
 \hypertarget{references}{%
 \section{References}\label{references}}
 
@@ -659,12 +468,6 @@ Baldwin, D. A. (1992). Clarifying the role of shape in children's
 taxonomic assumption. \emph{Journal of Experimental Child Psychology},
 \emph{54 3}, 392--416. Retrieved from
 \url{https://api.semanticscholar.org/CorpusID:29725812}
-
-\leavevmode\vadjust pre{\hypertarget{ref-ChalnickBillman1988a}{}}%
-Chalnick, A., \& Billman, D. (1988). Unsupervised learning of
-correlational structure. In \emph{Proceedings of the tenth annual
-conference of the cognitive science society} (pp. 510--516). Hillsdale,
-NJ: Lawrence Erlbaum Associates.
 
 \leavevmode\vadjust pre{\hypertarget{ref-CLARK197365}{}}%
 CLARK, E. V. (1973). WHAT's IN a WORD? ON THE CHILD's ACQUISITION OF
@@ -741,10 +544,6 @@ Nelson, K. (1974). Concept, word, and sentence: Interrelations in
 acquisition and development. \emph{Psychological Review}, \emph{81},
 267--285. Retrieved from
 \url{https://api.semanticscholar.org/CorpusID:143965074}
-
-\leavevmode\vadjust pre{\hypertarget{ref-NewellSimon1972a}{}}%
-Newell, A., \& Simon, H. A. (1972). \emph{Human problem solving}.
-Englewood Cliffs, NJ: Prentice-Hall.
 
 \leavevmode\vadjust pre{\hypertarget{ref-perry2010learn}{}}%
 Perry, L. K., Samuelson, L. K., Malloy, L. M., \& Schiffer, R. N.
