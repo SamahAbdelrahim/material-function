@@ -8,6 +8,7 @@ library("patchwork")    # for making figure panels
 library("lme4")         # for linear mixed effects models
 library("tidyverse")    # for wrangling, plotting, etc. 
 library(here)
+library(stringr)
 
 
 ## import data
@@ -71,3 +72,33 @@ kid_means_long_summer24 <- kid_means_summer24 %>% pivot_longer(cols = c("s.mean"
 
 gmodel1 <- glmer(b_response ~ age + (1 | standardlabel), 
       family = binomial(link = "logit"), data = df_summer24)
+
+#Clean the standardlabel column
+df_summer24 <- df_summer24 %>%
+  mutate(standardlabel = str_remove(standardlabel, "^the\\s"))
+
+# Calculate percentages
+plot_data_summer24 <- df_summer24 %>%
+  group_by(standardlabel, response) %>%
+  summarise(count = n(), .groups = 'drop') %>%
+  group_by(standardlabel) %>%
+  mutate(percent = count / sum(count) * 100)
+
+
+ggplot(data = plot_data_summer24, aes(x = standardlabel, y = percent, fill = response)) +
+  geom_col(position = "stack", color = "black") +  # Stacked bar plot
+  theme_minimal() +
+  xlab("Standard Label") +
+  ylab("Percentage") +
+  labs(fill = "Response") +
+  scale_fill_manual(
+    values = c("brown", "darkgrey", "yellow4"),  # Custom colors
+    labels = c("Distractor", "Material", "Shape")  # Legend labels
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 10),
+    legend.position = "bottom",  # Place legend at the bottom
+    panel.grid.major.y = element_line(color = "grey90")
+  )

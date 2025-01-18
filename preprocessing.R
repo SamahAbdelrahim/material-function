@@ -78,6 +78,11 @@ diff <- cleaned_data %>%
 #     function_se = sd(f.mean) / sqrt(n()),
 #   )
 
+df_c <- df %>%
+  mutate(standardlabel = str_remove(standardlabel, "^the\\s"))
 
-
-
+plot_data_c <- df_c  %>%
+  group_by(condition, standardlabel, response) %>%
+  summarise(count = n(), .groups = 'drop') %>%
+  group_by(condition, standardlabel) %>%
+  mutate(percent = count / sum(count) * 100)
