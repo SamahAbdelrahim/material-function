@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  22 JAN 2025 18:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  26 JAN 2025 19:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -460,28 +460,28 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./Cogsci-2025.aux)
 \openout1 = `Cogsci-2025.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 81.
-LaTeX Font Info:    Trying to load font information for OMS+pzccm on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 82.
+LaTeX Font Info:    Trying to load font information for OMS+pzccm on input line 82.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
@@ -491,7 +491,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 81.
+Package hyperref Info: Link coloring OFF on input line 82.
 (./Cogsci-2025.out) (./Cogsci-2025.out)
 \@outlinefile=\write4
 \openout4 = `Cogsci-2025.out'.
@@ -508,33 +508,33 @@ File: english.apc 2013/07/21 v6.03 apacite language file
 LaTeX Info: Redefining \BPBI on input line 129.
 LaTeX Info: Redefining \BHBI on input line 130.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line 84.
+LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line 85.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ptmcm on input line 84.
+LaTeX Font Info:    Trying to load font information for OML+ptmcm on input line 85.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+psycm on input line 84.
+LaTeX Font Info:    Trying to load font information for OMX+psycm on input line 85.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 84.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 84.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \vbox (badness 10000) detected at line 84
+Underfull \vbox (badness 10000) detected at line 85
  []
 
 
@@ -548,261 +548,262 @@ Underfull \vbox (badness 10000) detected at line 84
 ]
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 235--244
+Underfull \hbox (badness 1237) in paragraph at lines 243--252
 \OT1/ptm/m/n/10 The word ex-ten-sion task lit-er-a-ture high-lights sig-nif-i-cant
  []
 
 
 
 [2]
-<conceptual_diagram.png, id=106, 792.9625pt x 601.24625pt>
+<conceptual_diagram.png, id=110, 792.9625pt x 601.24625pt>
 File: conceptual_diagram.png Graphic file (type png)
 <use conceptual_diagram.png>
-Package pdftex.def Info: conceptual_diagram.png  used on input line 298.
+Package pdftex.def Info: conceptual_diagram.png  used on input line 306.
 (pdftex.def)             Requested size: 243.91125pt x 184.93486pt.
 
 
-
-Underfull \vbox (badness 3000) has occurred while \output is active []
-
+<stimuli.png, id=112, 561.09625pt x 610.28pt>
+File: stimuli.png Graphic file (type png)
+<use stimuli.png>
+Package pdftex.def Info: stimuli.png  used on input line 369.
+(pdftex.def)             Requested size: 243.91125pt x 265.28342pt.
 
 
 [3 <./conceptual_diagram.png>]
-<figs/first_exp-1.pdf, id=118, 433.62pt x 289.08pt>
+<figs/first_exp-1.pdf, id=122, 433.62pt x 289.08pt>
 File: figs/first_exp-1.pdf Graphic file (type pdf)
 <use figs/first_exp-1.pdf>
-Package pdftex.def Info: figs/first_exp-1.pdf  used on input line 403.
+Package pdftex.def Info: figs/first_exp-1.pdf  used on input line 417.
 (pdftex.def)             Requested size: 243.91125pt x 162.60709pt.
-<figs/first_exp_stim-1.pdf, id=119, 433.62pt x 289.08pt>
+<figs/first_exp_stim-1.pdf, id=123, 433.62pt x 289.08pt>
 File: figs/first_exp_stim-1.pdf Graphic file (type pdf)
 <use figs/first_exp_stim-1.pdf>
-Package pdftex.def Info: figs/first_exp_stim-1.pdf  used on input line 409.
+Package pdftex.def Info: figs/first_exp_stim-1.pdf  used on input line 423.
 (pdftex.def)             Requested size: 243.91125pt x 162.60709pt.
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 422.
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 443.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 422.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 443.
 
 
-<figs/jitter_function-1.pdf, id=121, 578.16pt x 289.08pt>
+
+
+[4 <./stimuli.png> <./figs/first_exp-1.pdf> <./figs/first_exp_stim-1.pdf>]
+<figs/jitter_function-1.pdf, id=157, 578.16pt x 289.08pt>
 File: figs/jitter_function-1.pdf Graphic file (type pdf)
 <use figs/jitter_function-1.pdf>
-Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 460.
+Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 489.
 (pdftex.def)             Requested size: 505.89pt x 252.94437pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/sec_exp_stim-1.pdf, id=122, 433.62pt x 289.08pt>
+<figs/sec_exp_stim-1.pdf, id=158, 433.62pt x 289.08pt>
 File: figs/sec_exp_stim-1.pdf Graphic file (type pdf)
 <use figs/sec_exp_stim-1.pdf>
-Package pdftex.def Info: figs/sec_exp_stim-1.pdf  used on input line 466.
+Package pdftex.def Info: figs/sec_exp_stim-1.pdf  used on input line 495.
 (pdftex.def)             Requested size: 243.91125pt x 162.60709pt.
 
 
-[4 <./figs/first_exp-1.pdf> <./figs/first_exp_stim-1.pdf>]
+
+Underfull \hbox (badness 2213) in paragraph at lines 587--593
+ []\OT1/ptm/m/n/10 10 Abdelrahim, S., & Frank, M. C. (2024, Septem-
+ []
+
+
+Underfull \hbox (badness 3895) in paragraph at lines 587--593
+ \OT1/ptm/m/n/10 ber). Ex-am-in-ing the ro-bust-ness and gen-er-al-iz-abil-
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 587--593
+ \OT1/ptm/m/n/10 ity of the shape bias: A meta-analysis. PsyArXiv.
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[5 <./figs/jitter_function-1.pdf> <./figs/sec_exp_stim-1.pdf>]
-Underfull \hbox (badness 2213) in paragraph at lines 558--564
- []\OT1/ptm/m/n/10 10 Abdelrahim, S., & Frank, M. C. (2024, Septem-
- []
-
-
-Underfull \hbox (badness 3895) in paragraph at lines 558--564
- \OT1/ptm/m/n/10 ber). Ex-am-in-ing the ro-bust-ness and gen-er-al-iz-abil-
- []
-
-
-Underfull \hbox (badness 1509) in paragraph at lines 558--564
- \OT1/ptm/m/n/10 ity of the shape bias: A meta-analysis. PsyArXiv.
- []
-
-
-Underfull \hbox (badness 1337) in paragraph at lines 565--570
+[5]
+Underfull \hbox (badness 1337) in paragraph at lines 594--599
  []\OT1/ptm/m/n/10 Baldwin, D. A. (1992). Clar-i-fy-ing the role of shape
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 565--570
+Underfull \hbox (badness 1675) in paragraph at lines 594--599
  \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
  []
 
 
-Underfull \hbox (badness 1275) in paragraph at lines 583--588
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 612--617
  []\OT1/ptm/m/n/10 Booth, A., Wax-man, S., & Huang, Y. (2005). Con-
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 583--588
+Underfull \hbox (badness 4132) in paragraph at lines 612--617
  \OT1/ptm/m/n/10 cep-tual in-for-ma-tion per-me-ates word learn-ing in in-
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 583--588
+Underfull \hbox (badness 2922) in paragraph at lines 612--617
  \OT1/ptm/m/n/10 fancy. \OT1/ptm/m/it/10 De-vel-op-men-tal Psy-chol-ogy\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 41\OT1/ptm/m/n/10 (3), 491--505.
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 599--607
+Underfull \hbox (badness 1762) in paragraph at lines 633--641
  []\OT1/ptm/m/n/10 CLARK, E. V. (1973). WHAT's IN a WORD? ON
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 599--607
+Underfull \hbox (badness 1092) in paragraph at lines 633--641
  \OT1/ptm/m/n/10 FIRST LAN-GUAGE11This re-search was sup-ported in
  []
 
 
 
-
-Underfull \hbox (badness 4954) in paragraph at lines 642--648
+[6 <./figs/jitter_function-1.pdf> <./figs/sec_exp_stim-1.pdf>]
+Underfull \hbox (badness 4954) in paragraph at lines 676--682
  []\OT1/ptm/m/n/10 Graham, S. A., Williams, L. D., & Hu-ber, J. F.
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 642--648
+Underfull \hbox (badness 1259) in paragraph at lines 676--682
  \OT1/ptm/m/n/10 (1999). Preschool-ers' and adults' re-liance on ob-ject
  []
 
 
-Underfull \hbox (badness 3118) in paragraph at lines 642--648
+Underfull \hbox (badness 3118) in paragraph at lines 676--682
  \OT1/ptm/m/it/10 nal of Ex-per-i-men-tal Child Psy-chol-ogy\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 74\OT1/ptm/m/n/10 (2), 128--
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 642--648
+Underfull \hbox (badness 4805) in paragraph at lines 676--682
  \OT1/ptm/m/n/10 151. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1006 / jecp []
  []
 
 
-Underfull \hbox (badness 1565) in paragraph at lines 676--680
+Underfull \hbox (badness 1565) in paragraph at lines 710--714
  \OT1/ptm/m/n/10 334. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1016 / S0885 []
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 681--686
+Underfull \hbox (badness 3148) in paragraph at lines 715--720
  \OT1/ptm/m/n/10 ers. \OT1/ptm/m/it/10 Jour-nal of Child Lan-guage\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 32\OT1/ptm/m/n/10 (1), 223--240.
  []
 
 
 
-[6]
-Underfull \hbox (badness 1688) in paragraph at lines 694--699
+
+Underfull \hbox (badness 1688) in paragraph at lines 728--733
  []\OT1/ptm/m/n/10 Landau, B., & Jones, S. (1998). Ob-ject shape, ob-
  []
 
 
-Underfull \hbox (badness 2671) in paragraph at lines 694--699
+Underfull \hbox (badness 2671) in paragraph at lines 728--733
  \OT1/ptm/m/n/10 ject func-tion, and ob-ject name. \OT1/ptm/m/it/10 Jour-nal of Mem-
  []
 
 
-Underfull \hbox (badness 7907) in paragraph at lines 694--699
+Underfull \hbox (badness 7907) in paragraph at lines 728--733
  \OT1/ptm/m/it/10 ory and Lan-guage - J MEM LANG\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 38\OT1/ptm/m/n/10 , 1--27.
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 706--711
+Underfull \hbox (badness 2894) in paragraph at lines 740--745
  \OT1/ptm/m/n/10 ing. \OT1/ptm/m/it/10 Jour-nal of Child Lan-guage\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 20\OT1/ptm/m/n/10 (1), 101--118.
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 724--728
+Underfull \hbox (badness 1675) in paragraph at lines 758--762
  \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
  []
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 735--740
+Underfull \hbox (badness 2213) in paragraph at lines 769--774
  []\OT1/ptm/m/n/10 Samuelson, Larissa K. (2002). Sta-tis-ti-cal reg-u-lar-i-ties
  []
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 741--746
+Underfull \hbox (badness 2213) in paragraph at lines 775--780
  []\OT1/ptm/m/n/10 Samuelson, Larissa K. (2005). Sta-tis-ti-cal reg-u-lar-i-ties
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 753--762
+Underfull \hbox (badness 1742) in paragraph at lines 787--796
  \OT1/ptm/m/n/10 138--148. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1016 / j []
  []
 
 
 
-
-Underfull \hbox (badness 1675) in paragraph at lines 779--783
+[7]
+Underfull \hbox (badness 1675) in paragraph at lines 813--817
  \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 784--789
+Underfull \hbox (badness 2799) in paragraph at lines 818--823
  []\OT1/ptm/m/n/10 Smith, L. B., Col-unga, E., & Yoshida, H. (2010a).
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 790--795
+Underfull \hbox (badness 2689) in paragraph at lines 824--829
  []\OT1/ptm/m/n/10 Smith, L. B., Col-unga, E., & Yoshida, H. (2010b).
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 824--830
+Underfull \hbox (badness 1472) in paragraph at lines 858--864
  []\OT1/ptm/m/n/10 Tek, S., Jaf-fery, R., Fein, D., & Naigles, L. (2008).
  []
 
 
-Underfull \hbox (badness 1152) in paragraph at lines 824--830
+Underfull \hbox (badness 1152) in paragraph at lines 858--864
  \OT1/ptm/m/n/10 Do chil-dren with autism show a shape bias in word
  []
 
 
 
-[7]
-Underfull \hbox (badness 3312) in paragraph at lines 837--842
+
+Underfull \hbox (badness 3312) in paragraph at lines 871--876
  []\OT1/ptm/m/n/10 Ware, E. A., & Booth, A. E. (2010). Form fol-
  []
 
 
-Underfull \hbox (badness 3219) in paragraph at lines 837--842
+Underfull \hbox (badness 3219) in paragraph at lines 871--876
  \OT1/ptm/m/n/10 lows func-tion: Learn-ing about func-tion helps chil-
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 837--842
+Underfull \hbox (badness 1742) in paragraph at lines 871--876
  \OT1/ptm/m/n/10 124--137. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1016 / j []
  []
 
 
 
-
-
-[8
-
-] (./Cogsci-2025.aux)
+[8] (./Cogsci-2025.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
 Package rerunfilecheck Info: File `Cogsci-2025.out' has not changed.
-(rerunfilecheck)             Checksum: 94792BDBD0F8E15F834AD5A63060D1BA;2759.
+(rerunfilecheck)             Checksum: 063A38F3BD2E4A0E1825105B19F4E6EC;2856.
  ) 
 Here is how much of TeX's memory you used:
- 14279 strings out of 475178
- 228090 string characters out of 5764487
- 639028 words of memory out of 5000000
- 36935 multiletter control sequences out of 15000+600000
+ 14298 strings out of 475178
+ 228380 string characters out of 5764487
+ 640077 words of memory out of 5000000
+ 36950 multiletter control sequences out of 15000+600000
  582954 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,12n,79p,389b,506s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,389b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Cogsci-2025.pdf (8 pages, 226940 bytes).
+Output written on Cogsci-2025.pdf (8 pages, 939221 bytes).
 PDF statistics:
- 362 PDF objects out of 1000 (max. 8388607)
- 326 compressed objects within 4 object streams
- 107 named destinations out of 1000 (max. 500000)
- 194 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 375 PDF objects out of 1000 (max. 8388607)
+ 337 compressed objects within 4 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 207 words of extra memory for PDF output out of 10000 (max. 10000000)
 
