@@ -300,8 +300,8 @@ In addition, many children explored whether their chosen test object could perfo
 Meanwhile, in the case of the (gorp), for which the function wasn't as ambiguous (scooping sand requires the structure of the object to have two parts that can split and then close to hold sand inside), in this case the test object was designed in a way that makes it very clear to not open, hence they went for the function test choice (see suplementary material). 
 For evaulating the children's ability to reason about intrinsic affordances, we created the "Fep" in a way such that the material itself is very critical for performing the function "holding water while being made of paper towel". We believe all these structural differences between objects can explain part of the variation when we have enough data to fit the model. 
 
-This endeavor is one step towards achieving validity and reliability in word extension tasks, as well as discussing theoretical implications that follow, as we discussed in the introduction. 
-
+As we mentioned in the introduction, procedural variation observed in the literature have followed theoretical debates and in fact reinforced by them. We think this endeavor is one step towards achieving validity and reliability in word extension tasks, as well as discussing theoretical implications that follow for them. To illusatrate, the definition of the shape bias construct as a word extension strategy has been ambiguous and it is also influenced by theoretical framing. For example, if it is a product of different contingencies and statistical regularities, it would make sense from a signal detection point of view, to predict that it will have a graded degree between population, individuals, and items. Hence, analyzing data on an aggregate level across all these dimensions hasn't helped advancing our understanding of cross cultural differences at a theoretical level. 
+We believe, providing a quantifiable assessment of data across items, individuals, and building upon that across cultures, will be the only way to resolve these issues.
 
 
 # References 
