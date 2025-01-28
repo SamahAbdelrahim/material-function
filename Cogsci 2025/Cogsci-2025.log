@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  27 JAN 2025 12:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.12)  27 JAN 2025 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -540,7 +540,7 @@ Underfull \vbox (badness 10000) detected at line 85
 
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 165--174
+Underfull \hbox (badness 1237) in paragraph at lines 167--176
 \OT1/ptm/m/n/10 The word ex-ten-sion task lit-er-a-ture high-lights sig-nif-i-cant
  []
 
@@ -551,56 +551,50 @@ Underfull \hbox (badness 1237) in paragraph at lines 165--174
 
 
 ]
-<conceptual_diagram.png, id=102, 792.9625pt x 601.24625pt>
-File: conceptual_diagram.png Graphic file (type png)
-<use conceptual_diagram.png>
-Package pdftex.def Info: conceptual_diagram.png  used on input line 228.
-(pdftex.def)             Requested size: 243.91125pt x 184.93486pt.
+<conceptual_diagram1.png, id=102, 627.34375pt x 467.7475pt>
+File: conceptual_diagram1.png Graphic file (type png)
+<use conceptual_diagram1.png>
+Package pdftex.def Info: conceptual_diagram1.png  used on input line 230.
+(pdftex.def)             Requested size: 243.91125pt x 181.86407pt.
 
 
 
 
-[2 <./conceptual_diagram.png>]
-Underfull \vbox (badness 5817) has occurred while \output is active []
-
-
+[2 <./conceptual_diagram1.png>]
 
 <stimuli.png, id=114, 561.09625pt x 610.28pt>
 File: stimuli.png Graphic file (type png)
 <use stimuli.png>
-Package pdftex.def Info: stimuli.png  used on input line 360.
+Package pdftex.def Info: stimuli.png  used on input line 362.
 (pdftex.def)             Requested size: 243.91125pt x 265.28342pt.
 
 
-[3 <./stimuli.png>]
-<figs/first_exp-1.pdf, id=124, 433.62pt x 289.08pt>
+[3]
+<figs/first_exp-1.pdf, id=123, 433.62pt x 289.08pt>
 File: figs/first_exp-1.pdf Graphic file (type pdf)
 <use figs/first_exp-1.pdf>
-Package pdftex.def Info: figs/first_exp-1.pdf  used on input line 408.
+Package pdftex.def Info: figs/first_exp-1.pdf  used on input line 410.
 (pdftex.def)             Requested size: 243.91125pt x 162.60709pt.
-<figs/first_exp_stim-1.pdf, id=125, 433.62pt x 289.08pt>
+<figs/first_exp_stim-1.pdf, id=124, 433.62pt x 289.08pt>
 File: figs/first_exp_stim-1.pdf Graphic file (type pdf)
 <use figs/first_exp_stim-1.pdf>
-Package pdftex.def Info: figs/first_exp_stim-1.pdf  used on input line 414.
+Package pdftex.def Info: figs/first_exp_stim-1.pdf  used on input line 416.
 (pdftex.def)             Requested size: 243.91125pt x 162.60709pt.
-
-
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 434.
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 436.
 (/Users/samahabdelrahim/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 434.
-
-Underfull \vbox (badness 2626) has occurred while \output is active []
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 436.
 
 
 
-[4 <./figs/first_exp-1.pdf> <./figs/first_exp_stim-1.pdf>]
+
+[4 <./stimuli.png> <./figs/first_exp-1.pdf> <./figs/first_exp_stim-1.pdf>]
 <figs/jitter_function-1.pdf, id=158, 578.16pt x 289.08pt>
 File: figs/jitter_function-1.pdf Graphic file (type pdf)
 <use figs/jitter_function-1.pdf>
-Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 480.
+Package pdftex.def Info: figs/jitter_function-1.pdf  used on input line 482.
 (pdftex.def)             Requested size: 505.89pt x 252.94437pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -608,172 +602,172 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <figs/sec_exp_stim-1.pdf, id=159, 433.62pt x 289.08pt>
 File: figs/sec_exp_stim-1.pdf Graphic file (type pdf)
 <use figs/sec_exp_stim-1.pdf>
-Package pdftex.def Info: figs/sec_exp_stim-1.pdf  used on input line 486.
+Package pdftex.def Info: figs/sec_exp_stim-1.pdf  used on input line 488.
 (pdftex.def)             Requested size: 243.91125pt x 162.60709pt.
 
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 578--584
+Underfull \hbox (badness 2213) in paragraph at lines 580--586
  []\OT1/ptm/m/n/10 10 Abdelrahim, S., & Frank, M. C. (2024, Septem-
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 578--584
+Underfull \hbox (badness 3895) in paragraph at lines 580--586
  \OT1/ptm/m/n/10 ber). Ex-am-in-ing the ro-bust-ness and gen-er-al-iz-abil-
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 578--584
+Underfull \hbox (badness 1509) in paragraph at lines 580--586
  \OT1/ptm/m/n/10 ity of the shape bias: A meta-analysis. PsyArXiv.
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 585--590
+Underfull \hbox (badness 1337) in paragraph at lines 587--592
  []\OT1/ptm/m/n/10 Baldwin, D. A. (1992). Clar-i-fy-ing the role of shape
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 585--590
+Underfull \hbox (badness 1675) in paragraph at lines 587--592
  \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
  []
 
 
 
 [5]
-Underfull \hbox (badness 1275) in paragraph at lines 603--608
+Underfull \hbox (badness 1275) in paragraph at lines 605--610
  []\OT1/ptm/m/n/10 Booth, A., Wax-man, S., & Huang, Y. (2005). Con-
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 603--608
+Underfull \hbox (badness 4132) in paragraph at lines 605--610
  \OT1/ptm/m/n/10 cep-tual in-for-ma-tion per-me-ates word learn-ing in in-
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 603--608
+Underfull \hbox (badness 2922) in paragraph at lines 605--610
  \OT1/ptm/m/n/10 fancy. \OT1/ptm/m/it/10 De-vel-op-men-tal Psy-chol-ogy\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 41\OT1/ptm/m/n/10 (3), 491--505.
  []
 
 
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 624--632
+Underfull \hbox (badness 1762) in paragraph at lines 626--634
  []\OT1/ptm/m/n/10 CLARK, E. V. (1973). WHAT's IN a WORD? ON
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 624--632
+Underfull \hbox (badness 1092) in paragraph at lines 626--634
  \OT1/ptm/m/n/10 FIRST LAN-GUAGE11This re-search was sup-ported in
  []
 
 
 
 [6 <./figs/jitter_function-1.pdf> <./figs/sec_exp_stim-1.pdf>]
-Underfull \hbox (badness 4954) in paragraph at lines 667--673
+Underfull \hbox (badness 4954) in paragraph at lines 669--675
  []\OT1/ptm/m/n/10 Graham, S. A., Williams, L. D., & Hu-ber, J. F.
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 667--673
+Underfull \hbox (badness 1259) in paragraph at lines 669--675
  \OT1/ptm/m/n/10 (1999). Preschool-ers' and adults' re-liance on ob-ject
  []
 
 
-Underfull \hbox (badness 3118) in paragraph at lines 667--673
+Underfull \hbox (badness 3118) in paragraph at lines 669--675
  \OT1/ptm/m/it/10 nal of Ex-per-i-men-tal Child Psy-chol-ogy\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 74\OT1/ptm/m/n/10 (2), 128--
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 667--673
+Underfull \hbox (badness 4805) in paragraph at lines 669--675
  \OT1/ptm/m/n/10 151. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1006 / jecp []
  []
 
 
-Underfull \hbox (badness 1565) in paragraph at lines 701--705
+Underfull \hbox (badness 1565) in paragraph at lines 703--707
  \OT1/ptm/m/n/10 334. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1016 / S0885 []
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 706--711
+Underfull \hbox (badness 3148) in paragraph at lines 708--713
  \OT1/ptm/m/n/10 ers. \OT1/ptm/m/it/10 Jour-nal of Child Lan-guage\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 32\OT1/ptm/m/n/10 (1), 223--240.
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 719--724
+Underfull \hbox (badness 1688) in paragraph at lines 721--726
  []\OT1/ptm/m/n/10 Landau, B., & Jones, S. (1998). Ob-ject shape, ob-
  []
 
 
-Underfull \hbox (badness 2671) in paragraph at lines 719--724
+Underfull \hbox (badness 2671) in paragraph at lines 721--726
  \OT1/ptm/m/n/10 ject func-tion, and ob-ject name. \OT1/ptm/m/it/10 Jour-nal of Mem-
  []
 
 
-Underfull \hbox (badness 7907) in paragraph at lines 719--724
+Underfull \hbox (badness 7907) in paragraph at lines 721--726
  \OT1/ptm/m/it/10 ory and Lan-guage - J MEM LANG\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 38\OT1/ptm/m/n/10 , 1--27.
  []
 
 
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 731--736
+Underfull \hbox (badness 2894) in paragraph at lines 733--738
  \OT1/ptm/m/n/10 ing. \OT1/ptm/m/it/10 Jour-nal of Child Lan-guage\OT1/ptm/m/n/10 , \OT1/ptm/m/it/10 20\OT1/ptm/m/n/10 (1), 101--118.
  []
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 755--760
+Underfull \hbox (badness 2213) in paragraph at lines 757--762
  []\OT1/ptm/m/n/10 Samuelson, Larissa K. (2002). Sta-tis-ti-cal reg-u-lar-i-ties
  []
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 761--766
+Underfull \hbox (badness 2213) in paragraph at lines 763--768
  []\OT1/ptm/m/n/10 Samuelson, Larissa K. (2005). Sta-tis-ti-cal reg-u-lar-i-ties
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 773--782
+Underfull \hbox (badness 1742) in paragraph at lines 775--784
  \OT1/ptm/m/n/10 138--148. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1016 / j []
  []
 
 
 
 [7]
-Underfull \hbox (badness 1675) in paragraph at lines 799--803
+Underfull \hbox (badness 1675) in paragraph at lines 801--805
  \OT1/ptm/m/n/10 from []$\OT1/pcr/m/n/10 https :// api [] .semanticscholar [] .org / CorpusID :
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 804--809
+Underfull \hbox (badness 2799) in paragraph at lines 806--811
  []\OT1/ptm/m/n/10 Smith, L. B., Col-unga, E., & Yoshida, H. (2010a).
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 810--815
+Underfull \hbox (badness 2689) in paragraph at lines 812--817
  []\OT1/ptm/m/n/10 Smith, L. B., Col-unga, E., & Yoshida, H. (2010b).
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 844--850
+Underfull \hbox (badness 1472) in paragraph at lines 846--852
  []\OT1/ptm/m/n/10 Tek, S., Jaf-fery, R., Fein, D., & Naigles, L. (2008).
  []
 
 
-Underfull \hbox (badness 1152) in paragraph at lines 844--850
+Underfull \hbox (badness 1152) in paragraph at lines 846--852
  \OT1/ptm/m/n/10 Do chil-dren with autism show a shape bias in word
  []
 
 
-Underfull \hbox (badness 3312) in paragraph at lines 857--862
+Underfull \hbox (badness 3312) in paragraph at lines 859--864
  []\OT1/ptm/m/n/10 Ware, E. A., & Booth, A. E. (2010). Form fol-
  []
 
 
-Underfull \hbox (badness 3219) in paragraph at lines 857--862
+Underfull \hbox (badness 3219) in paragraph at lines 859--864
  \OT1/ptm/m/n/10 lows func-tion: Learn-ing about func-tion helps chil-
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 857--862
+Underfull \hbox (badness 1742) in paragraph at lines 859--864
  \OT1/ptm/m/n/10 124--137. http://doi.org/[]$\OT1/pcr/m/n/10 https :// doi [] .org / 10 [] .1016 / j []
  []
 
@@ -791,14 +785,14 @@ Package rerunfilecheck Info: File `Cogsci-2025.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  14297 strings out of 475178
- 228349 string characters out of 5764487
+ 228360 string characters out of 5764487
  639077 words of memory out of 5000000
  36950 multiletter control sequences out of 15000+600000
  582954 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,12n,79p,389b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/samahabdelrahim/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Cogsci-2025.pdf (8 pages, 938604 bytes).
+Output written on Cogsci-2025.pdf (8 pages, 920860 bytes).
 PDF statistics:
  372 PDF objects out of 1000 (max. 8388607)
  334 compressed objects within 4 object streams
