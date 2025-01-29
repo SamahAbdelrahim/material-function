@@ -1,5 +1,5 @@
 ---
-title: "¸The Shape Bias Revisited: Feedback Loops Between Methodology and Theoretical Perspectives"
+title: "The Shape Bias Revisited: Feedback Loops Between Methodology and Theoretical Perspectives"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
@@ -9,12 +9,12 @@ author-information: >
     \AND {\large \bf Sharon J.~Derry (SDJ@Macc.Wisc.Edu)} \\ Department of Educational Psychology, 1025 W. Johnson Street \\ Madison, WI 53706 USA}
 
 abstract: >
-    Word generalization in young children is often attributed to a shape bias, yet the mechanisms driving this bias and its variability remain poorly understood. Here, we explore methodological factors contributing to heterogeneity in shape bias studies, including task format, stimuli design, and theoretical frameworks. Through a series of experiments, we systematically manipulated object properties—shape, material, function, and affordances—and examined their effects on children’s generalization patterns. Preliminary findings indicate a robust preference for shape, even when function is made salient, suggesting that children may prioritize shape as a proxy for category membership. However, nuanced interactions between stimuli design, task structure, and prior experiences highlight the role of context and task dependency in shaping behavior. Cross-linguistic and theoretical debates about the origins of shape bias—whether rooted in syntactic structure, statistical regularities, or conceptual representations—underscore the need for unified methodologies to reconcile conflicting evidence. By identifying key sources of variability and advocating for methodological consistency, this study advances our understanding of label categorization and offers a framework for integrating diverse findings across cultural and linguistic contexts.
+    Young children tend to generalize the meanings of new object categories based on their shape, a tendency known as the "shape bias." The mechanisms driving this bias and its variability remain controversial, however. Here, we explore methodological factors contributing to heterogeneity in shape bias studies, including task format, stimuli design. In two experiments, we systematically manipulated object properties---shape, material, function, and affordances---and examined their effects on 2--5 year-old children’s generalization. Preliminary findings indicate a robust preference for shape, even when function is made salient, suggesting that children may prioritize shape as a proxy for category membership. However, nuanced interactions between stimuli design, task structure, and prior experiences highlight the role of methodological decisions in shaping children's behavior. Cross-linguistic and theoretical debates about the origins of shape bias underscore the need for unified methodologies to reconcile conflicting evidence. 
     
 keywords: >
     Add your choice of indexing terms or keywords; kindly use a semi-colon; between each term.
     
-output: cogsci2016::cogsci_paper
+output: cogsci2024::cogsci_paper
 #final-submission: \cogscifinalcopy
 header-includes:
  \usepackage{float}
@@ -35,13 +35,35 @@ library(grid)
 library(ggplot2)
 library(xtable)
 library(here)
-source(here("packages.R"))
+library(jsonlite)
+library(tidyverse)
+library(purrr)
+library(ggrepel)
+library(here)
+library(irr)
+library(ggvenn)
+library(gridExtra)
+library(psych)
+library(knitr)        # for knitting RMarkdown 
+library(kableExtra)   # for making nice tables
+library(janitor)      # for cleaning column names
+library(broom.mixed)  # for tidying up linear models 
+library(patchwork)    # for making figure panels
+library(lme4)  
+library(scales) # for linear mixed effects models
+library(ggridges)
+library(papaja)
+```
+
+```{r}
 source(here("preprocessing.R"))
 source(here("Basic_parad.R"))
-
 ```
-# Basis of generalizations
-What does "dog" mean to a 2-year-old? This old question reflects the evolving nature of our understanding of early label categorization. For young children, a dog might initially be identified by a set of general features that expands with experience. For example, The semantic features hypothesis @CLARK197365 suggests that categorization begins with schemas of basic perceptual attributes, such as [four legs, tail, fur] for dog, hence we see overextensions of the word “dog” to beings that share these set of features like cats for example. Over time, deeper attributes, such as its internal composition, behavior and interaction with the world, or sound, may also become relevant (Carey, 1985).  In contrast, the functional core hypothesis [@Nelson1974ConceptWA] posits that children extract relationships among features to identify future category members without treating these features as defining. In this view, perceptual attributes like [four legs, tail, fur] act as identifiers rather than encapsulating the category's essence. Both frameworks agree, however, that shared perceptual features facilitate identification and labeling, forming the foundation for the well-studied shape bias (@Baldwin1992ClarifyingTR; @Graham1999InfantsRO ; @LANDAU1988299 ; @graham_2010, @samuelson2000children; @imai_childrens_1994).
+
+<!-- # Basis of generalizations
+-->
+
+What does "dog" mean to a 2-year-old? This question reflects our understanding of early label categorization. For young children, a dog might initially be identified by a set of general features that expands with experience. For example, the semantic features hypothesis @CLARK197365 suggests that categorization begins with schemas of basic perceptual attributes, such as [four legs, tail, fur] for dog, hence we see overextensions of the word “dog” to beings that share these set of features like cats for example. Over time, deeper attributes, such as its internal composition, behavior and interaction with the world, or sound, may also become relevant (Carey, 1985).  In contrast, the functional core hypothesis [@Nelson1974ConceptWA] posits that children extract relationships among features to identify future category members without treating these features as defining. In this view, perceptual attributes like [four legs, tail, fur] act as identifiers rather than encapsulating the category's essence. Both frameworks agree, however, that shared perceptual features facilitate identification and labeling, forming the foundation for the well-studied shape bias (@Baldwin1992ClarifyingTR; @Graham1999InfantsRO ; @LANDAU1988299 ; @graham_2010, @samuelson2000children; @imai_childrens_1994).
 
 The shape bias, which is the tendency to generalize objects names by their shape, rather than other properties, is a word learning constraint that is argued to facilitate early noun acquisition, to be an important route to vocabulary growth, and to be weaker in children with language delay [@smith_object_2002; @Jones2003; @JONES_SMITH_2005; @TekAutism ; @TekAutismLessons]. Nevertheless, the shape bias observed in word learning experiments is highly variable across ages, cultures, languages, and experimental conditions, leading to conflicting outcomes and difficulties integrating the state of evidence to assess its commensurability and form a coherent understanding of the phenomenon of label categorization [ @Kucker2019ReproducibilityAA]. 
 
