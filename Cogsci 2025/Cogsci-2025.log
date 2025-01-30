@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.27)  29 JAN 2025 15:09
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.27)  29 JAN 2025 22:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -639,11 +639,11 @@ Underfull \vbox (badness 10000) detected at line 34
  []
 
 
-
-
-Underfull \hbox (badness 1910) in paragraph at lines 113--122
-\TU/TimesNewRoman(0)/m/n/10 The word extension task literature highlights significant
+Underfull \hbox (badness 1048) in paragraph at lines 36--52
+\TU/TimesNewRoman(0)/m/n/9 shape, material, function, and affordances—and examined
  []
+
+
 
 
 
@@ -652,36 +652,29 @@ Underfull \hbox (badness 1910) in paragraph at lines 113--122
 
 
 ]
-File: conceptual_diagram1.png Graphic file (type bmp)
-<conceptual_diagram1.png>
+Underfull \vbox (badness 4279) has occurred while \output is active []
 
 
 
 
-[2]
-Underfull \hbox (badness 1442) in paragraph at lines 254--270
-[]\TU/TimesNewRoman(0)/m/n/10 Lastly, most studies employ between-subjects designs,
+Underfull \hbox (badness 2809) in paragraph at lines 185--188
+ []\TU/TimesNewRoman(0)/b/n/10 Participants[] \TU/TimesNewRoman(0)/m/n/10 Twenty four typically developing English
  []
-
-
 
 File: stimuli.png Graphic file (type bmp)
 <stimuli.png>
 
 
-[3]
+[2]
 File: figs/first_exp-1.pdf Graphic file (type pdf)
 <use figs/first_exp-1.pdf>
 File: figs/first_exp_stim-1.pdf Graphic file (type pdf)
 <use figs/first_exp_stim-1.pdf>
 
-
-
-Underfull \vbox (badness 2653) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[4]
 File: figs/jitter_function-1.pdf Graphic file (type pdf)
 <use figs/jitter_function-1.pdf>
 
@@ -691,117 +684,92 @@ File: figs/sec_exp_stim-1.pdf Graphic file (type pdf)
 <use figs/sec_exp_stim-1.pdf>
 
 
+[3]
 
-Underfull \hbox (badness 5050) in paragraph at lines 500--504
+
+Underfull \vbox (badness 4479) has occurred while \output is active []
+
+
+
+[4]
+Underfull \hbox (badness 5050) in paragraph at lines 387--391
 []\TU/TimesNewRoman(0)/m/n/10 Abdelrahim, S., & Frank, M. C. (2024, September).
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--504
+Underfull \hbox (badness 10000) in paragraph at lines 387--391
 \TU/TimesNewRoman(0)/m/n/10 Examining the robustness and generalizability
  []
 
 
-Underfull \hbox (badness 5771) in paragraph at lines 500--504
+Underfull \hbox (badness 5771) in paragraph at lines 387--391
 \TU/TimesNewRoman(0)/m/n/10 of the shape bias: A meta-analysis. PsyArXiv.
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 506--510
-[]\TU/TimesNewRoman(0)/m/n/10 Baldwin, D. A. (1992). Clarifying the role of shape
- []
-
-
-Underfull \hbox (badness 1189) in paragraph at lines 506--510
-\TU/TimesNewRoman(0)/m/n/10 in children’s taxonomic assumption. \TU/TimesNewRoman(0)/m/it/10 Journal of Ex-
- []
-
-
-Underfull \hbox (badness 2134) in paragraph at lines 506--510
-\TU/TimesNewRoman(0)/m/it/10 perimental Child Psychology\TU/TimesNewRoman(0)/m/n/10 , \TU/TimesNewRoman(0)/m/it/10 54 3\TU/TimesNewRoman(0)/m/n/10 , 392–416. Re-
- []
-
-
-Underfull \hbox (badness 4217) in paragraph at lines 506--510
-\TU/TimesNewRoman(0)/m/n/10 trieved from []$[][][][][] [][][] [][][] [] [][][][][][][][][][][][][][][][] [] [][][][] []
- []
-
-
-Underfull \hbox (badness 2478) in paragraph at lines 524--528
+Underfull \hbox (badness 2478) in paragraph at lines 405--409
 []\TU/TimesNewRoman(0)/m/n/10 Booth, A., Waxman, S., & Huang, Y. (2005). Con-
  []
 
 
-Underfull \hbox (badness 3735) in paragraph at lines 524--528
+Underfull \hbox (badness 3735) in paragraph at lines 405--409
 \TU/TimesNewRoman(0)/m/n/10 ceptual information permeates word learning in in-
  []
 
 
-Underfull \hbox (badness 2334) in paragraph at lines 524--528
+Underfull \hbox (badness 2334) in paragraph at lines 405--409
 \TU/TimesNewRoman(0)/m/n/10 fancy. \TU/TimesNewRoman(0)/m/it/10 Developmental Psychology\TU/TimesNewRoman(0)/m/n/10 , \TU/TimesNewRoman(0)/m/it/10 41\TU/TimesNewRoman(0)/m/n/10 (3), 491–505.
  []
 
 
 
-[5]
-Underfull \hbox (badness 2644) in paragraph at lines 545--552
-\TU/TimesNewRoman(0)/m/n/10 CHILD’s ACQUISITION OF SEMANTICS IN HIS
- []
 
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[6]
-Underfull \hbox (badness 5756) in paragraph at lines 588--593
+Underfull \hbox (badness 5756) in paragraph at lines 442--447
 \TU/TimesNewRoman(0)/m/n/10 Preschoolers’ and adults’ reliance on object shape
  []
 
 
-Underfull \hbox (badness 6526) in paragraph at lines 588--593
+Underfull \hbox (badness 6526) in paragraph at lines 442--447
 \TU/TimesNewRoman(0)/m/n/10 and object function for lexical extension. \TU/TimesNewRoman(0)/m/it/10 Jour-
  []
 
 
-Underfull \hbox (badness 2735) in paragraph at lines 588--593
+Underfull \hbox (badness 2735) in paragraph at lines 442--447
 \TU/TimesNewRoman(0)/m/it/10 nal of Experimental Child Psychology\TU/TimesNewRoman(0)/m/n/10 , \TU/TimesNewRoman(0)/m/it/10 74\TU/TimesNewRoman(0)/m/n/10 (2), 128–
  []
 
 
-Underfull \hbox (badness 1264) in paragraph at lines 627--631
+Underfull \hbox (badness 1264) in paragraph at lines 475--479
 []\TU/TimesNewRoman(0)/m/n/10 JONES, S. S., & SMITH, L. B. (2005). Object name
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 627--631
+Underfull \hbox (badness 3168) in paragraph at lines 475--479
 \TU/TimesNewRoman(0)/m/n/10 ers. \TU/TimesNewRoman(0)/m/it/10 Journal of Child Language\TU/TimesNewRoman(0)/m/n/10 , \TU/TimesNewRoman(0)/m/it/10 32\TU/TimesNewRoman(0)/m/n/10 (1), 223–240.
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 640--644
+Underfull \hbox (badness 3260) in paragraph at lines 488--492
 []\TU/TimesNewRoman(0)/m/n/10 Landau, B., & Jones, S. (1998). Object shape, ob-
  []
 
 
-Underfull \hbox (badness 2790) in paragraph at lines 640--644
+Underfull \hbox (badness 2790) in paragraph at lines 488--492
 \TU/TimesNewRoman(0)/m/n/10 ject function, and object name. \TU/TimesNewRoman(0)/m/it/10 Journal of Mem-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 640--644
+Underfull \hbox (badness 10000) in paragraph at lines 488--492
 \TU/TimesNewRoman(0)/m/it/10 ory and Language - J MEM LANG\TU/TimesNewRoman(0)/m/n/10 , \TU/TimesNewRoman(0)/m/it/10 38\TU/TimesNewRoman(0)/m/n/10 , 1–27.
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 652--656
+Underfull \hbox (badness 1735) in paragraph at lines 500--504
 []\TU/TimesNewRoman(0)/m/n/10 Merriman, W. E., Scott, P. D., & Marazita, J. (1993).
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 652--656
+Underfull \hbox (badness 2961) in paragraph at lines 500--504
 \TU/TimesNewRoman(0)/m/n/10 ing. \TU/TimesNewRoman(0)/m/it/10 Journal of Child Language\TU/TimesNewRoman(0)/m/n/10 , \TU/TimesNewRoman(0)/m/it/10 20\TU/TimesNewRoman(0)/m/n/10 (1), 101–118.
  []
 
@@ -810,38 +778,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-
-Underfull \hbox (badness 1325) in paragraph at lines 676--680
+[5]
+Underfull \hbox (badness 1325) in paragraph at lines 512--516
 \TU/TimesNewRoman(0)/m/n/10 vocabulary guide language acquisition in connection-
  []
 
 
-Underfull \hbox (badness 1325) in paragraph at lines 682--686
+Underfull \hbox (badness 1325) in paragraph at lines 518--522
 \TU/TimesNewRoman(0)/m/n/10 vocabulary guide language acquisition in connection-
  []
 
 
-Underfull \hbox (badness 4217) in paragraph at lines 720--723
+Underfull \hbox (badness 4217) in paragraph at lines 551--554
 \TU/TimesNewRoman(0)/m/n/10 trieved from []$[][][][][] [][][] [][][] [] [][][][][][][][][][][][][][][][] [] [][][][] []
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 725--729
+Underfull \hbox (badness 5417) in paragraph at lines 556--560
 \TU/TimesNewRoman(0)/m/n/10 edge as process: Contextually cued attention and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--729
-\TU/TimesNewRoman(0)/m/n/10 1314. http://doi.org/[]$[][][][][] [][][] [][][] [] [][][][] [] [][] [] [][][][][] []
- []
-
-
-Underfull \hbox (badness 5417) in paragraph at lines 731--735
-\TU/TimesNewRoman(0)/m/n/10 edge as process: Contextually cued attention and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 731--735
+Underfull \hbox (badness 10000) in paragraph at lines 556--560
 \TU/TimesNewRoman(0)/m/n/10 1314. http://doi.org/[]$[][][][][] [][][] [][][] [] [][][][] [] [][] [] [][][][][] []
  []
 
@@ -850,42 +808,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[7]
-Underfull \hbox (badness 1931) in paragraph at lines 765--770
+
+Underfull \hbox (badness 1931) in paragraph at lines 590--595
 \TU/TimesNewRoman(0)/m/it/10 ternational Society for Autism Research\TU/TimesNewRoman(0)/m/n/10 , \TU/TimesNewRoman(0)/m/it/10 1\TU/TimesNewRoman(0)/m/n/10 , 208–22.
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 778--782
+Underfull \hbox (badness 6173) in paragraph at lines 603--607
 []\TU/TimesNewRoman(0)/m/n/10 Ware, E. A., & Booth, A. E. (2010). Form fol-
  []
 
 
-Underfull \hbox (badness 2932) in paragraph at lines 778--782
+Underfull \hbox (badness 2932) in paragraph at lines 603--607
 \TU/TimesNewRoman(0)/m/n/10 lows function: Learning about function helps chil-
  []
 
 
 
-
-
-[8
-
-] (./Cogsci-2025.aux)
+[6] (./Cogsci-2025.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
 Package rerunfilecheck Info: File `Cogsci-2025.out' has not changed.
-(rerunfilecheck)             Checksum: 77929DFDF736A690EE28ABB1C704249C;2856.
+(rerunfilecheck)             Checksum: C0CF2A791F6D44D518B0A37DC32272EC;1134.
  ) 
 Here is how much of TeX's memory you used:
- 16947 strings out of 475791
- 319125 string characters out of 5772118
- 787187 words of memory out of 5000000
- 39630 multiletter control sequences out of 15000+600000
+ 16897 strings out of 475791
+ 317957 string characters out of 5772118
+ 786187 words of memory out of 5000000
+ 39580 multiletter control sequences out of 15000+600000
  561226 words of font info for 74 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 94i,12n,107p,389b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,12n,107p,389b,429s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Cogsci-2025.pdf (8 pages).
+Output written on Cogsci-2025.pdf (6 pages).

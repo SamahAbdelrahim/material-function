@@ -15,7 +15,7 @@ library(stringr)
 
 
 
-df_summer24 <- read_csv(here("JMZsummer24.csv")) |> filter(!is.na(response))
+df_summer24 <- read_csv(here("data","JMZsummer24.csv")) |> filter(!is.na(response))
 
 df_summer24 <- df_summer24 %>% mutate (b_response = case_when(response == "shape" ~ 1, .default = 0))
 
