@@ -9,7 +9,7 @@ author-information: >
     \AND {\large \bf Sharon J.~Derry (SDJ@Macc.Wisc.Edu)} \\ Department of Educational Psychology, 1025 W. Johnson Street \\ Madison, WI 53706 USA}
 
 abstract: >
-    Word generalization in young children is often attributed to a shape bias, yet the mechanisms driving this bias and its variability remain poorly understood. Here, we explore methodological factors contributing to heterogeneity in shape bias studies, including task format, stimuli design, and theoretical frameworks. Through a series of experiments, we systematically manipulated object properties—shape, material, function, and affordances—and examined their effects on children’s generalization patterns. Preliminary findings indicate a robust preference for shape, even when function is made salient, suggesting that children may prioritize shape as a proxy for category membership. However, nuanced interactions between stimuli design, task structure, and prior experiences highlight the role of context and task dependency in shaping behavior. Cross-linguistic and theoretical debates about the origins of shape bias—whether rooted in syntactic structure, statistical regularities, or conceptual representations—underscore the need for unified methodologies to reconcile conflicting evidence. By identifying key sources of variability and advocating for methodological consistency, this study advances our understanding of label categorization and offers a framework for integrating diverse findings across cultural and linguistic contexts.
+    Young children often generalize word meanings based on object shape, yet the mechanisms driving shape bias and its variability remain poorly understood. Theoretical debates about the origins of shape bias and whether it is rooted in syntactic structure, statistical regularities, or conceptual representations underscore the need for a unified method, since evidence from different methods often leads to  conflicting evidence.Here, we explore methodological factors contributing to heterogeneity in shape bias studies, including task format, stimuli design, and theoretical frameworks. Through a series of experiments, we systematically manipulated object properties—shape, material, function, and affordances—and examined their effects on children’s generalization patterns. Preliminary findings indicate a robust preference for shape, even when function is made salient, suggesting that children may prioritize shape as a proxy for category membership. However, nuanced interactions between stimuli design, task structure, and prior experiences highlight the role of context and task dependency in shaping behavior. By identifying key sources of variability and advocating for methodological consistency, this study advances our understanding of label categorization and offers a framework for integrating diverse findings across cultural and linguistic contexts.
     
 keywords: >
     Add your choice of indexing terms or keywords; kindly use a semi-colon; between each term.
@@ -134,6 +134,13 @@ ggplot(data = kid_means_long_summer24, aes(x = age, y = proportions, color = res
 ```
 
 ``` {r first_exp_stim, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Percentage of choosing by dimension per stimuli item, indicated by its novel label (aggregate across participants). Dashed line is chance level = 33.3% "}
+
+# Reorder standardlabel by "shape" percentage in descending order
+plot_data_summer24 <- plot_data_summer24 %>%
+  mutate(standardlabel = fct_reorder(standardlabel, 
+                                     percent * (response == "shape"), 
+                                     .desc = TRUE))
+
 ggplot(data = plot_data_summer24, aes(x = standardlabel, y = percent, fill = response)) +
   geom_col(position = "stack", color = "black") +  
   geom_hline(yintercept = 33.3, linetype = "dashed") +
