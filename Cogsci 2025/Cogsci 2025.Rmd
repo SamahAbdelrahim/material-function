@@ -41,7 +41,7 @@ source(here("Basic_parad.R"))
 
 ```
 # Basis of generalizations
-What does "dog" mean to a 2-year-old? This old question reflects the evolving nature of our understanding of early label categorization. For young children, a dog might initially be identified by a set of general features that expands with experience. For example, The semantic features hypothesis @CLARK197365 suggests that categorization begins with schemas of basic perceptual attributes, such as [four legs, tail, fur] for dog, hence we see overextensions of the word “dog” to beings that share these set of features like cats for example. Over time, deeper attributes, such as its internal composition, behavior and interaction with the world, or sound, may also become relevant (Carey, 1985).  In contrast, the functional core hypothesis [@Nelson1974ConceptWA] posits that children extract relationships among features to identify future category members without treating these features as defining. In this view, perceptual attributes like [four legs, tail, fur] act as identifiers rather than encapsulating the category's essence. Both frameworks agree, however, that shared perceptual features facilitate identification and labeling, forming the foundation for the well-studied shape bias (@Baldwin1992ClarifyingTR; @Graham1999InfantsRO ; @LANDAU1988299 ; @graham_2010, @samuelson2000children; @imai_childrens_1994).
+What does "dog" mean to a 2-year-old? This old question reflects the evolving nature of our understanding of early label categorization. For young children, a dog might initially be identified by a set of general features that expands with experience. For example, The semantic features hypothesis (@Clark1973WHATSIA) suggests that categorization begins with schemas of basic perceptual attributes, such as [four legs, tail, fur] for dog, hence we see overextensions of the word “dog” to beings that share these set of features like cats for example. Over time, deeper attributes, such as its internal composition, behavior and interaction with the world, or sound, may also become relevant. In contrast, the functional core hypothesis [@Nelson1974ConceptWA] posits that children extract relationships among features to identify future category members without treating these features as defining. In this view, perceptual attributes like [four legs, tail, fur] act as identifiers rather than encapsulating the category's essence. Both frameworks agree, however, that shared perceptual features facilitate identification and labeling, forming the foundation for the well-studied shape bias (@Baldwin1992ClarifyingTR; @Graham1999InfantsRO ; @LANDAU1988299 ; @graham_2010, @samuelson2000children; @imai_childrens_1994).
 
 The shape bias, which is the tendency to generalize objects names by their shape, rather than other properties, is a word learning constraint that is argued to facilitate early noun acquisition, to be an important route to vocabulary growth, and to be weaker in children with language delay [@smith_object_2002; @Jones2003; @JONES_SMITH_2005; @TekAutism ; @TekAutismLessons]. Nevertheless, the shape bias observed in word learning experiments is highly variable across ages, cultures, languages, and experimental conditions, leading to conflicting outcomes and difficulties integrating the state of evidence to assess its commensurability and form a coherent understanding of the phenomenon of label categorization [ @Kucker2019ReproducibilityAA]. 
 
@@ -59,13 +59,13 @@ Two key hypotheses attempt to explain these differences:
 2- Statistical Regularities Hypothesis: Variations in lexical and environmental statistical regularities tunes attention toward features like shape. This hypothesis emphasizes the role of existing vocabulary and environmental exposure in guiding category organization [@gershkoff2004shape; @samuelson_statistical_2002; @samuelson1999; @perry2010learn; @colunga2000learning; @yoshida2003known; @2005_Samuelson; @jara2022; @abdelrahim_frank_2024]. 
 
 ## The Perception or conception debate
-A second key debate focuses on the mechanism or representation underlying the shape bias. While the tendency to extend nouns based on shape may be influenced by syntax or statistical regularities, its precise cognitive basis has been controversial [@smith_object_2002; @smithcolunga2010; @Smith1996NamingIY; Brady & Chun, 2007; Chun & Jiang, 1998; @SAMUELSON2010138; @WARE2010124; @dejavu ; @JONES1993113; @dynamicBias; @Bruner1964TheCO].
+A second key debate focuses on the mechanism or representation underlying the shape bias. While the tendency to extend nouns based on shape may be influenced by syntax or statistical regularities, its precise cognitive basis has been controversial [@smith_object_2002; @smithcolunga2010; @Smith1996NamingIY; @SAMUELSON2010138; @WARE2010124; @dejavu ; @JONES1993113; @dynamicBias; @Bruner1964TheCO; @gelman_medin1993].
 
 Two competing perspectives attempt to explain this mechanism:
 
 1- Associative and Non-Strategic Mechanism:
 The shape bias is viewed as an early cognitive tool, helping children "break into" language by rapidly mapping nouns to referents through associative processes. This bias operates on a perceptual level, organizing categories around salient features like shape. For instance, the shape of a dog becomes synonymous with the category "dog" i.e. a real dog and a plastic toy dog have the same mental representation. 
-This view posits that the bias is non-strategic, independent of conceptual understanding or general world knowledge (Smith et al., 2002; Smith & Colunga, 2010; Brady & Chun, 2007; Chun & Jiang, 1998). 
+This view posits that the bias is non-strategic, independent of conceptual understanding or general world knowledge (@gentner1978; @SMITH1996143). 
 
 2- Strategic and Conceptually Controlled Mechanism:
 The shape bias is seen as a flexible and controlled process, governed by general world knowledge and conceptual understanding [@BOOTH2002B11; @2005_Booth]. Although a real dog and a plastic toy dog are both referents of the same label, but they have different mental representations. 
@@ -75,8 +75,10 @@ knitr::include_graphics("conceptual_diagram1.png")
 
 ```
 ## The nature of Knowledge
-Given that task design is influenced by theoretical assumptions, this raises another important question: What type of knowledge do these tasks measure? Two key assumptions can stem out of this: 
+Given that task design is influenced by theoretical assumptions, this raises another important question: What type of knowledge do these tasks measure? Two key assumptions can stem out of this:
+
 Knowledge as Stable and Fixed: If knowledge is stable, tasks merely elicit pre-existing constructs. Investigating heterogeneity would then focus on ensuring task validity and reliability in capturing the theoretical construct.
+
 Knowledge as Dynamic and Task-Dependent: If knowledge is dynamic, categorization depends on the interaction between task specifics and children’s behavior. This view suggests that children dynamically select information sources to organize categories, influenced by the context of the task and the nature of the stimuli [@smithContext; @replycimpian; @cimpian2005absence; @smithcolunga2010]. If the second assumption holds, achieving consistency in measures across studies is crucial to isolating the relevant contextual cues that tasks provide specially for cross-cultural studies that aim to adjudicate theoretical debates.
 
 Regardless of which assumption holds, it is necessary to evaluate the heterogeneity in the word categorization studies which highlights the importance of methodological consistency and the need to consider the theoretical premises underlying procedural decisions. Understanding how these premises shape task designs and influence results is key to advancing our knowledge of label categorization and concept formation. 
@@ -90,7 +92,7 @@ Generalization in word learning is assessed by teaching children a novel label f
 ## Stimuli
 A significant sources of variation in the word extension findings comes from differences in stimuli. Just like task format, these methodological decisions are often driven by theoretical frameworks as well. 
 For instance, studies focusing on low-level attentional biases typically emphasize contrasts between shape and other perceptual features, such as color or material, using stimuli designed to highlight these attributes. On the other hand, studies investigating conceptual understanding often include cues related to animacy, such as eyes, shoes, or other salient features, and use test objects that share multiple dimensions with the exemplar instead of only one to explore broader conceptual frameworks [@yoshida2003; @JONES1998323].
-When functionality is emphasized, stimuli are often paired with demonstrations of an affordance, stories, or narratives to contrast shape with function. Children aged 2 to 5 years are found to prioritize shape, even when provided with functional information [@Centner2003OnRM; @landau1996; @Merriman_Scott_Marazita_1993; @GRAHAM1999128]. However, conflicting evidence shows children sometimes prioritize function or other cues (Kemler Nelson, 1995; Gelman & Medin, 1993; etc.). This variation is linked to factors like whether test objects were handled or how stimuli were designed (e.g., functional bases vs. appended parts). In addition, some studies use pictures or drawings, while others use physical objects (cite). 
+When functionality is emphasized, stimuli are often paired with demonstrations of an affordance, stories, or narratives to contrast shape with function. Children aged 2 to 5 years are found to prioritize shape, even when provided with functional information [@Centner2003OnRM; @landau1996; @Merriman_Scott_Marazita_1993; @GRAHAM1999128]. However, conflicting evidence shows children sometimes prioritize function or other cues (@KEMLERNELSON199977; @KEMLERNELSON1995347; @Nelson2000). This variation is linked to factors like whether test objects were handled or how stimuli were designed (e.g., functional bases vs. appended parts). In addition, some studies use pictures or drawings, while others use physical objects (cite). 
 
 Lastly, most studies employ between-subjects designs, which do not control for individual differences, further amplifying heterogeneity. These procedural and stimuli variations reflect broader theoretical questions about the origins of the shape bias (Smith & Medin, 1981). Is it a Low-level attentional mechanisms driven by attentional processes that guide children to perceptual features associated with category labels? Or a Top-down conceptual processes in which the perceptual features act as identifiers rather than defining properties? Where should the line be drawn between perceptual feature identification and the core representation of conceptual labels? Are these separate processes, or do they exist on a continuum that develops as children acquire more information? How do attention to perceptual attributes and conceptual understanding interact during development (Madole & Oakes, 1999)? These foundational questions influence procedural decisions and should be kept in mind when investigating label categorization and concept formation.
 
@@ -103,7 +105,7 @@ Given our focus on early language acquisition and the noun bias dominating early
 To investigate children’s reasoning about objects' properties and functions, a series of object sets were designed, each containing one exemplar, a material match, a shape match, a function match, and a distractor (e.g., dax, fep, blicket, gorp, zimbo, wap, blint). These sets allowed for systematic manipulation of object features to assess various cognitive processes related to word learning and category generalization.
 In Experiment 1, the shape match was contrasted with a material match. This served as a baseline check and replication of prior findings regarding shape bias in categorization tasks.
 In Experiment 2, the same exemplar was used, but the shape match was contrasted with a function match. 
-```{r stimulipics , fig.height = 0.5, fig.width =0.5, out.width="100%", fig.cap="A diagram to visualize different factors that potentially contribute to the emergence of the shape bias"}
+```{r stimulipics , fig.height = 0.5, fig.width =0.5, out.width="100%", fig.cap="Examples of stimuli objects used in both experiments"}
 knitr::include_graphics("stimuli.png")
 ```
 The function test object was modified in a way that preserved its shape but altered its functionality (e.g., an object wrapped entirely vs. one that could clearly open).
@@ -120,25 +122,25 @@ Twenty four typically developing English speaking participants (2-5 years old, m
 
 ## Procedure
 Seven trials were conducted in which each participant sees an object being labeled “this is a dax”, the object is taken away but still in view, both test objects and the distractor are displayed simultaneously while asking the child “can you find another dax by pointing to it?”. The child gets to hear the label 3 times while viewing it without touching it. 
-``` {r first_exp, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Developmental trend of choosing by each dimension. Smoothed lines are standard error"}
+``` {r first_exp, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Developmental trend of choosing by each dimension. Smoothed lines are standard error. Distractor is no match at all. Data points are individual participants"}
 ggplot(data = kid_means_long_summer24, aes(x = age, y = proportions, color = response)) +
-  geom_point(position = "jitter")+
+  geom_jitter(position=position_jitter(height=0))+
   geom_smooth() +
   theme_minimal() +
-  xlab("Age (mo)") + ylab("Proportion") + labs(color = "Dimension") +
+  xlab("Age (mo)") + ylab("Proportion selected") + labs(color = "Dimension") +
   scale_color_manual(labels = c("distractor", "material","shape" ), values = c("brown", "darkgrey", "yellow4")) +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") 
 
 ```
 
-``` {r first_exp_stim, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Percentage of choosing by dimension per stimuli item. Dashed line is chance level = 33.3% "}
+``` {r first_exp_stim, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Percentage of choosing by dimension per stimuli item, indicated by its novel label (aggregate across participants). Dashed line is chance level = 33.3% "}
 ggplot(data = plot_data_summer24, aes(x = standardlabel, y = percent, fill = response)) +
   geom_col(position = "stack", color = "black") +  
   geom_hline(yintercept = 33.3, linetype = "dashed") +
   geom_hline(yintercept = 66.6, linetype = "dashed") +
   theme_minimal() +
   xlab("Stimuli object (by exemplar label)") +
-  ylab("Percentage") +
+  ylab("Selection Percentage") +
   labs(fill = "Response") +
   scale_fill_manual(
     values = c("brown", "darkgrey", "yellow4"), 
@@ -176,29 +178,29 @@ After replicating the shape bias effect using the set of stimuli we created in a
 ## Procedure
 
 A within subject manipulation with two conditions: material or function. The material condition is identical to the first experiment. In the function condition, the experimenter introduce the exemplar object “this is a dax”, gives the child 15 seconds seconds to play with it, provides functional information “ the dax grapes toys”, gives another 15 seconds to play with it, and puts the toy away but within view, before introducing the test objects and asks for a response. 
-``` {r jitter_function, fig.env = "figure*", fig.width = 8, fig.height= 4, fig.pos = "!h",  out.width = "100%", fig.cap = "Experiment 2, function vs. no function 'material'  condition. Children choose by shape more, even when function information is made salient"}
+``` {r jitter_function, fig.env = "figure*", fig.width = 8, fig.height= 4, fig.pos = "!h",  out.width = "100%", fig.cap = "Experiment 2, function vs. no function condition. Smoothed lines are standard error. Distractor is no match at all. Data points are individual participants. Children choose by shape more, even when function information is made salient."}
 
 kid_means_long <- kid_means_long %>%
   mutate(condition = recode(condition, 
                             "function" = "Function", 
                             "material" = "No Function"))
-conditions <- c(
-  "Function" = "Function",
-  "No Function" = "No Function"
-)
+# conditions <- c(
+#   "Function" = "Function",
+#   "No Function" = "No Function"
+# )
 
-ggplot(data = kid_means_long %>% filter(!(condition == "function" & response == "m.mean")), aes(x = age_mo, y = proportions, color = response)) +
-  geom_jitter() +
+ggplot(data = kid_means_long %>% filter(!(condition == "Function" & response == "m.mean") , !(condition == "No Function" & response == "f.mean")), aes(x = age_mo, y = proportions, color = response)) +
+  geom_jitter(position=position_jitter(height=0)) +
+  facet_wrap(~condition) +
   geom_smooth(method = "lm") +
   theme_minimal() +
   xlab("Age (mo) ") +
-  ylab("Proportion") +
+  ylab("Proportion selected") +
   labs(color = "Response") +  # Label for the legend
   scale_color_manual(
     values = c("brown", "darkgrey", "yellow4", "pink"),  # Colors for each response
     labels = c("Distractor", "Function", "Material", "Shape")  # Labels for the legend
-  ) +
-  facet_wrap(~condition, labeller = as_labeller(conditions)) + 
+  ) + 
   theme_minimal() + 
   theme(legend.position = "bottom")
 
@@ -207,7 +209,7 @@ ggplot(data = kid_means_long %>% filter(!(condition == "function" & response == 
 
 ```
 
-``` {r sec_exp_stim, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Experiment 2, proportion of choosing by each dimension per exemplar item 'indicated by its novel label. We note variability across items"}
+``` {r sec_exp_stim, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Experiment 2, proportion of choosing by each dimension per exemplar item, indicated by its novel label(aggregate across participants). Dashed line is chance level = 33.3%. We note variability across items."}
 
 plot_data_c <- plot_data_c %>%
   mutate(condition = recode(condition, 
@@ -219,13 +221,13 @@ conditions <- c(
 )
 
 
-ggplot(data = plot_data_c %>% filter(!(condition == "function" & response == "material")), aes(x = standardlabel, y = percent, fill = response)) +
+ggplot(data = plot_data_c %>% filter(!(condition == "Function" & response == "material")), aes(x = standardlabel, y = percent, fill = response)) +
   geom_col(position = "stack", color = "black") + 
   geom_hline(yintercept = 33.3, linetype = "dashed") +
   geom_hline(yintercept = 66.6, linetype = "dashed") +
   theme_minimal() +
   xlab("Stimuli object (by exemplar label)") +
-  ylab("Percentage") +
+  ylab("Selection Percentage") +
   labs(fill = "response") +
   scale_fill_manual(
     values = c("brown", "darkgrey", "yellow4", "pink"),  #enough colors for all response categories
@@ -300,7 +302,7 @@ In addition, many children explored whether their chosen test object could perfo
 Meanwhile, in the case of the (gorp), for which the function wasn't as ambiguous (scooping sand requires the structure of the object to have two parts that can split and then close to hold sand inside), in this case the test object was designed in a way that makes it very clear to not open, hence they went for the function test choice (see suplementary material). 
 For evaulating the children's ability to reason about intrinsic affordances, we created the "Fep" in a way such that the material itself is very critical for performing the function "holding water while being made of paper towel". We believe all these structural differences between objects can explain part of the variation when we have enough data to fit the model. 
 
-As we mentioned in the introduction, procedural variation observed in the literature have followed theoretical debates and in fact reinforced by them. We think this endeavor is one step towards achieving validity and reliability in word extension tasks, as well as discussing theoretical implications that follow for them. To illusatrate, the definition of the shape bias construct as a word extension strategy has been ambiguous and it is also influenced by theoretical framing. For example, if it is a product of different contingencies and statistical regularities, it would make sense from a signal detection point of view, to predict that it will have a graded degree between population, individuals, and items. Hence, analyzing data on an aggregate level across all these dimensions hasn't helped advancing our understanding of cross cultural differences at a theoretical level. 
+As we mentioned in the introduction, procedural variation observed in the literature have followed theoretical debates and in fact reinforced by them. We think this endeavor is one step towards achieving validity and reliability in word extension tasks, as well as discussing theoretical implications that follow (@madole1999263). To illustrate, the definition of the shape bias construct as a word extension strategy has been ambiguous and it is also influenced by theoretical framing. For example, if it is a product of different contingencies and statistical regularities, it would make sense from a signal detection point of view, to predict that it will have a graded degree between population, individuals, and items. Hence, analyzing data on an aggregate level across all these dimensions hasn't helped advancing our understanding of cross cultural differences at a theoretical level. 
 We believe, providing a quantifiable assessment of data across items, individuals, and building upon that across cultures, will be the only way to resolve these issues.
 
 
