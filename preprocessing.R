@@ -39,30 +39,36 @@ age_summary <- df %>%
   summarise(n_kids = n())  
 
 # means per participant
+# 
+# kid_means <- df %>% 
+#   group_by(kidid, age_mo, condition, age_group, cond_order) %>% 
+#   summarize(s.mean = mean(as.numeric(response == "shape"))), 
+#             m.mean = mean(as.numeric(response == "material")), 
+#             d.mean = mean(as.numeric(response == "distractor")), 
+#             f.mean = mean(as.numeric(response == "function")) ) %>% 
+#   mutate(cond_order = first(cond_order)) %>% 
+#   ungroup()
+# 
+# kid_means_long <- kid_means %>% pivot_longer(cols = c("s.mean", "m.mean", "d.mean", "f.mean") , names_to = "response", values_to = "proportions" )
 
-kid_means <- df %>% 
-  group_by(kidid, age_mo, condition, age_group, cond_order) %>% summarize(s.mean = sum(as.numeric(response == "shape"))/7, m.mean = sum(as.numeric(response == "material"))/7,d.mean = sum(as.numeric(response == "distractor"))/7, f.mean = sum(as.numeric(response == "function"))/7 ) %>% mutate(cond_order = first(cond_order)) %>% ungroup()
-
-kid_means_long <- kid_means %>% pivot_longer(cols = c("s.mean", "m.mean", "d.mean", "f.mean") , names_to = "response", values_to = "proportions" )
-
-kid_means_long <- kid_means_long %>%
-  left_join(df %>% select(kidid, cond_order) %>% distinct(), by = "kidid") %>%
-  select(-ends_with(".y")) %>%
-  ungroup() %>% 
-  rename(cond_order = cond_order.x) 
+# kid_means_long <- kid_means_long %>%
+#   left_join(df %>% select(kidid, cond_order) %>% distinct(), by = "kidid") %>%
+#   select(-ends_with(".y")) %>%
+#   ungroup() %>% 
+#   rename(cond_order = cond_order.x) 
 
 # Summarize data to ensure one row per kidid per condition
-cleaned_data <- kid_means %>%
-  group_by(kidid, age_mo, age_group, cond_order, condition) %>%
-  summarize(s.mean = mean(s.mean, na.rm = TRUE), .groups = "drop")
-
-# Pivot wider
-diff <- cleaned_data %>%
-  pivot_wider(
-    names_from = condition, 
-    values_from = s.mean,
-    names_prefix = "s.mean_"
-  ) %>% mutate(diff = s.mean_function - s.mean_material)
+# cleaned_data <- kid_means %>%
+#   group_by(kidid, age_mo, age_group, cond_order, condition) %>%
+#   summarize(s.mean = mean(s.mean, na.rm = TRUE), .groups = "drop")
+# 
+# # Pivot wider
+# diff <- cleaned_data %>%
+#   pivot_wider(
+#     names_from = condition, 
+#     values_from = s.mean,
+#     names_prefix = "s.mean_"
+#   ) %>% mutate(diff = s.mean_function - s.mean_material)
 
 
 # kid_means <- kid_means %>%

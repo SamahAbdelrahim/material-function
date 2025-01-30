@@ -29,7 +29,12 @@ responsecount <- df_summer24 %>% group_by(response) %>% summarize(count = n())
 
 df_summer24 %>% summarize (s.mean = sum(as.numeric(response == "shape"))/n(), m.mean = sum(as.numeric(response == "material"))/n(), d.mean = sum(as.numeric(response == "distractor"))/n()) #across all trials
 
-kid_means_summer24 <- df_summer24 %>% group_by(kidid, age) %>% summarize(s.mean = sum(as.numeric(response == "shape"))/7, m.mean = sum(as.numeric(response == "material"))/7,d.mean = sum(as.numeric(response == "distractor"))/7) %>% ungroup()
+kid_means_summer24 <- df_summer24 %>% 
+  group_by(kidid, age) %>% 
+  summarize(s.mean = sum(as.numeric(response == "shape"))/7, 
+            m.mean = sum(as.numeric(response == "material"))/7,
+            d.mean = sum(as.numeric(response == "distractor"))/7) %>% 
+  ungroup()
 # kid_means <- kid_means[-c(7), ]
 
 discrete_df_summer24 <- kid_means_summer24 %>%
@@ -68,7 +73,9 @@ discrete_df_summer24_long <- discrete_df_summer24 %>%
   ) %>%
   select(-shape_se, -material_se, -distractor_se)  # Remove unnecessary columns
 
-kid_means_long_summer24 <- kid_means_summer24 %>% pivot_longer(cols = c("s.mean", "m.mean", "d.mean") , names_to = "response", values_to = "proportions" )
+kid_means_long_summer24 <- kid_means_summer24 %>% 
+  pivot_longer(cols = c("s.mean", "m.mean", "d.mean") , 
+               names_to = "response", values_to = "proportions" )
 
 gmodel1 <- glmer(b_response ~ age + (1 | standardlabel), 
       family = binomial(link = "logit"), data = df_summer24)
@@ -84,21 +91,21 @@ plot_data_summer24 <- df_summer24 %>%
   group_by(standardlabel) %>%
   mutate(percent = count / sum(count) * 100)
 
-
-ggplot(data = plot_data_summer24, aes(x = standardlabel, y = percent, fill = response)) +
-  geom_col(position = "stack", color = "black") +  # Stacked bar plot
-  theme_minimal() +
-  xlab("Standard Label") +
-  ylab("Percentage") +
-  labs(fill = "Response") +
-  scale_fill_manual(
-    values = c("brown", "darkgrey", "yellow4"),  # Custom colors
-    labels = c("Distractor", "Material", "Shape")  # Legend labels
-  ) +
-  theme(
-    axis.text.x = element_text(angle = 45, hjust = 1),
-    legend.title = element_text(size = 12, face = "bold"),
-    legend.text = element_text(size = 10),
-    legend.position = "bottom",  # Place legend at the bottom
-    panel.grid.major.y = element_line(color = "grey90")
-  )
+# 
+# ggplot(data = plot_data_summer24, aes(x = standardlabel, y = percent, fill = response)) +
+#   geom_col(position = "stack", color = "black") +  # Stacked bar plot
+#   theme_minimal() +
+#   xlab("Standard Label") +
+#   ylab("Percentage") +
+#   labs(fill = "Response") +
+#   scale_fill_manual(
+#     values = c("brown", "darkgrey", "yellow4"),  # Custom colors
+#     labels = c("Distractor", "Material", "Shape")  # Legend labels
+#   ) +
+#   theme(
+#     axis.text.x = element_text(angle = 45, hjust = 1),
+#     legend.title = element_text(size = 12, face = "bold"),
+#     legend.text = element_text(size = 10),
+#     legend.position = "bottom",  # Place legend at the bottom
+#     panel.grid.major.y = element_line(color = "grey90")
+#   )
