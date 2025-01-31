@@ -142,7 +142,7 @@ ggplot(data = e1_items, aes(x = standardlabel, y = prop, fill = response)) +
   geom_hline(yintercept = .666, linetype = "dashed") +
   theme_minimal() +
   xlab("Stimuli object (by exemplar label)") +
-  ylab("Selection Percentage") +
+  ylab("Proportion selected") +
   labs(fill = "Response") +
   scale_fill_manual(
     values = c("darkgrey", "brown","yellow4"), 
@@ -260,7 +260,7 @@ ggplot(data = e2_items,
   geom_hline(yintercept = .666, linetype = "dashed") +
   theme_minimal() +
   xlab("Stimulus (by exemplar label)") +
-  ylab("Selection Percentage") +
+  ylab("Proportion selected") +
   labs(fill = "response") +
   scale_fill_manual(
     values = c("darkgrey", "brown", "pink", "yellow4"),  #enough colors for all response categories
