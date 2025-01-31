@@ -2,7 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+cogsci
 
 figs/
 *.log
 *.tex
+
