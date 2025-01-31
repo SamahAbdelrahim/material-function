@@ -1,7 +1,7 @@
 ---
 title: "Measuring the development of the shape bias in early word learning across methodological variations"
 bibliography: library.bib
-csl: apa6.csl
+csl: apa7.csl
 document-params: "10pt, letterpaper"
 
 author-information: > 
@@ -14,17 +14,10 @@ abstract: >
 keywords: >
     word learning; language acquisition; shape bias
     
-output: cogsci2016::cogsci_paper
+output: cogsci2024::cogsci_paper
 #final-submission: \cogscifinalcopy
 
-header-includes:
-  \usepackage{float}
-  \floatplacement{figure}{T}
-  \usepackage{graphicx}
-
-  \usepackage{natbib}
-  \bibliographystyle{apacite} % Or use 'apalike' or 'apa7' if available
-  \usepackage{apacite}
+#header-includes:
 ---
 
 ```{r global_options, include=FALSE}
@@ -63,7 +56,7 @@ The second major methodological variation in the word extension findings comes f
 Our goal in the current study is to evaluate procedural sources of variability as part of a larger scale assessment of word generalization across age groups and languages. We used a within-subject design to maximize precision in estimating condition differences. We also aim to measure developmental change by recruiting a sample size large enough to estimate age-related change. In Experiment 1, we began by measuring developmental change in the shpae bias. In Experiment 2, we manipulated the presence of alternative generalization items that shared function but not shape with the target object. Across both studies, we observed a robust shape bias that increased with age; preliminary data from Experiment 2 yielded no evidence that function information reduced the shape bias.
 
 ```{r}
-e1 <- read_csv(here("data","JMZsummer24.csv")) |> 
+e1 <- read_csv(here("data","JMZSummer24.csv")) |> 
   filter(!is.na(response)) |>
   rename(age_mo = age)
 
@@ -136,7 +129,9 @@ ggplot(data = e1_props, aes(x = age_mo/12, y = prop, color = response)) +
 
 ``` {r first_exp_stim, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Percentage of choosing by dimension per stimuli item, indicated by its novel label (aggregate across participants). Dashed line is chance level = 33.3% "}
 
-ggplot(data = e1_items, aes(x = standardlabel, y = prop, fill = response)) +
+order <- e1_items |> filter(response=="shape") |> arrange(prop) |> pull(standardlabel)
+
+ggplot(data = e1_items, aes(x = factor(standardlabel, levels=order)  , y = prop, fill = response)) +
   geom_col(position = "stack", color = "black") +  
   geom_hline(yintercept = .333, linetype = "dashed") +
   geom_hline(yintercept = .666, linetype = "dashed") +
