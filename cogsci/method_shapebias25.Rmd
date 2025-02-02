@@ -102,7 +102,8 @@ The function test object was modified in a way that preserved its shape but alte
 Color was different across all objects to ensure that visual similarity was driven solely by shape, material, and functional cues.
 Objects were crafted to explore how children reason about similarity based on whole-object vs. part-based features (e.g., whether specific parts afford a particular function).
 Some objects, such as the "fep," "blint," and "wap," were designed with material-critical functions (e.g., holding water while made of a paper towel). This design tested whether children could prioritize material when reasoning about function and to capture the developmental changes.
-The degree to which an object's affordances were visually apparent varied across designs. For example,the "zimbo" was designed to afford functionality only through a specific part, while the overall structure was irrelevant. The "gorp" was modeled to resemble objects familiar to slightly older children, like scissors, allowing exploration of prior experiences' influence on categorization.
+The degree to which an object's affordances were visually apparent varied across designs. For example,the "zimbo" was designed to afford functionality only through a specific part, while the overall structure was irrelevant. The "gorp" was modeled to resemble objects familiar to slightly older children, like scissors, allowing exploration of prior experiences' influence on categorization 
+(see supplementary https://osf.io/rngqa/?view_only=f0ac61b08e71404b814f5355e128c2df).
 
 ### Procedure
 
