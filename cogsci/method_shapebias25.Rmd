@@ -114,8 +114,8 @@ On each trial, the child was shown an object, which was labeled with the phrase 
 ``` {r first_exp, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Developmental trend of choosing by each dimension."}
 
 ggplot(data = e1_props, aes(x = age_mo/12, y = prop, color = response)) +
-  # geom_jitter(position=position_jitter(height=.01, width = 0))+
-  geom_point()+ 
+   geom_jitter(position=position_jitter(height=.01, width = 0.04))+
+   #geom_point()+
   # geom_smooth(method = "loess", span = 1) + 
     geom_smooth(method = "glm", method.args = list(family = "binomial"), 
               formula = y ~ log(x), 
