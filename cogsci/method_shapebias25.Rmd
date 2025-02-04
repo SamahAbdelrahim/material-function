@@ -102,12 +102,12 @@ The function test object was modified in a way that preserved its shape but alte
 Color was different across all objects to ensure that visual similarity was driven solely by shape, material, and functional cues.
 Objects were crafted to explore how children reason about similarity based on whole-object vs. part-based features (e.g., whether specific parts afford a particular function).
 Some objects, such as the "fep," "blint," and "wap," were designed with material-critical functions (e.g., holding water while made of a paper towel). This design tested whether children could prioritize material when reasoning about function and to capture the developmental changes.
-The degree to which an object's affordances were visually apparent varied across designs. For example,the "zimbo" was designed to afford functionality only through a specific part, while the overall structure was irrelevant. The "gorp" was modeled to resemble objects familiar to slightly older children, like scissors, allowing exploration of prior experiences' influence on categorization 
+The degree to which an object's affordances were visually apparent varied across designs. For example, the "zimbo" was designed to afford functionality only through a specific part, while the overall structure was irrelevant. The "gorp" was modeled to resemble objects familiar to slightly older children, like scissors, allowing exploration of prior experiences' influence on categorization 
 (see supplementary https://osf.io/rngqa/?view_only=f0ac61b08e71404b814f5355e128c2df).
 
 ### Procedure
 
-On each trial, the child was shown an object, which was labeled with the phrase "this is a [X]". The object was moved away from the child but remained in view, and both the test object and the distractor were displayed simultaneously while asking the child "can you find another [X] by pointing to it?". The child gets to hear the label 3 times while viewing it without touching it. Each child saw seven trials. 
+On each trial, the child was shown an object, which was labeled with the phrase "this is a [X], do you see the [X]?". The object was moved away from the child but remained in view, and both the test object and the distractor were displayed simultaneously while asking the child "can you find another [X] by pointing to it?". The child gets to hear the label 3 times while viewing it without touching it. Each child saw seven trials. 
 
 
 ``` {r first_exp, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Developmental trend of choosing by each dimension."}
@@ -262,7 +262,7 @@ ggplot(data = e2_props,
 
 ### Procedure
 
-A within subject manipulation with two conditions: material or function. The material condition is identical to the first experiment. In the function condition, the experimenter introduces the exemplar object, let the child play with it for 15 seconds, introduces the object label ("this is a gorp"), provides functional information ("the gorp grabs toys"), gives another 15 seconds to play with it, and puts the toy away within the child's view. They then introduce the test objects as in Experiment 1 and ask for a response. The order of conditions was counterbalanced. 
+A within subject manipulation with two conditions: material or function. The material condition is identical to the first experiment. In the function condition, the experimenter introduces the exemplar object, let the child play with it for 15 seconds, introduces the object label ("this is a [X]), provides functional information ("the [X] grabs toys"), gives another 15 seconds to play with it, and puts the toy away within the child's view. They then introduce the test objects as in Experiment 1 and ask for a response. The order of conditions was counterbalanced. 
 
 ``` {r sec_exp_stim, fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Experiment 2, proportion of choosing by each dimension per exemplar item, indicated by its novel label(aggregate across participants). Dashed line is chance level = 33.3%. We note variability across items."}
 order_e2 <- e2_items |> 
