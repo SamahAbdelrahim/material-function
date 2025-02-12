@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@jspsych/plugin-video-button-response": "^2.1.0"
+  }
+}
