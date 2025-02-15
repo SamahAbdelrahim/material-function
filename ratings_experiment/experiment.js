@@ -33,53 +33,53 @@ let timeline = [];
 
 const object_sets = {
   "object1": [
-    "object1/1A.mp4",
-    "object1/1B.mp4",
-    "object1/1C.mp4",
-    "object1/1D.mp4"
+    "objects_videos/object1/1A.mp4",
+    "objects_videos/object1/1B.mp4",
+    "objects_videos/object1/1C.mp4",
+    "objects_videos/object1/1D.mp4"
   ],
   "object2": [
-    "object2/2A.mp4",
-    "object2/2B.mp4",
-    "object2/2C.mp4",
-    "object2/2D.mp4",
-    "object2/2E.mp4",
-    "object2/2F.mp4"
+    "objects_videos/object2/2A.mp4",
+    "objects_videos/object2/2B.mp4",
+    "objects_videos/object2/2C.mp4",
+    "objects_videos/object2/2D.mp4",
+    "objects_videos/object2/2E.mp4",
+    "objects_videos/object2/2F.mp4"
   ],
   "object3": [
-    "object3/3A.mp4",
-    "object3/3B.mp4",
-    "object3/3C.mp4",
-    "object3/3D.mp4",
-    "object3/3E.mp4"
+    "objects_videos/object3/3A.mp4",
+    "objects_videos/object3/3B.mp4",
+    "objects_videos/object3/3C.mp4",
+    "objects_videos/object3/3D.mp4",
+    "objects_videos/object3/3E.mp4"
   ],
   "object4": [
-    "object4/4A.mp4",
-    "object4/4B.mp4",
-    "object4/4C.mp4",
-    "object4/4D.mp4",
-    "object4/4E.mp4"
+    "objects_videos/object4/4A.mp4",
+    "objects_videos/object4/4B.mp4",
+    "objects_videos/object4/4C.mp4",
+    "objects_videos/object4/4D.mp4",
+    "objects_videos/object4/4E.mp4"
   ],
   "object5": [
-    "object5/5A.mp4",
-    "object5/5B.mp4",
-    "object5/5C.mp4",
-    "object5/5D.mp4"
+    "objects_videos/object5/5A.mp4",
+    "objects_videos/object5/5B.mp4",
+    "objects_videos/object5/5C.mp4",
+    "objects_videos/object5/5D.mp4"
   ],
   "object6": [
-    "object6/6A.mp4",
-    "object6/6B.mp4",
-    "object6/6C.mp4",
-    "object6/6D.mp4",
-    "object6/6E.mp4",
-    "object6/6F.mp4"
+    "objects_videos/object6/6A.mp4",
+    "objects_videos/object6/6B.mp4",
+    "objects_videos/object6/6C.mp4",
+    "objects_videos/object6/6D.mp4",
+    "objects_videos/object6/6E.mp4",
+    "objects_videos/object6/6F.mp4"
   ],
   "object7": [
-    "object7/7A.mp4",
-    "object7/7B.mp4",
-    "object7/7C.mp4",
-    "object7/7D.mp4",
-    "object7/7E.mp4"
+    "objects_videos/object7/7A.mp4",
+    "objects_videos/object7/7B.mp4",
+    "objects_videos/object7/7C.mp4",
+    "objects_videos/object7/7D.mp4",
+    "objects_videos/object7/7E.mp4"
   ]
 }
   
@@ -104,7 +104,27 @@ const object_sets = {
 
   console.log(video_pairs)
   
+// Create jsPsych trials
+const trials = video_pairs.map(pair => ({
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `
+    <div style="display: flex; justify-content: center; gap: 20px;">
+      <video class="video-fix" width="300" height="300" controls>
+        <source src="${pair[0]}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video class="video-fix" width="300" height="300" controls>
+        <source src="${pair[1]}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p>How similar are these objects?</p>`,
+  choices: ['1 - Not similar', '2', '3', '4', '5 - Very similar'],
+  response_allowed_while_playing: false
+}));
 
+
+timeline.push(...trials);
 
 var goodbye = {
     type: jsPsychInstructions,

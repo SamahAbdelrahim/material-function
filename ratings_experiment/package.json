@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@jspsych/plugin-video-button-response": "^2.1.0"
+    "@jspsych/plugin-video-button-response": "^2.1.0",
+    "express": "^4.21.2"
   }
 }
