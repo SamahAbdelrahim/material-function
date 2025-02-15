@@ -22,6 +22,15 @@
      <script src="jspsych/dist/plugin-image-slider-response.js"></script> <!-- Verify path -->
     <!-- Custom CSS -->
     <link href="experiment.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .video-fix {
+          transform: rotate(0deg); /* Ensures correct orientation */
+          height: 300px;           /* Uniform height */
+          object-fit: cover;       /* Maintains aspect ratio */
+        }
+      </style>
+      
     
 
     <!-- Ensure scripts load in the correct order -->

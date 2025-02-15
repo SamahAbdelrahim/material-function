@@ -32,11 +32,6 @@ body {
     font-weight: bold;
 }
 
-.video-fix {
-    height: 300px;           
-    object-fit: cover;      
-    transform: rotate(0deg) scaleY(-1); /* Flip video if metadata is wrong */
-}
 
 
 
