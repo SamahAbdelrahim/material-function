@@ -99,32 +99,113 @@ const object_sets = {
   for (let object in object_sets) {
     video_pairs = video_pairs.concat(generatePairs(object_sets[object]));
   }
+// Shuffle the pairs
+  // video_pairs = video_pairs.sort(() => Math.random() - 0.5);
+  // more than 70 pairs
 
-  console.log("video_pair")
-
+  console.log("video_pair length")
+  console.log(video_pairs.length)
   console.log(video_pairs)
   
-// Create jsPsych trials
+// Add a function to log data
+function logExpData(trial) {
+    return new Promise((resolve, reject) => {
+        const data = {
+            trial_type: trial.trial_type,
+            stimulus: trial.stimulus,
+            response: trial.response,
+            rt: trial.rt,
+            similarity_rating: trial.similarity_rating,
+            object1: trial.stimulus.match(/object\d+/)[0],
+            object2: trial.stimulus.match(/object\d+/)[1],
+        }})}
+  
+var trial1 = {
+          type: jsPsychInstructions,
+          pages: [
+              '<div style="text-align: center; margin: 50px;"><img src="stanford.png"></div>' +
+              '<div style="text-align: center; margin: 0 auto; max-width: 600px; font-size: 18px;">' +
+              '<p>By answering the following questions, you are participating in a study being performed by cognitive scientists in the Stanford Department of Psychology.</p>' +
+              '<p>If you have questions about this research, please contact us at <a href="mailto:languagecoglab@gmail.com">languagecoglab@gmail.com</a>.</p>' +
+              '<p>You must be at least 18 years old to participate. Your participation in this research is voluntary.</p>' +
+              '<p>You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences.</p>' +
+              '<p>Your anonymity is assured.</p>' +
+              '<p> Click next to begin.</p>' +
+              '</div>'
+          ],
+          show_clickable_nav: true,
+          button_label: 'Next', // Customize the button label
+          button_html: '<button class="jspsych-btn" style="font-size: 30px; padding: 10px 20px;">%choice%</button>' // Customize the button style
+      };
+      
+      
+timeline.push(trial1)
+
+// Add instructions at the beginning
+var instructions = {
+  type: jsPsychInstructions,
+  pages: [
+      '<div style="text-align: center; margin: 50px;"><img src="stanford.png"></div>' +
+      '<div style="text-align: center; margin: 0 auto; max-width: 600px; font-size: 30px;">' +
+      '<p> <b>Welcome to our study. </b> </p>' +
+      '<p> In this study, you will see pairs of objects and be asked to rate how similar they are. </p>' +
+      '<p> Please click next to start the experiment ...  </p>' +
+      '</div>'
+  ],
+  show_clickable_nav: true,
+};
+  show_page_number: false,
+timeline.push(instructions);
+
+//Create jsPsych trials
 const trials = video_pairs.map(pair => ({
   type: jsPsychHtmlButtonResponse,
   stimulus: `
     <div style="display: flex; justify-content: center; gap: 20px;">
-      <video class="video-fix" width="300" height="300" controls>
+      <video id="vid1" class="video-fix" width="300" height="300" autoplay muted>
         <source src="${pair[0]}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <video class="video-fix" width="300" height="300" controls>
+      <video id="vid2" class="video-fix" width="300" height="300" autoplay muted>
         <source src="${pair[1]}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
     <p>How similar are these objects?</p>`,
   choices: ['1 - Not similar', '2', '3', '4', '5 - Very similar'],
-  response_allowed_while_playing: false
+  on_load: function() {
+    // Disable buttons at the start
+    document.querySelectorAll(".jspsych-btn").forEach(btn => btn.disabled = true);
+
+    const vid1 = document.getElementById("vid1");
+    const vid2 = document.getElementById("vid2");
+
+    // Ensure both videos start playing simultaneously
+    function playVideos() {
+      vid1.play();
+      vid2.play();
+    }
+
+    vid1.oncanplay = playVideos;
+    vid2.oncanplay = playVideos;
+
+    // Enable buttons only after both videos finish
+    function enableButtons() {
+      if (vid1.ended && vid2.ended) {
+        document.querySelectorAll(".jspsych-btn").forEach(btn => btn.disabled = false);
+      }
+    }
+
+    vid1.onended = enableButtons;
+    vid2.onended = enableButtons;
+  }
 }));
 
+trials.sort(() => Math.random() - 0.5);
 
 timeline.push(...trials);
+
+
 
 var goodbye = {
     type: jsPsychInstructions,
