@@ -1,0 +1,675 @@
+---
+title             : "The title"
+shorttitle        : "Title"
+
+author: 
+  - name          : "First Author"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+    role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
+      - "Conceptualization"
+      - "Writing - Original Draft Preparation"
+      - "Writing - Review & Editing"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+    role:
+      - "Writing - Review & Editing"
+      - "Supervision"
+
+affiliation:
+  - id            : "1"
+    institution   : "Wilhelm-Wundt-University"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+authornote: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  One or two sentences to put the results into a more **general context**.
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : "r-references.bib"
+
+floatsintext      : no
+linenumbers       : yes
+draft             : no
+mask              : no
+
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=3, fig.height=3, fig.crop = F, 
+                      fig.pos = "tb", fig.path='figs/',
+                      echo=F, warning=F, cache=F, 
+                      message=F, sanitize = T)
+```
+
+
+```{r setup, include = FALSE}
+# Project root = directory containing material_function.Rproj (stable when knitting from Manuscript/)
+here::i_am("Manuscript/MS.rmd")
+
+library("papaja")
+library(png)
+library(grid)
+library(ggplot2)
+library(xtable)
+library(tidyverse)
+library(here)
+library(lme4)  
+library(papaja)
+library(knitr)        # for knitting RMarkdown 
+library(lmerTest)
+library(simr) ## for power simulation
+# libraries for visualizing the binomial output (success and failure, 0,1)
+library(betareg) #beta regression model
+library(mgcv)  # Load mgcv for GAM
+library(glmmTMB)
+library(performance)
+r_refs("r-references.bib")
+r_refs("r-library.bib")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+# Introduction
+
+What does "dog" mean to a 2-year-old? This old question reflects the evolving nature of our understanding of early label categorization. For young children, a dog might initially be identified by a set of general features that expands with experience i.e. the features that children rely on to organize their label categories [@Waxman1995WordsAI]. For example, the semantic features hypothesis [@Clark1973WHATSIA] suggests that categorization begins with a schema of basic perceptual attributes, such as [four legs, tail, fur] for dog, hence we see over-extensions of the word "dog" to beings that share these set of features like cats for example. Over time, deeper attributes, such as its internal composition, behavior and interaction with the world, or sound, may also become relevant. In contrast, the functional core hypothesis [@Nelson1974ConceptWA] posits that children extract relationships among features to identify future category members without treating these features as defining. In this view, invariant perceptual attributes like [four legs, tail, fur] act as identifiers rather than encapsulating the category's essence. Both frameworks agree, however, that shared perceptual features facilitate identification and labeling, forming the foundation for the well-studied shape bias [@Baldwin1992ClarifyingTR; @Graham1999InfantsRO; @LANDAU1988299; @graham_2010; @samuelson2000children; @imai_childrens_1994].
+
+The *shape bias* is the tendency to generalize objects names by their shape (i.e. What does "hammer" mean to a toddler? One possibility is that "hammer" refers to other hammer-shaped objects), rather than other properties like the material it is made from, or its color. The presence of a shape bias is argued to facilitate early noun acquisition, to be an important route to vocabulary growth, and to be weaker in children with language delay [@smith_object_2002; @Jones2003; @JONES_SMITH_2005; @TekAutism ; @TekAutismLessons]. The shape bias is typically measured using word extension tasks, in which children are taught a novel label for an object and then tested on their ability to extend it to other objects [@Waxman1995WordsAI]. Yet although the shape bias is found robustly in such tasks, there is still substantial variation in when, and at what magnitude, the shape bias is detected [@Kucker2019ReproducibilityAA; @abdelrahim_frank_2024]. This variation plays a key role in differentiating between theoretical accounts of the origins of this bias. 
+
+One possibility is that the shape bias is a universal constraint on generalization [@soja1991ontological; @Markson1997EvidenceAA], such that all toddlers will show a shape bias in generalization contexts including non-linguistic contexts, regardless of their language or environment. However, robust evidence suggests cross-cultural variation, casting doubt on this explanation. For example, speakers of East Asian languages like Mandarin and Japanese demonstrate less reliance on shape when extending nouns compared to English speakers in the United States [@Smith2003MakingAO; @gathercole_1997; @imai1997; @samuelson1999; @soja1991ontological; @subrahmanyam_2006; @yoshida2003]. Two key hypotheses attempt to explain these differences. First, differences in linguistic structure, such as count-mass syntax in English versus classifier systems in East Asian languages, might influence the prevalence of the shape bias [@imai1997; @samuelson2008rigid; @soja1991ontological; @soja_perception_1992]. Second, variations in lexical and environmental statistical regularities tunes attention toward features like shape. This hypothesis emphasizes the role of existing vocabulary and environmental exposure in guiding category organization [@gershkoff2004shape; @samuelson_statistical_2002; @samuelson1999; @perry2010learn; @colunga2000learning; @yoshida2003known; @2005_Samuelson; @jara2022]. 
+
+A second key question is the mechanism or representation underlying the shape bias. While the tendency to extend nouns based on shape may be influenced by syntax or statistical regularities, its precise cognitive basis has been controversial [@smith_object_2002; @smithcolunga2010; @Smith1996NamingIY; @SAMUELSON2010138; @WARE2010124; @dejavu ; @JONES1993113; @dynamicBias; @Bruner1964TheCO]. Two competing perspectives attempt to explain this mechanism. One possibility is that the shape bias is an associative (non-strategic) mechanism, driven by perceptual features that guide children to perceptual attributes associated with category labels [@smith_object_2002; @smithcolunga2010; @Smith1996NamingIY].  Alternatively, the shape bias may be a strategic and conceptually-controlled mechanism, governed by general world knowledge and conceptual understanding [@BOOTH2002B11; @2005_Booth]. In this view, the bias is a heuristic whose magnitude might vary when the context of the generalization requires the child to attend to other features, such as the object's function or material. For example, children might initially categorize an object as a stone based on its shape, but if the object is made of sponge rather than rock, the importance of material may override the reliance on shape. In this case, children may recognize that being made of rock is a defining feature of the category, leading them to prioritize material over perceptual similarity. 
+
+Thus, variability in the shape bias is a key source of constraint on theories of its origins. However, the sources of this variability remain unclear. A recent study used statistical meta-analysis to estimate the effect size of the shape bias across 40 studies, finding a large average effect (0.8 standard deviations) [@abdelrahim_frank_2024]. However, effects varied widely across seemingly similar studies, and the vast majority of the variance in the data remained unexplained by moderators such as age or language. One possibility is that methodological differences across studies contribute to the observed variation. For example, task format, stimuli design, and participant characteristics might influence the magnitude of the shape bias. In this paper, we explore the role of methodological factors in shaping the shape bias, using a series of experiments that systematically manipulate object properties and examine their effects on children's generalization.
+
+
+Word extension studies typically teach children a novel label for a novel object, and then test them on the ability to extend it to other objects that share features like shape, or material with the target object. But these tasks vary in their dependent measure and their stimuli. With respect to dependent measures, children are typically either asked to make a forced choice between possible extensions, requiring a choice of the best generalization, or are asked to perform yes/no endorsement of different possible extensions, allowing multiple exemplars to be judged similar to the target [@LANDAU1988299]. Some paradigms also allow children to reject all options. It is not yet clear how different tasks affect performance. For example, allowing children to select "none of those" reduces shape bias, especially with complex objects [@cimpian2005absence]. 
+
+The second major methodological variation in the word extension findings comes from differences in stimuli. The key dimension of variation is the alternative possible dimensions of generalization beyond shape. Some studies contrast shape and other perceptual features, such as color or material, using stimuli designed to highlight these attributes. On the other hand, studies investigating conceptual understanding often include cues related to animacy, such as eyes, shoes, or other salient features, and use test objects that share multiple dimensions with the exemplar instead of only one [@yoshida2003; @JONES1998323]. When functionality is emphasized, stimuli are often paired with demonstrations of an affordance, stories, or narratives to contrast shape with function. Children aged 2 to 5 years are found to prioritize shape, even when provided with functional information [@Centner2003OnRM; @landau1996; @Merriman_Scott_Marazita_1993; @GRAHAM1999128]. However, conflicting evidence shows children sometimes prioritize function or other cues [@KEMLERNELSON1995347 ; @gelman_medin1993].  In addition, some studies use pictures or drawings, while others use physical objects. 
+```{r stimulipics , fig.height = 0.5, fig.width =0.5, out.width="100%", fig.cap="Examples of stimuli objects used in both experiments"}
+
+#knitr::include_graphics("stimuli.png")
+```
+
+<!-- Our goal in the current study is to evaluate procedural sources of variability as part of a larger scale assessment of word generalization across age groups and languages. We used a within-subject design to maximize precision in estimating condition differences. We also aim to measure developmental change by recruiting a sample size large enough to estimate age-related change. In Experiment 1, we began by measuring developmental change in the shpae bias. In Experiment 2, we manipulated the presence of alternative generalization items that shared function but not shape with the target object. Across both studies, we observed a robust shape bias that increased with age; preliminary data from Experiment 2 yielded no evidence that function information reduced the shape bias. -->
+
+research questions:
+Experiment 1
+* Can we replicate the shape bias with the specific set of objects we designed in a simple manipulation? i.e. a forced-choice task between shape and material matches 
+Experiment 2
+* Can we replicate the effect in a large sample of toddlers, with a more complicated manipulation i.e. a forced choice task with the presence of functionally-similar alternatives, using a within-subject design? controlling for individual differences
+* Does the shape bias increase or decrease with age?
+* Does the presence of functionally-similar alternatives increase variability in responding?
+Experiment 3
+* For the subset of objects and children that show a shape bias, can we replicate this effect in a graded endorsement task, where children can endorse multiple dimensions sequentially?
+* What does the graded response pattern reveal about the underlying representation of the shape bias? i.e. is it a strategic or associative mechanism?
+* what is the effect of labeling? 
+
+# Experiment 1
+
+## Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+```{r}
+e1 <- read_csv(here("data", "JMZSummer24.csv")) |> 
+  filter(!is.na(response)) |>
+  rename(age_mo = age)
+
+e1_subs <- e1 |>
+  group_by(kidid) |>
+  summarise(age_mo = mean(age_mo))
+
+e1_props <- e1 |>
+  mutate(response = as.factor(response)) |>
+  group_by(kidid, age_mo, response, .drop=FALSE) |>
+  summarise(n = n()) |>
+  group_by(kidid, age_mo) |>
+  mutate(prop = n/sum(n))
+
+e1_items <- e1 |>
+  mutate(response = as.factor(response), 
+         standardlabel = str_replace(standardlabel, "the ","")) |>
+  group_by(standardlabel, response, .drop=FALSE) |>
+  summarise(n = n()) |>
+  group_by(standardlabel) |>
+  mutate(prop = n/sum(n))
+```
+
+### Participants
+
+We recruited N children (age range, mean age, SD) from (location). An additional X children were excluded from the final sample due to (reasons for exclusion). Parents provided informed consent prior to participation. The study was approved by the (institutional review board name).
+
+Twenty four typically developing English speaking participants (2-5 years old, mean=`r round(mean(e1_subs$age_mo)/12,2)`, SD=`r round(sd(e1_subs$age_mo/12),2)`) were recruited from a local nursery school and children’s museum in the US ( https://aspredicted.org/ncwz-pmtz.pdf).
+
+### Material
+
+To investigate children’s reasoning about objects' properties and functions, a series of object sets were designed, each containing one exemplar, a material match, a shape match, a function match, and a distractor (e.g., dax, fep, blicket, gorp, zimbo, wap, blint). These sets allowed for systematic manipulation of object features to assess various cognitive processes related to word learning and category generalization. Example objects are shown in Figure 1.
+In Experiment 1, the shape match was contrasted with a material match. This served as a baseline check and replication of prior findings regarding shape bias in categorization tasks.
+
+
+### Procedure
+
+Children were tested individually in a quiet room at their nursery school or the children’s museum. The experimenter sat across from the child at a small table. Each child was presented with seven trials, each involving a different set of objects. The order of trials was randomized for each participant to control for order effects.
+On each trial, the child was shown an object, which was labeled with the phrase "this is a [X], do you see the [X]?". The object was moved away from the child but remained in view, and both the test object and the distractor were displayed simultaneously while asking the child "can you find another [X] by pointing to it?". The child gets to hear the label 3 times while viewing it without touching it. Each child saw seven trials. 
+
+``` {r , fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Developmental trend of choosing by each dimension."}
+
+ggplot(data = e1_props, aes(x = age_mo/12, y = prop, color = response)) +
+   geom_jitter(position=position_jitter(height=.01, width = 0.04))+
+   #geom_point()+
+  # geom_smooth(method = "loess", span = 1) + 
+    geom_smooth(method = "glm", method.args = list(family = "binomial"), 
+              formula = y ~ log(x), 
+              se = FALSE) +
+  # geom_smooth(method = "glm", method.args = list(family = "binomial"), se = FALSE) +
+  theme_minimal() +
+  xlab("Age (years)") + ylab("Proportion selected") + labs(color = "Dimension") +
+  scale_color_manual(labels = c("Distractor", "Material","Shape" ), values = c("darkgrey", "brown", "yellow4")) +
+  theme(legend.position = "bottom") 
+
+```
+
+``` {r , fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Percentage of choosing by dimension per stimuli item, indicated by its novel label (aggregate across participants). Dashed line is chance level = 33.3% "}
+order_e1 <- e1_items |> filter(response=="shape") |> arrange(desc(prop)) |> pull(standardlabel)
+
+
+
+# ggplot(data = e1_items, aes(x = standardlabel, y = prop, fill = response))
+
+ggplot(data = e1_items, aes(x = factor(standardlabel, levels=order_e1)  , y = prop, fill = response))  +
+  geom_col(position = "stack", color = "black") +  
+  geom_hline(yintercept = .333, linetype = "dashed") +
+  geom_hline(yintercept = .666, linetype = "dashed") +
+  theme_minimal() +
+  xlab("Stimuli object (by exemplar label)") +
+  ylab("Proportion selected") +
+  labs(fill = "Response") +
+  scale_fill_manual(
+    values = c("darkgrey", "brown","yellow4"), 
+    labels = c("Distractor", "Material", "Shape")  # Legend labels
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 10),
+    legend.position = "bottom",  # Place legend at the bottom
+    panel.grid.major.y = element_line(color = "grey90")
+  ) +
+  geom_text(aes(label = round(prop, 1)),
+            position = position_stack(vjust = 0.5),  
+            color = "white",  
+            size = 2.5)  
+```
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+
+## Results
+```{r}
+# e1$shape_response <- ifelse(e1$response == "shape", 1, 0)
+# 
+# e1_model <- glmer(shape_response ~ age_mo + (1 | kidid) + (1 | standardlabel), 
+#       family = binomial(link = "logit"), 
+#       data = e1)
+
+
+e1_for_model <- e1 |> mutate(shape_response = ifelse(response == "shape", 1, 0)) |> 
+  mutate(centered_age = scale(age_mo, center=T, scale=F))
+
+e1_model <- glmer(shape_response ~ centered_age + (1 | kidid) + (1 | standardlabel), 
+      family = binomial(link = "logit"), 
+      data = e1_for_model)
+summary(e1_model)
+# For Experiment 1
+r2_e1 <- r2_nakagawa(e1_model)
+icc_e1 <- icc(e1_model)
+
+print("Experiment 1 R-squared:")
+print(r2_e1)
+print("Experiment 1 ICC:")
+print(icc_e1)
+
+# Hypothetical R²glmm from performance package (you'll get actual values):
+# # Marginal R² (R²m): around 0.131 (or 13%). This means centered_age alone explains about 13% of the variance in shape responses (on the link scale, adjusted for the model).
+# Conditional R² (R²c): Let's say it's around 0.248 (or 24%). This means centered_age, individual differences between kids, and differences between stimuli together explain about 24% of the variance.
+
+```
+
+Participants showed an overall shape bias across all trials (shape: 61%, material: 30%, distractor: 9%). Figure first exp shows a developmental shift to choose by shape by age 3, replicating what is seen previously in the literature.  
+
+To quantify these trends, we fit a generalized logistic mixed effects model predicting the binary outcome of choosing by shape for each trial by each child. We included random intercepts at the level of both participants and stimuli objects. The average intercept odds of choosing by shape were `r round(exp(fixef(e1_model)["(Intercept)"]), 2)` (odds of `r round(exp(fixef(e1_model)["(Intercept)"]), 2)`:1 at the mean age, `r papaja::apa_print(e1_model)$full_result$Intercept`), with a significant increase in odds of `r round(exp(fixef(e1_model)["centered_age"]), 2)` per month increase in age (`r papaja::apa_print(e1_model)$full_result$centered_age`). The model also shows variability at the item-level intercept ($SD=$ `r round(sqrt(VarCorr(e1_model)$standardlabel[1, 1]), 2)`) across `r length(unique(e1$standardlabel))` unique items.
+
+## Discussion
+
+This study sought to replicate the shape bias in a simple forced-choice task between shape and material matches, in this specific set of objects we created to validate the procedure and stimuli, and seek a developlemtal change signal. Consistent with prior research, the logistic mixed effects model revealed that the odds of choosing by shape increased significantly with age. While our sample size was small, with only 24 participants, and a very wide age range, children between 2 and 5 years of age, the findings align with established literature on the shape bias. Although it is not clear why children below age 3 chose more by material, there was variability at the item level such that for three objects we saw above chance material choices when collapsing across ages. This suggests that some objects may have stronger material cues than others, which could be explored in future work. Overall, the results replicate prior findings of a shape bias in word extension tasks and demonstrate developmental change in this bias across early childhood.
+
+# Experiment 2
+In Experiment 2, we sought to replicate the shape bias in a more complex forced-choice task that included functionally-similar alternatives, using a within-subject design to control for individual differences. Our primary research questions were: (1) Can we replicate the shape bias in this more complex task? (2) Does the shape bias increase or decrease with age? (3) Does the presence of functionally-similar alternatives increase variability in responding or even perhaps decrease shape choices in the presence of a function match? We recruited a larger sample size to allow for more precise estimation of age-related changes and to assess the impact of the additional functional match on children's generalization patterns. Our goal was to evaluate procedural sources of variability in the shape bias and to examine developmental changes among children aged 2 to 5 years. 
+```{r load data}
+`%notin%` <- Negate(`%in%`)
+
+e2 <- read_csv(here("data", "e2_combined_cleaned.csv")) 
+e2 <- e2 |>
+  mutate(condition = as.factor(condition), 
+         response = as.factor(response), 
+         condition = recode(condition, 
+                            "function" = "Function", 
+                            "material" = "No Function"))  |>
+  filter(!(condition == "Function" & response == "material"),
+         !(condition == "No Function" & response == "function"), 
+         kidid %notin% c(95,92,91,128,4,56,57,64), 
+          !is.na(response), response != " ") 
+  
+e2_no_7 <- e2 %>% filter(standard_number != 7)
+
+```
+
+```{r }
+e2_props <- e2 |>
+  group_by(kidid, age_mo, condition) |>
+  summarise(count_condition = n()) |>
+  merge(
+    e2, 
+    by = c("kidid", "age_mo", "condition"), 
+    all.x = TRUE
+  )  |>
+  group_by(kidid, age_mo, condition, response, count_condition) |>
+  summarize(count_response = n()) |>
+  mutate(prop = count_response/count_condition)
+
+e2_props %>% group_by(condition, response) %>% summarize(mean_prop = mean(prop))
+
+e2_no_7_props <- e2_no_7 |>
+  group_by(kidid, age_mo, condition, .drop=FALSE) |>
+  summarise(count_condition = n()) |>
+  merge(
+    e2_no_7, 
+    by = c("kidid", "age_mo", "condition"), 
+    all.x = TRUE
+  ) |>
+  filter(!is.na(response)) |>
+  group_by(kidid, age_mo, condition, response, count_condition) |>
+  summarise(count_response = n()) |>
+  mutate(prop = count_response/count_condition)
+
+```
+
+```{r , fig.env = "figure*", fig.width = 8, fig.height= 4, fig.pos = "!h",  out.width = "100%", fig.cap = "Experiment 2, function vs. no function condition. Distractor is no match at all. Data points are individual participants. Children choose by shape more, even when function information is made salient."}
+
+ggplot(data = e2_props, 
+       aes(x = age_mo, y = prop, color = response)) +
+  geom_jitter(position = position_jitter(height=.02, width = 0), alpha = .5)+
+  facet_wrap(~condition) +
+  # geom_smooth(method = "lm") +
+  # geom_smooth(method = "loess", span = 1) + 
+  geom_smooth(method = "lm", 
+              se = TRUE) +
+  theme_minimal() +
+  xlab("Age (years) ") +
+  ylab("Proportion selected") +
+  labs(color = "Response") +  # Label for the legend
+  scale_color_manual(
+    values = c("darkgrey", "brown", "pink", "yellow4"),  # Colors for each response
+    labels = c("Distractor", "Function", "Material", "Shape")  # Labels for the legend
+  ) + 
+  ylim(0,1) + 
+  theme_minimal() + 
+  theme(legend.position = "bottom")
+
+
+ggplot(data = e2_no_7_props, 
+       aes(x = age_mo, y = prop, color = response)) +
+  geom_jitter(position = position_jitter(height=.02, width = 0), alpha = .5)+
+  facet_wrap(~condition) +
+  # geom_smooth(method = "lm") +
+  # geom_smooth(method = "loess", span = 1) + 
+  geom_smooth(method = "lm", 
+              se = TRUE) +
+  theme_minimal() +
+  xlab("Age (years) ") +
+  ylab("Proportion selected") +
+  labs(color = "Response") +  # Label for the legend
+  scale_color_manual(
+    values = c("darkgrey", "brown", "pink", "yellow4"),  # Colors for each response
+    labels = c("Distractor", "Function", "Material", "Shape")  # Labels for the legend
+  ) + 
+  ylim(0,1) + 
+  theme_minimal() + 
+  theme(legend.position = "bottom")
+
+```
+
+```{r }
+# We don't remove the distractor becuase although the propostion of choosing it per item is very low ~ however, it depends on age as well . but we removed all kids who chose the distractor more than chance level 0.33
+
+ggplot(e2_props %>% filter(response == "shape"), aes(x = age_mo, y = prop, color = condition)) +
+  geom_point(position = position_jitter(height = 0.1)) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"))   +
+  geom_hline(yintercept = 0.5, linetype = "dashed", linewidth = 0.6) +
+  xlab("Age (Months) ") +
+  ylab("Shape Proportion selected")  + 
+  ylim(0,1) + 
+  theme_minimal() + 
+  theme(legend.position = "bottom")
+
+ggplot(e2_no_7_props %>% filter(response == "shape"), aes(x = age_mo, y = prop, color = condition)) +
+  geom_point(position = position_jitter(height = 0.1)) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"))   +
+  geom_hline(yintercept = 0.5, linetype = "dashed", linewidth = 0.6) +
+  xlab("Age (Months) ") +
+  ylab("Shape Proportion selected")  + 
+  ylim(0,1) + 
+  theme_minimal() + 
+  theme(legend.position = "bottom")
+
+```
+```{r }
+# overall response proportions per condition
+e2_props %>% group_by(condition, response) %>% summarize(mean_prop = mean(prop))
+
+# why do the proportions per condition exceeds 1 when we sum them up?
+e2_no_7_props %>% group_by(condition, response) %>% summarize(mean_prop = mean(prop))
+
+```
+
+
+```{r proportions per item}
+e2_items_props <- e2 |>
+  mutate(standard_number = as.factor(standard_number)) |>
+  group_by(standard_number, condition, .drop=FALSE) |>
+  summarise(count_condition = n()) |>
+  merge(
+    e2, 
+    by = c("standard_number", "condition"), 
+    all.x = TRUE
+  ) |>
+  group_by(standard_number, condition, response, count_condition) |>
+  summarize(count_response = n()) |>
+  mutate(prop = count_response/count_condition, sd = sqrt(prop*(1-prop)/count_condition))
+
+e2_no_7_item_props <- e2_no_7 |>
+  mutate(standard_number = as.factor(standard_number)) |>
+  group_by(standard_number, condition, .drop=FALSE) |>
+  summarise(count_condition = n()) |>
+  merge(
+    e2_no_7, 
+    by = c("standard_number", "condition"), 
+    all.x = TRUE
+  ) |>
+  group_by(standard_number, condition, response, count_condition) |>
+  summarize(count_response = n()) |>
+  mutate(prop = count_response/count_condition, sd = sqrt(prop*(1-prop)/count_condition))
+
+```
+
+## Methods
+
+We report how we determined our sample size, all data exclusions (if any), all manipulations 
+
+### Material 
+
+The same object sets from Experiment 1 were used, but with the addition of a function match. Each set contained one exemplar, a material match, a shape match, a function match, and a distractor (e.g., dax, fep, blicket, gorp, zimbo, wap, blint). These sets allowed for systematic manipulation of object features to assess various cognitive processes related to word learning and category generalization. Example objects are shown in Figure 1. 
+
+To investigate children’s reasoning about objects' properties and functions, a series of object sets were designed, each containing one exemplar, a material match, a shape match, a function match, and a distractor (e.g., dax, fep, blicket, gorp, zimbo, wap, blint). These sets allowed for systematic manipulation of object features to assess various cognitive processes related to word learning and category generalization. Example objects are shown in Figure 1.
+In Experiment 2, the same exemplar was used, but the shape match was contrasted with a function match. 
+
+The function test object was modified in a way that preserved its shape but altered its functionality (e.g., an object wrapped entirely vs. one that could clearly open).
+Color was different across all objects to ensure that visual similarity was driven solely by shape, material, and functional cues.
+Objects were crafted to explore how children reason about similarity based on whole-object vs. part-based features (e.g., whether specific parts afford a particular function).
+Some objects, such as the "fep," "blint," and "wap," were designed with material-critical functions (e.g., holding water while made of a paper towel). This design tested whether children could prioritize material when reasoning about function and to capture the developmental changes.
+The degree to which an object's affordances were visually apparent varied across designs. For example, the "zimbo" was designed to afford functionality only through a specific part, while the overall structure was irrelevant. The "gorp" was modeled to resemble objects familiar to slightly older children, like scissors, allowing exploration of prior experiences' influence on categorization 
+(see supplementary https://osf.io/rngqa/?view_only=f0ac61b08e71404b814f5355e128c2df).
+
+### Participants 
+96 participants between 2-5 years old, with 24 per each age group, (mean=`r round(mean(e2$age_mo),2)`, SD=`r round(sd(e2$age_mo),2)`) were recruited from a local nursery school and museum in the US (https://aspredicted.org/yqqb-sn52.pdf).
+An additional X children were excluded from the final sample due to (reasons for exclusion). Parents provided informed consent prior to participation. The study was approved by the (institutional review board name).
+
+### Procedure
+Children were tested individually in a quiet room at their nursery school or the children’s museum. The experimenter sat across from the child at a small table. Each child was presented with seven trials, each involving a different set of objects. The order of trials was randomized for each participant to control for order effects.
+On each trial, the child was shown an object, which was labeled with the phrase "this is a [X], do you see the [X]?". The object was moved away from the child but remained in view, and all four test objects and the distractor were displayed simultaneously while asking the child "can you find another [X] by pointing to it?". The child gets to hear the label 3 times while viewing it without touching it. Each child saw seven trials.
+
+A within subject manipulation with two conditions: material or function. The material condition is identical to the first experiment. In the function condition, the experimenter introduces the exemplar object, let the child play with it for 15 seconds, introduces the object label ("this is a [X]), provides functional information ("the [X] grabs toys"), gives another 15 seconds to play with it, and puts the toy away within the child's view. They then introduce the test objects as in Experiment 1 and ask for a response. The order of conditions was counterbalanced. 
+
+``` {r , fig.width = 6, fig.height= 4, out.width = "100%", fig.cap = "Experiment 2, proportion of choosing by each dimension per exemplar item, indicated by its novel label(aggregate across participants). Dashed line is chance level = 33.3%. We note variability across items."}
+order_e2 <- e2_items_props |> 
+  filter(response == "shape") |> 
+  arrange(condition, desc(prop)) |>  # Ensure descending order
+  mutate(standard_number = as.factor(standard_number)) |>
+  select(condition, standard_number)
+
+# Step 2: Merge this order back into `e2_items` to set factor levels correctly
+e2_items_props <- e2_items_props |> 
+  left_join(order_e2, by = c("standard_number", "condition")) |> 
+  mutate(standard_number = factor(standard_number, levels = unique(order_e2$standard_number))) |> 
+  select(-ends_with(".y")) %>% # remove the tailing x and y in response columns
+  rename_with(~ str_remove_all(., "\\.x$"), everything()) %>%
+  distinct() %>% janitor:: clean_names() |> 
+  mutate(standard_number = factor(standard_number, levels = unique(order_e2$standard_number)))
+
+
+ggplot(data = e2_items_props, aes(x = standard_number, y = prop, fill = response)) +
+  geom_col(position = "stack", color = "black") + 
+  geom_hline(yintercept = .333, linetype = "dashed") +
+  geom_hline(yintercept = .666, linetype = "dashed") +
+  theme_minimal() +
+  xlab("Stimulus (by exemplar label)") +
+  ylab("Proportion selected") +
+  labs(fill = "response") +
+  scale_fill_manual(
+    values = c("darkgrey", "brown", "pink", "yellow4"),  #enough colors for all response categories
+    labels = c("distractor", "function", "material", "shape")  # labels match the responses
+  ) +
+  facet_wrap(~ condition)  + 
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 10),
+    legend.position = "bottom",  
+    panel.grid.major.y = element_line(color = "grey90")
+  ) +
+  geom_text(aes(label = round(prop, 1)),
+            position = position_stack(vjust = 0.5),  # Center labels inside the bar segments
+            color = "white", 
+            size = 2.5)  
+```
+
+```{r }
+order_e2_no7 <- e2_no_7_item_props |> 
+  filter(response == "shape") |> 
+  arrange(condition, desc(prop)) |>  # Ensure descending order
+  mutate(standard_number = as.factor(standard_number)) |>
+  select(condition, standard_number)
+
+# Step 2: Merge this order back into `e2_items` to set factor levels correctly
+e2_no_7_item_props <- e2_no_7_item_props |> 
+  left_join(order_e2_no7 , by = c("standard_number", "condition")) |> 
+  mutate(standard_number = factor(standard_number, levels = unique(order_e2_no7 $standard_number))) |> 
+  select(-ends_with(".y")) %>% # remove the tailing x and y in response columns
+  rename_with(~ str_remove_all(., "\\.x$"), everything()) %>%
+  distinct() %>% janitor:: clean_names() |> 
+  mutate(standard_number = factor(standard_number, levels = unique(order_e2_no7 $standard_number)))
+
+ggplot(data = e2_no_7_item_props, aes(x = standard_number, y = prop, fill = response)) +
+  geom_col(position = "stack", color = "black") + 
+  geom_hline(yintercept = .33, linetype = "dashed") +
+  geom_hline(yintercept = .66, linetype = "dashed") +
+  theme_minimal() +
+  xlab("Stimulus (by exemplar label)") +
+  ylab("Proportion selected") +
+  labs(fill = "response") +
+  scale_fill_manual(
+    values = c("grey", "brown", "pink", "yellow4"),  #enough colors for all response categories
+    labels = c("distractor", "function", "material", "shape")  # labels match the responses
+  ) +
+  facet_wrap(~ condition)  + 
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 10),
+    legend.position = "bottom",  
+    panel.grid.major.y = element_line(color = "grey90")
+  ) +
+  geom_text(aes(label = round(prop, 1)),
+            position = position_stack(vjust = 0.5),  # Center labels inside the bar segments
+            color = "white", 
+            size = 2.5)
+```
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+We decided to remove children who chose the distractor more than 3 times from the analysis because distractor responses were infrequent overall (mean proportion = `r round(mean(e2$shape_response[e2$response=="distractor"]),2)`) and including those children who chose them more than half of the trials could introduce noise into the model. The distractor option was not a valid choice for generalization, and children who selected it may have been confused, randomly selecting, or disengaged. 
+
+We fit a generalized logistic mixed effects model predicting the binary outcome of choosing by shape for each trial by each child. We included random intercepts at the level of both participants and stimuli objects.
+Age was centered to improve interpretability of the intercept. We included fixed effects for age in months, condition (function vs. no function), and their interaction.
+
+## Results
+```{r }
+# Create binary response variable (1 = shape, 0 = material/function)
+e2$shape_response <- ifelse(e2$response == "shape", 1, 0)
+
+e2_no_7$shape_response <- ifelse(e2_no_7$response == "shape", 1, 0)
+
+# Calculate the overall shape response rate and compare to 0.5 chance level
+overall_shape_rate_no_7 <- mean(e2_no_7$shape_response)
+overall_logit_no_7 <- log(overall_shape_rate_no_7 / (1 - overall_shape_rate_no_7))
+chance_logit <- log(0.5 / 0.5)  # This equals 0
+
+overall_shape_rate <- mean(e2$shape_response)
+overall_logit <- log(overall_shape_rate / (1 - overall_shape_rate))
+
+
+```
+In Experiment 2, we observed children choosing by shape more often than by material or function. The overall proportion of shape choices was `r round(overall_shape_rate, 2)` when including all responses and `r round(overall_shape_rate_no_7, 2)` when excluding number 7.
+
+```{r }
+e2_model <- glmer(shape_response ~ age_mo_centered * condition  + (1|standard_number) + (1|kidid),
+                family = binomial(link = "logit"), 
+                data = select(e2,-term))
+
+#modelsummary(e2_model)
+summary(e2_model)
+
+
+summary( glmer(shape_response ~ age_mo_centered * condition  + (1|standard_number) + (1|kidid),
+                family = binomial(link = "logit"), 
+                data = select(e2_no_7,-term)))
+
+
+summary(glmer(shape_response ~ age_mo_centered * condition  + standard_number + (1|kidid),
+                family = binomial(link = "logit"), 
+                data = select(e2 %>% mutate(standard_number = as.factor(standard_number)),-term)))
+      
+```
+
+```{r }
+library(marginaleffects)
+library(modelsummary)
+
+print( marginaleffects::predictions(e2_model, 
+                                    re.form = NA,
+                                    
+                                    newdata = datagrid(condition = c("Function", "No Function"), 
+                                                       age_mo_centered = c(-30, 0, 22))))
+
+# print (marginaleffects::avg_predictions(e2_model, 
+#                                  re.form = NA,
+#                                  newdata = datagrid(condition = c("Function", "No Function"), 
+#                                                    age_mo_centered = c(-12, 0, 12))))
+```
+
+As you can see in table [], for younger and average-aged kids,  performance was essentially at chance—around 50%. We saw a hint of a trend where older kids chose shape more, and a hint that the 'Function' condition led to more shape choices, but the effects were statistically inconclusive.  The variability coming from stimuli was almost 9 times greater than the variability among children. It is important to note that the variability was hugely influenced by one object in the dataset (object 7), which showed an unusually high rate of material choices across all ages and conditions, suggesting that the object may have had particularly salient material cues that overshadowed shape cues. This item had a design in which the overall structure was irrelevant to its function, but only a small part of it was relevant to its function. That functional part was similar in shape to the target, in contrast to the overall body of the object, which makes it amenable to being both a function match and a shape match. This design likely contributed to the atypical response pattern observed for this item, compared to other objects, creating statistical noise that could obscure any real effects. 
+
+## Discussion 
+In Experiment 2, we sought to replicate the shape bias in a more complex forced-choice task that included functionally-similar alternatives, using a within-subject design to control for individual differences. Our study finds a robust shape bias with a small-to-medium effect size (d ≈ 0.38). However, this was only apparent after we identified and removed a single problematic stimulus that was introducing significant item-level noise. This demonstrates that while the shape bias is real, its detection can be highly sensitive to methodological choices, which may explain some of the variability seen in the meta-analysis.
+
+Results show a clear but very small developmental increase in the shape bias. Contrary to the meta-analysis which found no consistent age effect across studies, our data suggests that when item-level noise is controlled for, a significant positive relationship between age and shape preference emerges. This implies that the lack of a significant age effect in the broader literature might be due to unaccounted-for variance in study materials, which can easily wash out more subtle developmental patterns. Notably the meta-analytic age estimate was also small positive () but insignifcant.
+
+There is a significant effect of condition, but in a counterintuitive direction. Children were more likely to exhibit a shape bias when the alternative was a functional match compared to when it was a material match. This runs contrary to the simple prediction that adding functional information would drive children away from shape. Instead, it seems that contrasting shape with material is what reduces the shape bias.
+
+This highlights the significant impact that specific stimulus features can have on children's categorization strategies. Particularly noteworthy is that this design in which an object has multiple parts, which may or may not share a common shape, but with only some of those parts being relevant to its function, can lead to atypical response patterns. This suggests that children may prioritize certain object features over others when making categorization decisions, especially when those features are directly tied to an object's function. This design matches real-world scenarios where objects often have complex structures with multiple functional components. If one objects, that is likely to be resembling real-world objects children usually encounter, is enough to skew the results, it raises questions about the generalizability of the shape bias across different object types and contexts.
+
+The developmental trend of the shape bias, is theoretically related the theories of its origin and the mechanisms behind it. Both our preregistered model and post-hoc models excluding distractor responses and the outlier item (standard_number 7) revealed either no significant effect of age on the likelihood of choosing by shape, or a significant very small negligible effect. This, along with the fact that most children in all age groups did not choose the distractor significantly, the item variability, and the huge impact of object design, suggests that the shape bias may not be as robust or universal as previously thought. Instead, it may be highly context-dependent, influenced by specific object features and induced by the task, and objects researchers choose to use, which may obscure the real knowledge children possess and use while making theories about language and semantics. This calls for a more nuanced understanding of the shape bias, considering how different object properties and task demands can shape children's categorization strategies.
+
+All generalized logistic mixed effects models revealed an effect of the presence of functionally-similar alternatives, with children being more likely to choose by shape when a function match was present. This suggests that the addition of functionally-similar alternatives in fact decreased variability in responding, contrary to our original prediction. As functional cues are made salient, children may rely more on shape cues for categorization, potentially because shape is a more stable and reliable feature for object identification compared to function, which can be more context-dependent. This finding highlights the complex interplay between different object features in children's categorization processes and suggests that the presence of functionally-similar alternatives can actually enhance the shape bias rather than diminish it. Future research should further explore how different types of object features interact to influence children's categorization strategies and how these processes develop over time.
+
+# Experiment 3
+In Experiment 3, we aimed to further investigate the underlying knowledge children bring to bear when making categorization decisions in the context of novel objects. Building on the findings from Experiments 1 and 2, we introduced a new manipulation following (Graham et al 1999) in which children were allowed to endorse multiple choices in the second and third trials, after they first made a single forced-choice selection. This design allowed us to assess not only children's initial categorization preferences but also their willingness to consider multiple object features as relevant for category membership. Our goal was to assess how children prioritize different object features when making categorization decisions in a more complex context.
+We hypothesized that if children posses a more nuanced understanding of object categorization than what a forced-choice task reveals, i.e, that objects are more than just their shape, they would be more likely to endorse the function match after choosing a shape match, or vice versa.
+
+this experiment also serves as a replication of Experiment 2 after fixing the problematic stimulus item 7. 
+## Methods 
+moving from a single forced-choice paradigm (kids choose one dimension) to a graded acceptance paradigm (kids can endorse multiple dimensions sequentially). 
+Forced categorical decision Followed by graded endorsement probe
+Step 1 (Forced selection): Which dimension is chosen first?
+Step 2 (Graded endorsement): Does the child additionally endorse the other dimensions? 
+Forced mapping decision → what representation wins initial competition?
+Optional endorsements → how exclusive vs flexible is that representation?
+
+Our the theoretically meaningful outcome here is the Probability of additional endorsement (2nd and 3rd responses only). 
+DV: Probability of additional endorsement given prior commitment.
+Initial Representational Bias
+
+P(First choice = Shape vs Function)
+
+This tells you what dimension dominates the lexical hypothesis.
+P(Additional endorsement = Function | First choice = Shape)
+Representational Exclusivity
+
+Given the first choice, how often do children:
+Reject alternatives entirely?
+Endorse the competing dimension?
+This distinguishes:
+Pure shape theorists
+Pure function theorists
+Graded / probabilistic representers
+Dual-representation children
+
+# Discussion
+Experiment 3 revealed that children choose by shape more when forced to make only one selection, but they are willing to accept the function match as well. The opposite is also true, children who first choose the function match are also willing to accept the shape match. This suggests that children have a good understanding of what an object kind can afford, and that the action it can perform is important for its categoriation. However, they still give a huge weight to the shape, even when it is impossible to perform the function with it. For example, when the function is to hold water, children still choose the shape match that is made of paper towel. We know that children understand that paper towel cannot hold water from prior knowledge, and from qualitative observations during the task, they usually comment on its material by saying " this is a paper dax/fep etc", "this is a zimbo that cannot open", "this is a gorp that cannot cut". Yet they still choose it as a shape match. This suggests that while children understand the functional properties of objects, they still prioritize shape when making categorization decisions, even when it conflicts with their knowledge of an object's material properties. 
+
+This highlights that hearing a noun label may encapsulate a rich set of knowledge about an object, that goes beyond just shape, or even just function. For children, the label may refer to the real spoon the use at home to eat soup, but it also refers to the pretend play spoon that they use to feed their dolls, or the picture spoon in a book. These are all spoons, but only the context and the pragmatics of the situation will determine which properties to prioritize at the moment of decision making.
+
+Previous research has always contrasted shape with function in an attempt to ask if they type of knowledge children use to categorize objects is more perceptual or more conceptual. Whether children develop shape bias as an simple association "attentional learning mechanism", or whether they develop it as a conceptual and strategic way to learn about object kinds "shape as a cue". The first account suggests that shape bias only emerges in labeling contexts, while the second account suggests that shape bias reflects general conceptual knowledge about object kinds, even in non-linguistic contexts.
+
+our findings, support the idea that children are capable of reasoning about the affordances of object kinds, and flexibly use both shape and function information when making decisions about category membership. However, it remains unclear if children's tendency to prioritize shape even when it conflicts with functional knowledge reflects a noun/labeling effect. If a noun category equals to "this object can afford this functionality", for example "a Dax" is "an object that afford holding water" then whether we ask for a "dax" or for something that can hold water, children should respond the same way, choosing the function match. However, if the noun category equals to "this object looks like this, it might or might not afford this functionality", then children might choose the shape match when asked for a "dax", and might or might not endorse a function match, but only choose the function match when asked for something that can hold water, but not the shape match that doesn't afford holding water. 
+We test this in Experiment 4 by manipulating the wording of the question, asking either for the label, or for the function. 
+
+<!-- However, our findings suggest that both types of knowledge are important, and children are able to flexibly use both shape and function information when making categorization decisions. The forced-choice task may not fully capture the complexity of children's understanding of object categories, as it limits their ability to express the full range of knowledge they possess about objects. By allowing children to endorse multiple choices, we can gain a deeper insight into how they prioritize different object features and how they integrate perceptual and conceptual knowledge in their categorization processes. -->
+
+# Experiment 4
+
+In Experiment 4, we aimed to further investigate how the wording of the task influences children's categorization decisions. Building on the findings from Experiment 3, we manipulated the phrasing of the question posed to children after they were introduced to a novel object that has a novel noun. Because we are investigating how children organize categories of object kinds, in the context of word learning, we would first introduce the object with its novel label (e.g., "This is a [X]") in both conditions. Then, in one condition, children were asked to identify another object uisng the label (e.g., "Can you find another [X]?"), while in the other condition, they were asked to identify an object based on its function (e.g., "Can you find one that can [function]?"). This manipulation allowed us to assess whether the framing of the task influences children's prioritization of shape versus function when making categorization decisions. 
+We add a pragmatic dimension to the task, because we think labels carry all of these meanings, and children are sensitive to the context in which a label is used. If we asked for a "cake" in the context of a birthday party, children would go for the object that can be eaten, but if we asked for a "cake" in the context of a toy kitchen, children might go for the object that looks like a cake, but made of plastic. Thus, we create a more ecologically valid context for word learning, where labels are used in a context of needing to perform an action or fulfill a goal, not just as an abstract categorization exercise, or a playful naming game. 
+
+\newpage
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+:::

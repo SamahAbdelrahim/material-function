@@ -1,10 +1,56 @@
+# ---- R / RStudio ----
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 
-objects_videos-backup/
-figs/
-*.log
-*.tex
+# ---- OS / editors ----
+.DS_Store
+*.swp
+*~
 
+# ---- Node ----
+node_modules/
+
+# ---- Large / local-only media ----
+*.mp4
+*.mov
+*.numbers
+
+# ---- Papaja / LaTeX outputs (rebuild from MS.rmd) ----
+*.log
+*.aux
+*.synctex.gz
+Manuscript/*.pdf
+Manuscript/*.tex
+Manuscript/*.fff
+Manuscript/figs/
+
+# ---- Manuscript: local notes & drafts (not the main paper source) ----
+Manuscript/interpret/
+Manuscript/*copy*
+Manuscript/*.rmd.bak
+theoretical-skeleton.md
+
+# ---- Analysis drafts, lit review, scratch (keep local) ----
+misc/
+summer2025/
+analysis-2024/
+cogsci-2024/
+figures/
+interpretations.Rmd
+processed_data.csv
+processed_data.rds
+
+# Raw video backups / duplicates
+objects_videos-backup/
+**/objects_videos copy/
+
+# Redundant seeds / exports
+data/old data/
+data/jongmin.numbers
+*_old.csv
+
+# ---- Legacy paths (remove from index if still tracked) ----
+cogsci/first full version of cogsci.Rmd
+figs/
