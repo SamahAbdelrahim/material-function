@@ -1,56 +1,36 @@
-# ---- R / RStudio ----
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+# R session artifacts
+.Rproj.user/
+**/.Rhistory
+**/.RData
 
-# ---- OS / editors ----
-.DS_Store
-*.swp
-*~
+# Environment and credentials
+.env
 
-# ---- Node ----
-node_modules/
+# macOS system files
+**/.DS_Store
 
-# ---- Large / local-only media ----
-*.mp4
-*.mov
-*.numbers
+# Identified spreadsheets (never commit): regenerate public tables with scripts/anonymize_data.py
+data_identified/
 
-# ---- Papaja / LaTeX outputs (rebuild from MS.rmd) ----
-*.log
-*.aux
-*.synctex.gz
-Manuscript/*.pdf
-Manuscript/*.tex
-Manuscript/*.fff
+# Optional scratch outputs (legacy CLI that wrote sibling *-anon.csv files)
+data/*-anon.csv
+
+# Compiled outputs — regenerated on knit, not source-of-truth
+Manuscript/MS.pdf
 Manuscript/figs/
+summer2025/*.pdf
 
-# ---- Manuscript: local notes & drafts (not the main paper source) ----
+# Private working documents: AI collaboration logs, brainstorming, interpretation notes, presentations
+MEMORY.md
 Manuscript/interpret/
-Manuscript/*copy*
-Manuscript/*.rmd.bak
-theoretical-skeleton.md
+Manuscript/theoretical-skeleton.md
 
-# ---- Analysis drafts, lit review, scratch (keep local) ----
-misc/
-summer2025/
-analysis-2024/
-cogsci-2024/
-figures/
-interpretations.Rmd
-processed_data.csv
-processed_data.rds
+# Archive — old drafts, exploratory code, AI session logs, large video files
+# Nothing here is currently tracked; gitignoring the whole folder keeps it local-only
+archive/
 
-# Raw video backups / duplicates
-objects_videos-backup/
-**/objects_videos copy/
+# Node.js dependencies
+**/node_modules/
 
-# Redundant seeds / exports
-data/old data/
-data/jongmin.numbers
-*_old.csv
-
-# ---- Legacy paths (remove from index if still tracked) ----
-cogsci/first full version of cogsci.Rmd
-figs/
+# Python
+scripts/__pycache__/

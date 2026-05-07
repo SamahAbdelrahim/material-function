@@ -1,0 +1,907 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# pre-processing
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries}
+library(ggplot2)
+library(tidyverse)
+library(here)
+library(lme4)  
+library(papaja)
+library(knitr) 
+library(simr) ## for power simulation
+library(ggalluvial)  # For alluvial diagrams;
+library(scales)
+
+```
+
+
+| First choice | Remaining conceptual dimension |
+| ------------ | ------------------------------ |
+| shape        | function remains               |
+| function     | shape remains                  |
+| distractor   | both remain                    |
+
+two experiments measuring two different psychological questions:
+
+• Experiment 1 (forced-choice): shape vs function condition manipulation
+• Experiment 2 (forced-choice + endorsement): function condition only
+
+Exp2 is no longer a condition comparison. It becomes a process decomposition study of the function condition.
+
+Exp1 tested: Does telling children the function reduce the shape bias?
+Result: No reliable effect.
+
+So the field question becomes: If function does not win the forced choice, is function actually ignored?
+OR is forced choice hiding a more graded representation?
+
+# moving from a single forced-choice paradigm (kids choose one dimension) to a graded acceptance paradigm (kids can endorse multiple dimensions sequentially).
+```{r eval=FALSE}
+# e2_endorsement_long <- e2_endorsement %>%
+#   filter(`exclude?` != "yes")  %>%
+#   select(kidid, `age (months)`, trial, `1st_response`, `2nd_response`, `3rd_response`)     %>%
+#   pivot_longer(cols = c(`1st_response`, `2nd_response`, `3rd_response`), 
+#                names_to = "response_order", values_to = "response_type") %>%
+#   mutate(endorsed = ifelse(!is.na(response_type), "yes", "no"),
+#          response_type = ifelse(is.na(response_type), "none", response_type))
+
+clean_followup_data <- function(file_path) {
+  df <- read_csv(file_path, na = c("NA", ".")) |>
+    filter(!is.na(`1st_response`)) |>  # Filter out missing first responses
+    rename(
+      age_mo = `age (months)`,
+      age_yr = `age (years)`,
+      first_response = `1st_response`,
+      second_response = `2nd_response`,
+      third_response = `3rd_response`
+    ) |>  # Rename for simplicity
+    mutate(
+      across(c(first_response, second_response, third_response), ~ tolower(.)),  # Standardize to lowercase
+      num_endorsements = (!is.na(second_response)) + (!is.na(third_response)),  # Count how many dimensions endorsed (1-3)
+      num_endorsements = as.factor(num_endorsements), # For plotting
+      num_rejections = (is.na(second_response)) + (is.na(third_response))  # Count rejections for analysis
+    ) |>
+    filter(condition == "function")  # Since you mentioned only one condition; adjust if needed
+  
+  # Optional: Filter out excluded trials
+  if ("exclude?" %in% colnames(df)) {
+    df <- df |> filter(`exclude?` != "yes")
+  }
+  
+  return(df)
+}
+
+```
+
+```{r warning=FALSE, message=FALSE}
+read_endorsement <- function(path) {
+  df <- read_csv(path, na = c("NA", "."), show_col_types = FALSE) |>
+    mutate(across(where(is.logical), as.character)) |>
+    rename(
+      age_mo          = `age (months)`,
+      age_yr          = `age (years)`,
+      first_response  = `1st_response`,
+      second_response = `2nd_response`,
+      third_response  = `3rd_response`
+    ) |>
+    mutate(
+      across(c(age_mo, age_yr), as.numeric),
+      # Empty CSV cells become "" — not NA — so blanks must count as rejects (fixes constant glmer outcomes).
+      across(c(first_response, second_response, third_response), \(x) {
+        v <- ifelse(is.na(x), NA_character_, trimws(as.character(x)))
+        ifelse(!is.na(v) & nzchar(v), tolower(v), NA_character_)
+      }),
+      # num_endorsements = optional yes-responses after the forced first choice (0, 1, or 2)
+      num_endorsements = as.factor(
+        as.integer(!is.na(second_response)) + as.integer(!is.na(third_response))
+      ),
+      num_rejections = as.integer(is.na(second_response)) + as.integer(is.na(third_response))
+    ) |>
+    filter(condition == "function")
+
+  if ("exclude?" %in% colnames(df)) {
+    df <- df |> filter(is.na(`exclude?`) | `exclude?` != "yes")
+  }
+  df
+}
+
+e2_endorsement <- map(
+  list(
+    here("data", "JMZsummer25-endorsment.csv"),
+    here("data", "Bing3.0Fall25.csv"),
+    here("data", "Bing3.0Winter26.csv"), 
+    here("data", "Bing3.0Spring26.csv")
+  ),
+  read_endorsement
+) |>
+  bind_rows()
+```
+
+```{r }
+e2_endorsement <- e2_endorsement |>
+  mutate(
+    # Extract numeric age (handles decimals)
+    raw_years = as.numeric(str_extract(age_yr, "\\d+\\.*\\d*")), 
+    
+    # Apply coding logic based on ranges
+    years = case_when(
+      raw_years > 2 & raw_years <= 3 ~ "<=3" ,
+      raw_years > 3 & raw_years <= 4 ~ "<=4" ,
+      raw_years > 4 & raw_years <= 5 ~ "<=5",
+      raw_years > 5 ~ "<6" ,
+      TRUE ~ "none" # Handles ages 2 or below, adjust if needed
+    )
+  )
+
+# Summarize counts
+e2_endorsement %>%
+  filter(!is.na(years)) %>% 
+  group_by(kidid) %>%
+  select(years) %>%
+  distinct() %>%
+  group_by(years) %>%
+  summarize(count = n())
+
+```
+```{r }
+e2_endorsement_props <- e2_endorsement |>
+  group_by(kidid, age_mo, first_response) |>
+  summarize(count_first_response = n()) |>
+  group_by(kidid, age_mo) |>
+  mutate(prop_response = count_first_response / sum(count_first_response)) |>
+  ungroup()
+```
+
+Step 1 (Forced selection): Which dimension is chosen first?
+Step 2 (Graded endorsement): Does the child additionally endorse the other dimensions? 
+
+Our the theoretically meaningful outcome here is the Probability of additional endorsement (2nd and 3rd responses only)
+
+```{r }
+# Visualization 1: Bar Plot of Number of Endorsements (Graded: 1, 2, or 3 dimensions)
+# Shows how often kids stick to one choice vs. endorse multiple
+ggplot(e2_endorsement, aes(x = num_endorsements)) +
+  geom_bar(aes(y = after_stat(prop), group = 1), fill = "skyblue") +  # Proportions
+  geom_text(aes(label = scales::percent(..prop..), y = ..prop..), stat = "count", vjust = -0.5) +
+  labs(
+    title = "Proportion of subjects by Number of Endorsed Dimensions",
+    x = "Number of Dimensions Endorsed (Graded Response)",
+    y = "Proportion of subjects"
+  ) +
+  scale_y_continuous(labels = scales::percent) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
+```{r }
+# Visualization 2: Stacked Bar Plot - By First Response, What Additional Responses Are Added
+# First, pivot to long format for stacking
+graded_long <- e2_endorsement |>
+  select(trial, kidid, first_response, second_response, third_response) |>
+  pivot_longer(cols = c(first_response, second_response, third_response), 
+               names_to = "response_order", values_to = "response_type") |>
+  filter(!is.na(response_type)) |>  # Remove NAs (non-endorsed)
+  mutate(response_order = factor(response_order, levels = c("first_response", "second_response", "third_response")))
+
+ggplot(graded_long, aes(x = response_order, fill = response_type)) +
+  geom_bar(position = "fill") +  # Stacked proportions
+  labs(
+    title = "Distribution of Response Types by Order (First, Second, Third)",
+    x = "Response Order",
+    y = "Proportion",
+    fill = "Response Type"
+  ) +
+  scale_fill_manual(values = c("shape" = "yellow4", "function" = "brown")) +  # Match your previous colors
+  theme_minimal()
+```
+```{r }
+graded_long_2 <- e2_endorsement |>
+  select(trial, kidid, first_response, second_response, third_response, num_endorsements
+) |>
+  pivot_longer(cols = c(first_response, second_response, third_response), 
+               names_to = "response_order", values_to = "response_type") |>
+  filter(!is.na(response_type)) |>  # Remove NAs (non-endorsed)
+  mutate(response_order = factor(response_order, levels = c("first_response", "second_response", "third_response")))
+
+ggplot(graded_long_2, aes(x = num_endorsements, fill = response_type)) +
+  geom_bar(position = "fill") +  # Stacked proportions
+  labs(
+    title = "Distribution of Response Types by Order (First, Second, Third)",
+    x = "Response Order",
+    y = "Proportion",
+    fill = "Response Type"
+  ) +
+  scale_fill_manual(values = c("shape" = "yellow4", "function" = "brown")) +  # Match your previous colors
+  theme_minimal()
+```
+```{r }
+endorse_reject_long <- e2_endorsement |>
+  select(kidid, trial, first_response, second_response, third_response) |>
+  pivot_longer(
+    cols = c(first_response, second_response, third_response),
+    names_to = "response_order",
+    values_to = "response_type"
+  ) |>
+  mutate(
+    response_order = factor(response_order,
+                             levels = c("first_response",
+                                        "second_response",
+                                        "third_response")),
+    endorsement_status = ifelse(is.na(response_type),
+                                "Rejected",
+                                "Endorsed")
+  )
+
+ggplot(endorse_reject_long,
+       aes(x = response_order, fill = endorsement_status)) +
+  geom_bar(position = "fill") +
+  scale_y_continuous(labels = percent_format()) +
+  scale_fill_manual(values = c("Endorsed" = "steelblue",
+                               "Rejected" = "tomato")) +
+  labs(
+    title = "Endorsements and Rejections by Response Order",
+    x = "Response Order",
+    y = "Proportion",
+    fill = "Response Type"
+  ) +
+  theme_minimal()
+
+
+ggplot(endorse_reject_long,
+       aes(x = response_order, fill = endorsement_status)) +
+  geom_bar(position = "dodge") +
+  scale_fill_manual(values = c("Endorsed" = "steelblue",
+                               "Rejected" = "tomato")) +
+  labs(
+    title = "Count of Endorsements and Rejections by Response Order",
+    x = "Response Order",
+    y = "Count",
+    fill = "Response Type"
+  ) +
+  theme_minimal()
+
+endorse_reject_long <- endorse_reject_long |>
+  mutate(
+    response_type = case_when(
+      is.na(response_type) ~ "Rejected",
+      TRUE ~ response_type
+    )
+  )
+
+ggplot(endorse_reject_long,
+       aes(x = response_order, fill = response_type)) +
+  geom_bar(position = "fill") +
+  scale_y_continuous(labels = percent_format()) +
+  scale_fill_manual(values = c("shape" = "yellow4",
+                               "function" = "brown",
+                               "Rejected" = "grey70")) +
+  labs(
+    title = "Distribution of Endorsed Dimensions and Rejections",
+    x = "Response Order",
+    y = "Proportion",
+    fill = "Response Type"
+  ) +
+  theme_minimal()
+
+```
+Plot mean proportion of Endorsement vs Rejection per response order, with subject-level error bars (±95% CI): Error bars reflect between-subject variability, not trial noise 
+```{r }
+# Long format with endorsement coding
+endorse_long <- e2_endorsement |>
+  select(kidid, trial, first_response, second_response, third_response) |>
+  pivot_longer(
+    cols = c(first_response, second_response, third_response),
+    names_to = "response_order",
+    values_to = "response_type"
+  ) |>
+  mutate(
+    response_order = factor(response_order,
+                             levels = c("first_response",
+                                        "second_response",
+                                        "third_response"),
+                             labels = c("First", "Second", "Third")),
+    endorsed = ifelse(is.na(response_type), 0, 1)
+  )
+
+# Compute subject-level proportions
+subject_summary <- endorse_long |>
+  group_by(kidid, response_order) |>
+  summarise(
+    prop_endorsed = mean(endorsed),
+    .groups = "drop"
+  )
+
+# Group-level summary with 95% CI
+group_summary <- subject_summary |>
+  group_by(response_order) |>
+  summarise(
+    mean_prop = mean(prop_endorsed),
+    se = sd(prop_endorsed) / sqrt(n()),
+    ci = 1.96 * se,
+    .groups = "drop"
+  )
+
+ggplot(group_summary, aes(x = response_order, y = mean_prop)) +
+  geom_col(fill = "steelblue", width = .6) +
+  geom_errorbar(aes(ymin = mean_prop - ci,
+                    ymax = mean_prop + ci),
+                width = .15,
+                linewidth = .8) +
+  scale_y_continuous(limits = c(0,1),
+                     labels = scales::percent_format()) +
+  labs(
+    title = "Endorsement Rates by Response Order",
+    x = "Response Order",
+    y = "Mean Proportion Endorsed (±95% CI)"
+  ) +
+  theme_classic(base_size = 14) +
+  theme(
+    axis.text = element_text(color = "black"),
+    axis.title = element_text(face = "bold"),
+    plot.title = element_text(face = "bold", hjust = .5)
+  )
+```
+
+Subject-Level Mean of Optional Endorsements: given that a child already chose one dimension, how often do they endorse additional ones?
+```{r }
+optional_long <- e2_endorsement |>
+  select(kidid, trial, second_response, third_response) |>
+  pivot_longer(
+    cols = c(second_response, third_response),
+    names_to = "response_order",
+    values_to = "response_type"
+  ) |>
+  mutate(
+    response_order = factor(response_order,
+                             levels = c("second_response", "third_response"),
+                             labels = c("Second", "Third")),
+    endorsed = ifelse(is.na(response_type), 0, 1)
+  )
+
+# Subject-Level Proportions
+
+subject_optional <- optional_long |>
+  group_by(kidid, response_order) |>
+  summarise(
+    prop_endorsed = mean(endorsed),
+    .groups = "drop"
+  )
+
+group_optional <- subject_optional |>
+  group_by(response_order) |>
+  summarise(
+    mean_prop = mean(prop_endorsed),
+    se = sd(prop_endorsed) / sqrt(n()),
+    ci = 1.96 * se,
+    .groups = "drop"
+  )
+
+ggplot(group_optional, aes(x = response_order, y = mean_prop)) +
+  geom_col(fill = "steelblue", width = .6) +
+  geom_errorbar(aes(ymin = mean_prop - ci,
+                    ymax = mean_prop + ci),
+                width = .15,
+                linewidth = .8) +
+  scale_y_continuous(limits = c(0,1),
+                     labels = scales::percent_format()) +
+  labs(
+    title = "Probability of Additional Endorsement",
+    subtitle = "After Forced First Choice",
+    x = "Optional Response Order",
+    y = "Mean Proportion Endorsed (±95% CI)"
+  ) +
+  theme_classic(base_size = 14)
+
+if (dplyr::n_distinct(as.integer(optional_long$endorsed)) < 2L) {
+  message("Skipping mixed model: endorsed is constant in optional_long (check coding of blanks).")
+  print(table(response_order = optional_long$response_order, endorsed = optional_long$endorsed, useNA = "ifany"))
+} else {
+  print(summary(glmer(endorsed ~ response_order + (1 | kidid), family = binomial, data = optional_long)))
+}
+```
+
+```{r }
+# Visualization 3: Alluvial Diagram (Flow from First to Second/Third Responses)
+# Requires ggalluvial; shows flows/combinations of endorsements
+# Aggregate counts for flows
+alluvial_data <- e2_endorsement |>
+  mutate(
+    second_response = ifelse(is.na(second_response), "reject", second_response),
+    third_response = ifelse(is.na(third_response), "reject", third_response)
+  ) |>
+  count(first_response, second_response, third_response)  # Freq of each combination
+
+ggplot(alluvial_data,
+       aes(axis1 = first_response, axis2 = second_response, axis3 = third_response, y = n)) +
+  geom_alluvium(aes(fill = first_response)) +
+  geom_stratum() +
+  geom_text(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limits = c("First Trial", "Second Trial", "Third Trial"), expand = c(0.15, 0.05)) +
+  labs(
+    title = "Alluvial Flow of Graded Responses (First to Additional Endorsements)",
+    y = "Count of Trials",
+    fill = "First Response"
+  ) +
+  scale_fill_manual(values = c("shape" = "yellow4", "function" = "brown", "distractor" = "gray40")) +
+  theme_minimal()
+
+#save the graph as an image 
+ggsave(
+  here("figures", "graded_endorsement_alluvial_diagram.png"),
+  width = 10, height = 6
+)
+
+```
+
+```{r }
+# e2_endorsement to longer format having the second and third response in one column
+endorsement_long <- e2_endorsement %>%
+  select(trial, kidid, first_response, second_response, third_response) %>%
+  pivot_longer(cols = c(second_response, third_response), 
+               names_to = "response_order", values_to = "response_type") %>%
+  mutate(response_order = factor(response_order, levels = c("second_response", "third_response")))
+
+
+alluvial_data2 <- endorsement_long %>%
+  mutate(
+    other_response = case_when(
+      is.na(response_type) ~ "reject",
+      response_type == "shape" ~ "shape",
+      response_type == "function" ~ "function", 
+      response_type == "distractor" ~ "distractor"
+    )
+  ) %>%
+  count(first_response, other_response) %>% # Freq of each combination
+  group_by(first_response) %>% mutate(perc = n / sum(n), count = n) %>%
+  ungroup()
+
+ggplot(alluvial_data2,
+       aes(axis1 = first_response, axis2 = other_response, y = n)) +
+  geom_alluvium(aes(fill = first_response)) +
+  geom_stratum() +
+  geom_text(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limits = c("First Response", "Endorsments"), expand = c(0.15, 0.05)) +
+  labs(
+    title = "Alluvial Flow of Graded Responses (First to Additional Endorsements)",
+    y = "Responses",
+    fill = "First Response"
+  ) +
+  scale_fill_manual(values = c("shape" = "yellow4", "function" = "brown", "distractor" = "gray40")) +
+  theme_minimal()
+
+ggsave(
+  here("figures", "graded_endorsement_alluvial_diagram2.png"),
+  width = 10, height = 6
+)
+```
+
+# Revised inferential analysis aligned to task design
+
+```{r }
+# Sensitivity exclusion: remove children who selected distractor first on >= 3 trials.
+kid_distractor_counts <- e2_endorsement %>%
+  group_by(kidid) %>%
+  summarise(
+    n_distractor_first = sum(first_response == "distractor", na.rm = TRUE),
+    .groups = "drop"
+  )
+
+excluded_kids <- kid_distractor_counts %>%
+  filter(n_distractor_first >= 3) %>%
+  pull(kidid)
+
+analysis_e2 <- e2_endorsement %>%
+  filter(!(kidid %in% excluded_kids))
+
+cat(sprintf(
+  "Excluded %d children with >=3 distractor-first trials. Analysis N children = %d.\n",
+  length(unique(excluded_kids)),
+  dplyr::n_distinct(analysis_e2$kidid)
+))
+
+analysis_e2 <- analysis_e2 %>%
+  mutate(
+    age_mo_centered = as.numeric(scale(age_mo, center = TRUE, scale = FALSE)),
+    first_response = factor(first_response, levels = c("shape", "function", "distractor")),
+    standard_number = factor(standard_number)
+  )
+```
+
+## Forced-choice models (3 options preserved)
+
+```{r }
+first_choice_shape_model <- glmer(
+  I(first_response == "shape") ~ age_mo_centered + (1 | kidid) + (1 | standard_number),
+  family = binomial,
+  data = analysis_e2
+)
+
+first_choice_function_model <- glmer(
+  I(first_response == "function") ~ age_mo_centered + (1 | kidid) + (1 | standard_number),
+  family = binomial,
+  data = analysis_e2
+)
+
+summary(first_choice_shape_model)
+summary(first_choice_function_model)
+```
+
+```{r }
+first_choice_plot <- analysis_e2 %>%
+  group_by(first_response) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  mutate(prop = n / sum(n))
+
+ggplot(first_choice_plot, aes(x = first_response, y = prop, fill = first_response)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = percent(prop, accuracy = 0.1)), vjust = -0.4, size = 4) +
+  scale_y_continuous(labels = percent_format(), limits = c(0, 1)) +
+  scale_fill_manual(values = c("shape" = "yellow4", "function" = "brown", "distractor" = "gray40")) +
+  labs(
+    title = "Forced Choice Distribution (Step 1)",
+    x = "First response",
+    y = "Proportion of trials",
+    fill = "First response"
+  ) +
+  theme_minimal()
+```
+
+## Build trial-level and opportunity-level datasets
+
+```{r }
+trial_df <- analysis_e2 %>%
+  transmute(
+    kidid,
+    trial,
+    standard_number,
+    age_mo,
+    age_mo_centered,
+    first_response = as.character(first_response),
+    second_response = as.character(second_response),
+    third_response = as.character(third_response)
+  ) %>%
+  mutate(
+    # Task: after forced choice, only the *other* objects are available. A child cannot
+    # "endorse" the dimension they already chose first (that object is gone).
+    shape_in_later = coalesce(second_response == "shape", FALSE) | coalesce(third_response == "shape", FALSE),
+    function_in_later = coalesce(second_response == "function", FALSE) | coalesce(third_response == "function", FALSE),
+    endorsed_shape = shape_in_later & first_response != "shape",
+    endorsed_function = function_in_later & first_response != "function",
+    endorsed_any = endorsed_shape | endorsed_function,
+    rejected_all = !endorsed_any,
+    endorsed_both = endorsed_shape & endorsed_function
+  )
+
+opp_df <- bind_rows(
+  trial_df %>%
+    filter(first_response == "shape") %>%
+    transmute(
+      kidid, trial, standard_number, age_mo, age_mo_centered, first_response,
+      remaining_dimension = "function",
+      endorse = as.integer(coalesce(endorsed_function, FALSE))
+    ),
+  trial_df %>%
+    filter(first_response == "function") %>%
+    transmute(
+      kidid, trial, standard_number, age_mo, age_mo_centered, first_response,
+      remaining_dimension = "shape",
+      endorse = as.integer(coalesce(endorsed_shape, FALSE))
+    ),
+  trial_df %>%
+    filter(first_response == "distractor") %>%
+    transmute(
+      kidid, trial, standard_number, age_mo, age_mo_centered, first_response,
+      remaining_dimension = "shape",
+      endorse = as.integer(coalesce(endorsed_shape, FALSE))
+    ),
+  trial_df %>%
+    filter(first_response == "distractor") %>%
+    transmute(
+      kidid, trial, standard_number, age_mo, age_mo_centered, first_response,
+      remaining_dimension = "function",
+      endorse = as.integer(coalesce(endorsed_function, FALSE))
+    )
+) %>%
+  mutate(
+    remaining_dimension = factor(remaining_dimension, levels = c("shape", "function")),
+    first_response = factor(first_response, levels = c("shape", "function", "distractor"))
+  )
+```
+
+## Core endorsement models (availability, not dominance)
+
+The opportunity structure is determined by the forced first choice: a child who
+chose shape first can only have function as a remaining option, and a child who
+chose function first can only have shape. As a result, `first_response` and
+`remaining_dimension` are perfectly collinear within non-distractor trials. A
+single GLMM with both predictors is unidentifiable for those rows and produces
+inflated standard errors. We therefore stratify the analysis: (1) a null model
+for the overall endorsement rate; (2) a model restricted to shape-first trials
+asking whether function is endorsed; (3) a model restricted to function-first
+trials asking whether shape is endorsed; (4) a model restricted to
+distractor-first trials, where shape and function are both available within the
+same trial and `remaining_dimension` is therefore identifiable.
+
+```{r }
+# (1) Overall endorsement probability across all opportunity rows
+endorsement_null <- glmer(
+  endorse ~ 1 + (1 | kidid) + (1 | standard_number),
+  family = binomial,
+  data = opp_df,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+)
+summary(endorsement_null)
+plogis(fixef(endorsement_null)[1])
+
+# (2) After shape-first: do children endorse function?
+opp_after_shape <- opp_df %>% filter(first_response == "shape")
+endorsement_after_shape <- glmer(
+  endorse ~ age_mo_centered + (1 | kidid) + (1 | standard_number),
+  family = binomial,
+  data = opp_after_shape,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+)
+summary(endorsement_after_shape)
+plogis(fixef(endorsement_after_shape)[1])
+
+# (3) After function-first: do children endorse shape?
+opp_after_function <- opp_df %>% filter(first_response == "function")
+endorsement_after_function <- glmer(
+  endorse ~ age_mo_centered + (1 | kidid) + (1 | standard_number),
+  family = binomial,
+  data = opp_after_function,
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+)
+summary(endorsement_after_function)
+plogis(fixef(endorsement_after_function)[1])
+
+# (4) Distractor-first: shape vs function are both available within the same
+# trial, so remaining_dimension is identifiable here. This is the only stratum
+# in which we can directly test whether one dimension is more endorsable than
+# the other, holding first choice constant.
+opp_after_distractor <- opp_df %>% filter(first_response == "distractor")
+if (nrow(opp_after_distractor) > 0 &&
+    length(unique(opp_after_distractor$remaining_dimension)) == 2) {
+  endorsement_after_distractor <- glmer(
+    endorse ~ remaining_dimension + age_mo_centered +
+      (1 | kidid) + (1 | standard_number),
+    family = binomial,
+    data = opp_after_distractor,
+    control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+  )
+  summary(endorsement_after_distractor)
+} else {
+  message("Distractor-first stratum too sparse for a separate model.")
+}
+```
+
+## Reviewer-facing descriptive summaries
+
+```{r }
+# Step A: Trial-level strategy summaries (what happens within trials)
+trial_summary <- trial_df %>%
+  mutate(
+    strategy = case_when(
+      first_response == "shape" & endorsed_function ~ "Shape + Function",
+      first_response == "shape" & !endorsed_any ~ "Shape only",
+      first_response == "function" & endorsed_shape ~ "Function + Shape",
+      first_response == "function" & !endorsed_any ~ "Function only",
+      first_response == "distractor" & endorsed_both ~ "Distractor + Shape + Function",
+      first_response == "distractor" & endorsed_any & !endorsed_both ~ "Distractor + one conceptual",
+      first_response == "distractor" & !endorsed_any ~ "Distractor only",
+      TRUE ~ "Other"
+    )
+  )
+
+# Step B: Child-level summaries (what each child does across items)
+child_summary <- trial_summary %>%
+  group_by(kidid) %>%
+  summarise(
+    n_trials = n(),
+    prop_shape_later = mean(endorsed_shape),
+    prop_function_later = mean(endorsed_function),
+    prop_reject = mean(rejected_all),
+    prop_both_same_trial = mean(endorsed_both),
+    flexibility_index = prop_shape_later + prop_function_later,
+    flexibility_index_norm = (prop_shape_later + prop_function_later) / 2,
+    .groups = "drop"
+  )
+
+# Lenient classification: any evidence of both dimensions across trials
+child_summary <- child_summary %>%
+  mutate(
+    child_type_lenient = case_when(
+      prop_function_later == 0 & prop_shape_later > 0 ~ "Rigid Shape",
+      prop_shape_later == 0 & prop_function_later > 0 ~ "Rigid Function",
+      prop_shape_later > 0 & prop_function_later > 0 ~ "Mixed (ever both)",
+      prop_shape_later == 0 & prop_function_later == 0 ~ "Rejector",
+      TRUE ~ "Other"
+    ),
+    # Strict classification: require at least 2/7 trials for each endorsed dimension
+    child_type_strict = case_when(
+      prop_shape_later >= (2/7) & prop_function_later >= (2/7) ~ "Flexible (strict)",
+      prop_shape_later == 0 & prop_function_later == 0 ~ "Rejector",
+      prop_function_later == 0 & prop_shape_later > 0 ~ "Rigid Shape",
+      prop_shape_later == 0 & prop_function_later > 0 ~ "Rigid Function",
+      TRUE ~ "Partial / inconsistent"
+    )
+  )
+
+# Quick tables for interpretation in talks/manuscript
+table(child_summary$child_type_lenient)
+table(child_summary$child_type_strict)
+
+# Slide-ready percentages
+lenient_pct <- round(100 * prop.table(table(child_summary$child_type_lenient)), 1)
+strict_pct <- round(100 * prop.table(table(child_summary$child_type_strict)), 1)
+
+lenient_pct
+strict_pct
+
+cat(
+  sprintf(
+    "Strict flexible: %.1f%% (n=%d/%d)\n",
+    100 * mean(child_summary$child_type_strict == "Flexible (strict)"),
+    sum(child_summary$child_type_strict == "Flexible (strict)"),
+    nrow(child_summary)
+  )
+)
+
+cat(
+  sprintf(
+    "Mixed (lenient/ever-both): %.1f%% (n=%d/%d)\n",
+    100 * mean(child_summary$child_type_lenient == "Mixed (ever both)"),
+    sum(child_summary$child_type_lenient == "Mixed (ever both)"),
+    nrow(child_summary)
+  )
+)
+```
+
+```{r }
+# RQ: Do children endorse alternatives after forced choice?
+ggplot(opp_df, aes(x = first_response, fill = factor(endorse))) +
+  geom_bar(position = "fill") +
+  scale_y_continuous(labels = percent_format()) +
+  scale_fill_manual(values = c("0" = "gray70", "1" = "steelblue"),
+                    labels = c("No", "Yes")) +
+  labs(
+    title = "Alternative Endorsement by Forced First Choice",
+    x = "First response",
+    y = "Percent of endorsement opportunities",
+    fill = "Endorsed alternative?"
+  ) +
+  theme_minimal()
+```
+
+```{r }
+# RQ: What trial-level strategies are most common?
+ggplot(trial_summary, aes(x = strategy)) +
+  geom_bar(fill = "darkorange") +
+  coord_flip() +
+  labs(
+    title = "Strategy Distribution Across Trials",
+    x = "Trial strategy",
+    y = "Number of trials"
+  ) +
+  theme_minimal()
+
+
+ggplot(child_summary, aes(x = child_type_lenient)) +
+  geom_bar(fill = "darkorange") +
+  coord_flip() +
+  labs(
+    title = "Child-level Type Distribution (Lenient: any evidence)",
+    x = "Child type",
+    y = "Number of trials"
+  ) +
+  theme_minimal()
+
+ggplot(child_summary, aes(x = child_type_strict)) +
+  geom_bar(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Child-level Type Distribution (Strict: >=2/7 each)",
+    x = "Child type",
+    y = "Number of children"
+  ) +
+  theme_minimal()
+
+# Distribution check: if flexibility were absent, this would pile up at 0.
+# Here, values above 0 indicate at least some cross-trial endorsement of alternatives.
+ggplot(child_summary, aes(flexibility_index_norm)) +
+  geom_histogram(binwidth = 0.2, fill = "steelblue", color = "white") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "firebrick", linewidth = 0.7) +
+  labs(
+    title = "Child Flexibility Index Distribution (Normalized 0-1)",
+    subtitle = "Dashed line marks complete exclusivity (index = 0)",
+    x = "Normalized flexibility index ((prop_shape_later + prop_function_later)/2)",
+    y = "Number of children"
+  ) +
+  theme_minimal()
+
+# Visualization 4: Density + histogram overlay for child flexibility
+# Uses normalized index (0-1) and overlays density over histogram.
+ggplot(child_summary, aes(x = flexibility_index_norm)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 binwidth = 0.1,
+                 fill = "gray75",
+                 color = "white",
+                 alpha = 0.7) +
+  geom_density(fill = "steelblue",
+               alpha = 0.25,
+               color = "steelblue4",
+               linewidth = 1) +
+  geom_rug(aes(color = child_type_strict),
+           sides = "b",
+           alpha = 0.7,
+           show.legend = TRUE) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "firebrick", linewidth = 0.7) +
+  scale_x_continuous(limits = c(0, 1)) +
+  labs(
+    title = "Visualization 4: Child Flexibility Distribution (Density Overlay)",
+    subtitle = "Histogram + density on normalized flexibility index; rugs show strict child types",
+    x = "Normalized flexibility index ((prop_shape_later + prop_function_later)/2)",
+    y = "Density",
+    color = "Strict child type"
+  ) +
+  theme_minimal()
+
+# Backup variant: faceted density/histogram by strict child type
+ggplot(child_summary, aes(x = flexibility_index_norm)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 binwidth = 0.1,
+                 fill = "gray80",
+                 color = "white",
+                 alpha = 0.8) +
+  geom_density(fill = "steelblue",
+               alpha = 0.25,
+               color = "steelblue4",
+               linewidth = 0.8) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "firebrick", linewidth = 0.6) +
+  scale_x_continuous(limits = c(0, 1)) +
+  facet_wrap(~ child_type_strict, ncol = 2) +
+  labs(
+    title = "Flexibility Distribution by Strict Child Type",
+    subtitle = "Faceted backup plot for presentation/Q&A",
+    x = "Normalized flexibility index",
+    y = "Density"
+  ) +
+  theme_minimal()
+```
+
+```{r }
+# RQ: Are children consistent across items?
+ggplot(child_summary, aes(x = prop_function_later, y = prop_shape_later)) +
+  geom_point(size = 3, alpha = 0.7) +
+  geom_jitter(width = 0.02, height = 0.02) +
+  labs(
+    title = "Child-level Consistency Across Items",
+    subtitle = "Each point is one child",
+    x = "Proportion of trials endorsing FUNCTION later",
+    y = "Proportion of trials endorsing SHAPE later"
+  ) +
+  theme_minimal()
+```
+
+```{r }
+# RQ: Developmental pattern in endorsement opportunities
+ggplot(opp_df, aes(x = age_mo, y = endorse, color = remaining_dimension)) +
+  geom_jitter(height = 0.05, width = 0.3, alpha = 0.2) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), se = TRUE) +
+  scale_y_continuous(labels = percent_format(), limits = c(0, 1)) +
+  labs(
+    title = "Development of Alternative Endorsement",
+    x = "Age (months)",
+    y = "Predicted probability of endorsement",
+    color = "Remaining dimension"
+  ) +
+  theme_minimal()
+```

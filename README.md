@@ -15,10 +15,17 @@ The paper is built as a **linked series of four studies** with the same object s
 
 | Path | Contents |
 |------|----------|
-| `Manuscript/` | Main paper: `MS.rmd` (papaja / APA-style PDF output), bibliographies `r-references.bib`, `r-library.bib` |
-| `data/` | CSV tables read by the R Markdown (see `read_csv(here(...))` in `MS.rmd`; filenames and variables reflect the experiments in the text) |
-| `online_experiments/` | Code for supplementary web-based tasks (e.g. ratings paradigms): HTML, JavaScript, a small Node server, vendored jsPsych assets. Stimulus movies are not currently in the repo. |
-| `material_function.Rproj` | RStudio project file; opening it sets the project root so paths in `MS.rmd` resolve correctly with `here`. |
+| `Manuscript/` | Main paper: `MS.rmd` (papaja / APA-style PDF output), bibliographies `r-references.bib`, `r-library.bib`; `figs/`, working notes under `interpret/`, drafts like `theoretical-skeleton.md` |
+| `data/` | De-identified CSV inputs referenced by the manuscripts and notebooks (`MS.rmd`, `summer2025/…`). Columns are checked on commit via `scripts/check_staged_csvs.py`. |
+| `data_identified/` | Identified lab exports (never committed; see `.gitignore`). Keep full spreadsheets here locally, regenerate `data/` with `scripts/anonymize_data.py`. |
+| `summer2025/` | Latest endorsement-analysis notebook (`followup_1_endorsment_cursor.rmd`); superseded exploratory work lives under `archive/summer2025/` |
+| `figures/` | Plots exported from notebooks when written with `here::here("figures", ...)` |
+| `render_rmd.R` | Optional headless knitting helper: loads `./.env` (see `.env.example`) then calls `rmarkdown::render(...)` relative to repo root |
+| `MEMORY.md` | Project decision log (not part of reproducibility artifacts) |
+| `archive/` | Legacy CogSci and 2024 analysis trees, miscellaneous notes, superseded manuscripts and data snapshots, bundled online-task assets; see `archive/README.md` |
+| `material_function.Rproj` | RStudio project file; opening it sets the project root so `here()` paths resolve. |
+
+Older paths such as **`online_experiments/`**, **`misc/`**, and **`analysis-2024/`** were moved intact into **`archive/`** (see inventory there). Anything still needed locally can be dragged back beside `Manuscript/`.
 
 ## Reproducing the analyses and figures in the manuscript
 
@@ -33,10 +40,10 @@ Minor numerical differences can still arise from R/package versions or random se
 
 ## Online task code (for transparency, not standalone reuse)
 
-The folder `online_experiments/ratings_experiment/` documents the stimuli used in the experiment and to obtain norming scores on them. To run the task locally you would need the same `.mp4` stimuli arranged as on our lab machines (see `video_list.json` and trial scripts), then:
+The archived folder **`archive/online_experiments/ratings_experiment/`** documents the stimuli and code used to collect norming scores. To run the task locally you would need the same `.mp4` stimuli arranged as on our lab machines (see `video_list.json` and trial scripts), then:
 
 ```bash
-cd online_experiments/ratings_experiment
+cd archive/online_experiments/ratings_experiment
 npm install
 npm start
 ```
@@ -44,3 +51,62 @@ npm start
 ## Data and ethics
 
 Shared tables should contain only what our IRB and de-identification plan allow for public release. If you reuse materials or design a replication, obtain appropriate ethics approval and consent for your context; constraints may differ from ours.
+
+### De-identifying CSVs before git
+
+1. Editing happens against **`data_identified/`** locally (ignored by Git). Populate it with raw exports keyed by basename (for example copy from your lab spreadsheets). When syncing from collaborators, overwrite the matching basename there—not under `data/`.
+
+2. Regenerate sanitized tables into **`data/`** (overwrite same basenames):
+
+   ```bash
+   python3 scripts/anonymize_data.py
+   ```
+
+   Paths default to `--from data_identified --to data`. Columns removed are centralized in `scripts/pii_columns.py`.
+
+   Optional: regenerate only manuscripts you intend to publish, so older waves stay archived strictly under `data_identified/`:
+
+   ```bash
+   python3 scripts/anonymize_data.py \
+     --only Bing3.0Fall25.csv --only JMZSummer24.csv
+   ```
+
+   Add `--drop-participant-keys` if you must strip `kidid` / similar keys for sharing outside the lab.
+
+3. Optional but recommended: install [pre-commit](https://pre-commit.com/), then inside this repo run `pre-commit install`. Staged `data/*.csv` files are screened for forbidden headers before commit.
+
+4. If `pre-commit` is not on your `PATH`, call the shim that lives next to Python, e.g. `/path/to/.venv/bin/pre-commit install`, or activate the virtualenv before installing hooks.
+
+Editable column logic lives in `scripts/pii_columns.py` shared by both the exporter and the hook.
+
+#### Bootstrapping `data_identified/` from Git history
+
+If you already pushed identified tables before switching layouts, blobs still exist on **`origin/main`**. Populate (or refresh) `./data_identified` from Git, then overwrite with anything newer that only exists in `git`:
+
+```bash
+python3 - <<'PY'
+import subprocess
+from pathlib import Path
+
+out = Path("data_identified")
+out.mkdir(exist_ok=True)
+for path in subprocess.check_output(
+    ["git", "ls-tree", "-r", "--name-only", "origin/main", "--", "data"]
+).decode().splitlines():
+    name = Path(path).name
+    blob = subprocess.check_output(["git", "show", f"origin/main:{path}"])
+    (out / name).write_bytes(blob)
+for path in subprocess.check_output(["git", "ls-files", "-z", "--", "data"]).decode("utf-8").split("\0"):
+    if not path.endswith(".csv"):
+        continue
+    name = Path(path).name
+    try:
+        blob = subprocess.check_output(["git", "show", f":{path}"])
+    except subprocess.CalledProcessError:
+        continue
+    (out / name).write_bytes(blob)
+    print("overlay", name)
+PY
+```
+
+Run `python3 scripts/anonymize_data.py` afterward so `data/` matches the public layout.
